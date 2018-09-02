@@ -7,22 +7,22 @@
 
 int main() {
 
-  // //exercise 11.2.3
-  // pair<string,int> process_string_words1(string a, int b){
-  //   return make_pair(a,b);
-  // }
-  // pair<string,int> process_string_words2(string a, int b){
-  //   pair<string, int> pair(a,b);
-  //   return pair;
-  // }
-  // string words = "what";
-  // int numbers = 5;
-  // pair<string, int> pair_string_int;
-  // pair<string, int> pair_string_int2;
-  // vector<pair<string,int>> vec_pair_string_int;
-  // pair_string_int = process_string_words1(words,numbers);
-  // pair_string_int2 = process_string_words2(words,numbers);
-  // vec_pair_string_int.push_back(pair_string_int);
+  //exercise 11.2.3
+  pair<string,int> process_string_words1(string a, int b){
+    return make_pair(a,b);
+  }
+  pair<string,int> process_string_words2(string a, int b){
+    pair<string, int> pair(a,b);
+    return pair;
+  }
+  string words = "what";
+  int numbers = 5;
+  pair<string, int> pair_string_int;
+  pair<string, int> pair_string_int2;
+  vector<pair<string,int>> vec_pair_string_int;
+  pair_string_int = process_string_words1(words,numbers);
+  pair_string_int2 = process_string_words2(words,numbers);
+  vec_pair_string_int.push_back(pair_string_int);
 
   // //exercise 11.2.2 - define a map that associates words with a list of line numbers on which the word might occur
   // //map notes : key and value in map declaration are only their types

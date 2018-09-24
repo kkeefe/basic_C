@@ -1,7 +1,0 @@
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/install/local.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/install/strip.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/OpNovice.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/install.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/list_install_components.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/rebuild_cache.dir
-/Users/kevinkeefe/Downloads/kevin/OpNovice-build/CMakeFiles/edit_cache.dir

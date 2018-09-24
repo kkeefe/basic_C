@@ -1,3 +1,0 @@
-/Users/kevinkeefe/Downloads/kevin/CMakeFiles/rebuild_cache.dir
-/Users/kevinkeefe/Downloads/kevin/CMakeFiles/edit_cache.dir
-/Users/kevinkeefe/Downloads/kevin/CMakeFiles/ACE.dir

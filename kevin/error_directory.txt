@@ -1,0 +1,15 @@
+
+
+source of the current error can be found at:
+/Users/kevinkeefe/Downloads/geant4.10.04.p01/source/particles/management/src/G4NuclideTable.cc
+
+exact error called:
+
+-------- EEEE ------- G4Exception-START -------- EEEE -------
+*** G4Exception : PART70000
+      issued by : G4NuclideTable
+G4ENSDFSTATEDATA environment variable must be set
+*** Fatal Exception *** core dump ***
+-------- EEEE -------- G4Exception-END --------- EEEE -------
+
+

@@ -1,0 +1,50 @@
+#include "ACE.hh"
+
+using namespace CLHEP;
+
+int main(int argc, char **argv) {
+
+    // construct the default run manager
+    G4RunManager *runManager = new G4RunManager;
+
+    // we must IMMEDIATELY construct the scoring manager
+    G4ScoringManager *scoringManager = G4ScoringManager::GetScoringManager();
+    (void)scoringManager;
+
+    // generate geometry
+    runManager->SetUserInitialization(new DetectorConstruction);
+
+    // create physics list
+    runManager->SetUserInitialization(new PhysicsList);
+
+    // set action generator
+    runManager->SetUserInitialization(new ActionInitialization);
+
+    // initialize the Geant4 kernel
+    runManager->Initialize();
+
+    // create vis manager
+    G4VisManager* visManager = new G4VisExecutive;
+    visManager->Initialize();
+
+    // get pointer to UI manager
+    G4UImanager* UImanager = G4UImanager::GetUIpointer();
+
+    // read a macro and execute it
+    if (argc != 1) { //read a macro file of commands
+      G4String command = "/control/execute ";
+      G4String fileName = argv[1];
+      UImanager->ApplyCommand(command+fileName);
+    }
+    else { // we wish to run interactively
+      UImanager->ApplyCommand("/control/macroPath ../macros");
+      G4UIExecutive* ui = new G4UIExecutive(argc, argv);
+      ui->SessionStart();
+      delete ui;
+    }
+
+    // cleanup
+    delete runManager;
+
+    return 0;
+}

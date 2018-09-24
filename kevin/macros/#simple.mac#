@@ -1,0 +1,11 @@
+# set macro path
+/control/macroPath ../macros/
+
+# load beam settings
+/control/execute beam.mac
+
+# set print settings
+/run/printProgress 1000
+
+# set total number of events
+/run/beamOn 1000

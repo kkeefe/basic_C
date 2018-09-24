@@ -1,0 +1,1599 @@
+
+**************************************************************
+ Geant4 version Name: geant4-10-04-patch-01 [MT]   (28-February-2018)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+Using Root
+Acrylic G4MaterialPropertiesTable
+0: RINDEX
+2.034e-06   1.48963
+2.068e-06   1.49007
+2.103e-06   1.49052
+2.139e-06   1.491
+2.177e-06   1.49151
+2.216e-06   1.49205
+2.256e-06   1.49261
+2.298e-06   1.49321
+2.341e-06   1.49384
+2.386e-06   1.49451
+2.433e-06   1.49523
+2.481e-06   1.49598
+2.532e-06   1.4968
+2.585e-06   1.49767
+2.64e-06   1.49859
+2.697e-06   1.49958
+2.757e-06   1.50064
+2.82e-06   1.50178
+2.885e-06   1.503
+2.954e-06   1.50432
+3.026e-06   1.50575
+3.102e-06   1.5073
+3.181e-06   1.50896
+3.265e-06   1.51079
+3.353e-06   1.51277
+3.446e-06   1.51494
+3.545e-06   1.51734
+3.649e-06   1.51996
+3.76e-06   1.52286
+3.877e-06   1.52606
+4.002e-06   1.52963
+4.136e-06   1.53365
+9: GROUPVEL
+2.034e-06   197.781
+2.051e-06   197.753
+2.0855e-06   197.573
+2.121e-06   197.384
+2.158e-06   197.184
+2.1965e-06   196.971
+2.236e-06   196.749
+2.277e-06   196.514
+2.3195e-06   196.265
+2.3635e-06   196.003
+2.4095e-06   195.722
+2.457e-06   195.426
+2.5065e-06   195.111
+2.5585e-06   194.772
+2.6125e-06   194.412
+2.6685e-06   194.03
+2.727e-06   193.621
+2.7885e-06   193.18
+2.8525e-06   192.709
+2.9195e-06   192.203
+2.99e-06   191.656
+3.064e-06   191.066
+3.1415e-06   190.43
+3.223e-06   189.74
+3.309e-06   188.99
+3.3995e-06   188.176
+3.4955e-06   187.283
+3.597e-06   186.306
+3.7045e-06   185.234
+3.8185e-06   184.054
+3.9395e-06   182.754
+4.136e-06   181.085
+14: ABSLENGTH
+2.034e-06   1000
+2.068e-06   1000
+2.103e-06   1000
+2.139e-06   1000
+2.177e-06   1000
+2.216e-06   1000
+2.256e-06   1000
+2.298e-06   1000
+2.341e-06   1000
+2.386e-06   1000
+2.433e-06   1000
+2.481e-06   1000
+2.532e-06   1000
+2.585e-06   1000
+2.64e-06   1000
+2.697e-06   1000
+2.757e-06   1000
+2.82e-06   1000
+2.885e-06   1000
+2.954e-06   1000
+3.026e-06   1000
+3.102e-06   1000
+3.181e-06   1000
+3.265e-06   1000
+3.353e-06   1000
+3.446e-06   1000
+3.545e-06   1000
+3.649e-06   1000
+3.76e-06   1000
+3.877e-06   1000
+4.002e-06   1000
+4.136e-06   1000
+Air G4MaterialPropertiesTable
+0: RINDEX
+2.034e-06   1
+2.068e-06   1
+2.103e-06   1
+2.139e-06   1
+2.177e-06   1
+2.216e-06   1
+2.256e-06   1
+2.298e-06   1
+2.341e-06   1
+2.386e-06   1
+2.433e-06   1
+2.481e-06   1
+2.532e-06   1
+2.585e-06   1
+2.64e-06   1
+2.697e-06   1
+2.757e-06   1
+2.82e-06   1
+2.885e-06   1
+2.954e-06   1
+3.026e-06   1
+3.102e-06   1
+3.181e-06   1
+3.265e-06   1
+3.353e-06   1
+3.446e-06   1
+3.545e-06   1
+3.649e-06   1
+3.76e-06   1
+3.877e-06   1
+4.002e-06   1
+4.136e-06   1
+9: GROUPVEL
+2.034e-06   299.792
+2.051e-06   299.792
+2.0855e-06   299.792
+2.121e-06   299.792
+2.158e-06   299.792
+2.1965e-06   299.792
+2.236e-06   299.792
+2.277e-06   299.792
+2.3195e-06   299.792
+2.3635e-06   299.792
+2.4095e-06   299.792
+2.457e-06   299.792
+2.5065e-06   299.792
+2.5585e-06   299.792
+2.6125e-06   299.792
+2.6685e-06   299.792
+2.727e-06   299.792
+2.7885e-06   299.792
+2.8525e-06   299.792
+2.9195e-06   299.792
+2.99e-06   299.792
+3.064e-06   299.792
+3.1415e-06   299.792
+3.223e-06   299.792
+3.309e-06   299.792
+3.3995e-06   299.792
+3.4955e-06   299.792
+3.597e-06   299.792
+3.7045e-06   299.792
+3.8185e-06   299.792
+3.9395e-06   299.792
+4.136e-06   299.792
+14: ABSLENGTH
+2.034e-06   100000
+2.068e-06   100000
+2.103e-06   100000
+2.139e-06   100000
+2.177e-06   100000
+2.216e-06   100000
+2.256e-06   100000
+2.298e-06   100000
+2.341e-06   100000
+2.386e-06   100000
+2.433e-06   100000
+2.481e-06   100000
+2.532e-06   100000
+2.585e-06   100000
+2.64e-06   100000
+2.697e-06   100000
+2.757e-06   100000
+2.82e-06   100000
+2.885e-06   100000
+2.954e-06   100000
+3.026e-06   100000
+3.102e-06   100000
+3.181e-06   100000
+3.265e-06   100000
+3.353e-06   100000
+3.446e-06   100000
+3.545e-06   100000
+3.649e-06   100000
+3.76e-06   100000
+3.877e-06   100000
+4.002e-06   100000
+4.136e-06   100000
+  Surface type   = 1
+  Surface finish = 0
+  Surface model  = 0
+
+  Surface parameter 
+  ----------------- 
+1
+
+sensitive detector 0 has been placed 
+sensitive detector 1 has been placed 
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+ASCIITree (ATree)
+DAWNFILE (DAWNFILE)
+G4HepRep (HepRepXML)
+G4HepRepFile (HepRepFile)
+RayTracer (RayTracer)
+VRML1FILE (VRML1FILE)
+VRML2FILE (VRML2FILE)
+gMocrenFile (gMocrenFile)
+OpenGLImmediateQt (OGLIQt, OGLI)
+OpenGLStoredQt (OGLSQt, OGL, OGLS)
+OpenGLImmediateX (OGLIX, OGLIQt_FALLBACK)
+OpenGLStoredX (OGLSX, OGLSQt_FALLBACK)
+RayTracerX (RayTracerX)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+WARNING: G4VisCommandSceneHandlerCreate::SetNewValue:
+  Using fallback graphics system: OpenGLImmediateX (OGLIX)
+/tracking/storeTrajectory 1
+Attributes available for modeling and filtering with
+  "/vis/modeling/trajectories/create/drawByAttribute" and
+  "/vis/filtering/trajectories/create/attributeFilter" commands:
+G4TrajectoriesModel:
+  Event ID (EventID): G4int
+  Run ID (RunID): G4int
+G4Trajectory:
+  Charge (Ch): unit: e+ (G4double)
+  Track ID (ID): G4int
+  Initial kinetic energy (IKE): G4BestUnit (G4double)
+  Initial momentum magnitude (IMag): G4BestUnit (G4double)
+  Initial momentum (IMom): G4BestUnit (G4ThreeVector)
+  No. of points (NTP): G4int
+  PDG Encoding (PDG): G4int
+  Parent ID (PID): G4int
+  Particle Name (PN): G4String
+G4TrajectoryPoint:
+  Position (Pos): G4BestUnit (G4ThreeVector)
+WARNING: Trajectory storing has been requested.  This action may be
+  reversed with "/tracking/storeTrajectory 0".
+
+msc:   for e-    SubType= 10
+      RangeFactor= 0.04, stepLimitType: 1, latDisplacement: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 TeV  Table with 84 bins Emin=    100 eV    Emax=    100 TeV
+
+eIoni:   for  e-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :  Emin=        0 eV    Emax=      100 TeV
+
+msc:   for e+    SubType= 10
+      RangeFactor= 0.04, stepLimitType: 1, latDisplacement: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 TeV  Table with 84 bins Emin=    100 eV    Emax=    100 TeV
+
+eIoni:   for  e+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :  Emin=        0 eV    Emax=      100 TeV
+
+annihil:   for  e+, integral: 1     SubType= 5  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg :  Emin=        0 eV    Emax=      100 TeV
+
+ionIoni:   for  GenericIon    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      finalRange(mm)= 0.1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.02
+      Stopping Power data for 17 ion/material pairs 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon :  Emin=        0 eV    Emax=        2 MeV
+          BetheBloch :  Emin=        2 MeV   Emax=      100 TeV
+
+msc:   for mu+    SubType= 10
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 0, polarAngleLimit(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 TeV  Table with 84 bins Emin=    100 eV    Emax=    100 TeV
+
+muIoni:   for  mu+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      finalRange(mm)= 0.1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :  Emin=        0 eV    Emax=      200 keV
+          BetheBloch :  Emin=      200 keV   Emax=        1 GeV
+        MuBetheBloch :  Emin=        1 GeV   Emax=      100 TeV
+
+muPairProd:   for  mu+    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :  Emin=        0 eV    Emax=      100 TeV
+
+msc:   for mu-    SubType= 10
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 0, polarAngleLimit(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 TeV  Table with 84 bins Emin=    100 eV    Emax=    100 TeV
+
+muIoni:   for  mu-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      finalRange(mm)= 0.1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO :  Emin=        0 eV    Emax=      200 keV
+          BetheBloch :  Emin=      200 keV   Emax=        1 GeV
+        MuBetheBloch :  Emin=        1 GeV   Emax=      100 TeV
+
+muPairProd:   for  mu-    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins per decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :  Emin=        0 eV    Emax=      100 TeV
+... open Root analysis file : KevinBuild.root - done
+### Run 0 start.
+<<< Event  0 has started.
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : ZeroPolarization
+      issued by : G4PrimaryTransformer::GenerateSingleTrack
+Polarization of the optical photon is null. Random polarization is assumed.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+*********************************************************************************************************
+* G4Track Information:   Particle = opticalphoton,   Track ID = 1,   Parent ID = 0
+*********************************************************************************************************
+
+Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+    0        0        0        0     6e+03        0        0         0     TranLoc initStep
+
+ >>AlongStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 200
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                    0                -200
+         Global Time (ns)    :                    0   1.104455592686203
+         Local Time (ns)     :                    0   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    181.0846912491699   181.0846912491699
+         Volume Name         :              TranLoc             TranLoc
+         Safety (mm)         :                    0                   0
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :            Undefined          Geom Limit
+         Process defined Step:            Undefined      Transportation
+      -----------------------------------------------------------------------
+          !Note! Safety of PostStep is only valid after all DoIt invocations.
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                  200
+        Stepping Control      :                    0
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                    1
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :                  0x0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>AlongStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 200
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                    0                -200
+         Global Time (ns)    :                    0   1.104455592686203
+         Local Time (ns)     :                    0   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    181.0846912491699   181.0846912491699
+         Volume Name         :              TranLoc             TranLoc
+         Safety (mm)         :                    0               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :            Undefined          Geom Limit
+         Process defined Step:            Undefined      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 200
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                    0                -200
+         Global Time (ns)    :                    0   1.104455592686203
+         Local Time (ns)     :                    0   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    181.0846912491699   181.0846912491699
+         Volume Name         :              TranLoc      Photodetector0
+         Safety (mm)         :                    0               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :            Undefined          Geom Limit
+         Process defined Step:            Undefined      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                  200
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                    1
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a848
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = OpBoundary
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 200
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                    0                -200
+         Global Time (ns)    :                    0   1.104455592686203
+         Local Time (ns)     :                    0   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    181.0846912491699   150.1762559827492
+         Volume Name         :              TranLoc      Photodetector0
+         Safety (mm)         :                    0               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :            Undefined          Geom Limit
+         Process defined Step:            Undefined      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                  200
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ **PostStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+      2) OpBoundary
+      3) OpAbsorption (Forced)
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 200
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                    0                -200
+         Global Time (ns)    :                    0   1.104455592686203
+         Local Time (ns)     :                    0   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    181.0846912491699   150.1762559827492
+         Volume Name         :              TranLoc      Photodetector0
+         Safety (mm)         :                    0               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :            Undefined          Geom Limit
+         Process defined Step:            Undefined      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+      [Note]Secondaries from AlongStepDoIt included.
+
+    ++G4Track Information 
+      -----------------------------------------------
+        G4Track Information  
+      -----------------------------------------------
+        Step number         :                    1
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Global Time (ns)    :                  1.1
+        Local Time (ns)     :                  1.1
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Track Length        :                  200
+        Track ID #          :                    1
+        Parent Track ID #   :                    0
+        Next Volume         :       Photodetector0 
+        Track Status        :                Alive
+        Vertex - x (mm)     :                    0
+        Vertex - y (mm)     :                    0
+        Vertex - z (mm)     :                    0
+        Vertex - Px (MomDir):                    0
+        Vertex - Py (MomDir):                    0
+        Vertex - Pz (MomDir):                   -1
+        Vertex - KineE (MeV):                6e+03
+        Creator Process     :      Event Generator
+      -----------------------------------------------
+
+#Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+    1        0        0     -200     6e+03        0      200       200 Photodetector0 Transportation
+
+ >>AlongStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :       Photodetector0      Photodetector0
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+          !Note! Safety of PostStep is only valid after all DoIt invocations.
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a848
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>AlongStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :       Photodetector0      Photodetector0
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :       Photodetector0             TranLoc
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a8c0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = OpBoundary
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :       Photodetector0             TranLoc
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ **PostStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+      2) OpBoundary
+      3) OpAbsorption (Forced)
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :       Photodetector0             TranLoc
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+      [Note]Secondaries from AlongStepDoIt included.
+
+    ++G4Track Information 
+      -----------------------------------------------
+        G4Track Information  
+      -----------------------------------------------
+        Step number         :                    2
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Global Time (ns)    :                  1.1
+        Local Time (ns)     :                  1.1
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Track Length        :                  200
+        Track ID #          :                    1
+        Parent Track ID #   :                    0
+        Next Volume         :              TranLoc 
+        Track Status        :                Alive
+        Vertex - x (mm)     :                    0
+        Vertex - y (mm)     :                    0
+        Vertex - z (mm)     :                    0
+        Vertex - Px (MomDir):                    0
+        Vertex - Py (MomDir):                    0
+        Vertex - Pz (MomDir):                   -1
+        Vertex - KineE (MeV):                6e+03
+        Creator Process     :      Event Generator
+      -----------------------------------------------
+
+#Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+    2        0        0     -200     6e+03        0        0       200     TranLoc Transportation
+
+ >>AlongStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :              TranLoc             TranLoc
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+          !Note! Safety of PostStep is only valid after all DoIt invocations.
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a8c0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>AlongStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :              TranLoc             TranLoc
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :              TranLoc               World
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a848
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = OpBoundary
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :              TranLoc               World
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :                    0
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Time (ns)           :                  1.1
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ **PostStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+      2) OpBoundary
+      3) OpAbsorption (Forced)
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 0
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200                -200
+         Global Time (ns)    :    1.104455592686203   1.104455592686203
+         Local Time (ns)     :    1.104455592686203   1.104455592686203
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :              TranLoc               World
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+      [Note]Secondaries from AlongStepDoIt included.
+
+    ++G4Track Information 
+      -----------------------------------------------
+        G4Track Information  
+      -----------------------------------------------
+        Step number         :                    3
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :                 -200
+        Global Time (ns)    :                  1.1
+        Local Time (ns)     :                  1.1
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Track Length        :                  200
+        Track ID #          :                    1
+        Parent Track ID #   :                    0
+        Next Volume         :                World 
+        Track Status        :                Alive
+        Vertex - x (mm)     :                    0
+        Vertex - y (mm)     :                    0
+        Vertex - z (mm)     :                    0
+        Vertex - Px (MomDir):                    0
+        Vertex - Py (MomDir):                    0
+        Vertex - Pz (MomDir):                   -1
+        Vertex - KineE (MeV):                6e+03
+        Creator Process     :      Event Generator
+      -----------------------------------------------
+
+#Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+    3        0        0     -200     6e+03        0        0       200       World Transportation
+
+ >>AlongStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 2800
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200               -3000
+         Global Time (ns)    :    1.104455592686203   19.74921392466671
+         Local Time (ns)     :    1.104455592686203   19.74921392466671
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :                World               World
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+          !Note! Safety of PostStep is only valid after all DoIt invocations.
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :                Alive
+        True Path Length (mm) :              2.8e+03
+        Stepping Control      :                    0
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :               -3e+03
+        Time (ns)           :                 19.7
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a848
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>AlongStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 2800
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200               -3000
+         Global Time (ns)    :    1.104455592686203   19.74921392466671
+         Local Time (ns)     :    1.104455592686203   19.74921392466671
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :                World               World
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ >>PostStepDoIt (process by process):    Process Name = Transportation
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 2800
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200               -3000
+         Global Time (ns)    :    1.104455592686203   19.74921392466671
+         Local Time (ns)     :    1.104455592686203   19.74921392466671
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :                World          OutOfWorld
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit          Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+
+    ++G4ParticleChange Information 
+      -----------------------------------------------
+        G4ParticleChange Information  
+      -----------------------------------------------
+        # of 2ndaries       :                    0
+      -----------------------------------------------
+        Energy Deposit (MeV):                    0
+        Non-ionizing Energy Deposit (MeV):                    0
+        Track Status        :          StopAndKill
+        True Path Length (mm) :              2.8e+03
+        Stepping Control      :                    0
+    First Step In the voulme  : 
+    Last Step In the voulme  : 
+        Mass (GeV)   :                    0
+        Charge (eplus)   :                    0
+        MagneticMoment   :                    0
+                :  =                    0*[e hbar]/[2 m]
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :               -3e+03
+        Time (ns)           :                 19.7
+        Proper Time (ns)    :                    0
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Velocity  (/c):                0.501
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Touchable (pointer) :       0x7f8e0940a8c0
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+
+ **PostStepDoIt (after all invocations):
+    ++List of invoked processes 
+      1) Transportation
+      2) OpBoundary
+      3) OpAbsorption (Forced)
+
+    ++G4Step Information 
+      Address of G4Track    : 0x7f8e0b867de0
+      Step Length (mm)      : 2800
+      Energy Deposit (MeV)  : 0
+      -----------------------------------------------------------------------
+        StepPoint Information               PreStep            PostStep
+      -----------------------------------------------------------------------
+         Position - x (mm)   :                    0                   0
+         Position - y (mm)   :                    0                   0
+         Position - z (mm)   :                 -200               -3000
+         Global Time (ns)    :    1.104455592686203   19.74921392466671
+         Local Time (ns)     :    1.104455592686203   19.74921392466671
+         Proper Time (ns)    :                    0                   0
+         Momentum Direct - x :                    0                   0
+         Momentum Direct - y :                    0                   0
+         Momentum Direct - z :                   -1                  -1
+         Momentum - x (MeV/c):                    0                   0
+         Momentum - y (MeV/c):                    0                   0
+         Momentum - z (MeV/c):                -6000               -6000
+         Total Energy (MeV)  :                 6000                6000
+         Kinetic Energy (MeV):                 6000                6000
+         Velocity (mm/ns)    :    150.1762559827492   150.1762559827492
+         Volume Name         :                World          OutOfWorld
+         Safety (mm)         :                5e-10               5e-10
+         Polarization - x    :   0.2247120649898899  0.2247120649898899
+         Polarization - y    :    0.974425208955505   0.974425208955505
+         Polarization - Z    :                    0                   0
+         Weight              :                    1                   1
+         Step Status         :           Geom Limit
+         Process defined Step:       Transportation      Transportation
+      -----------------------------------------------------------------------
+
+    ++List of secondaries generated (x,y,z,kE,t,PID):  No. of secodaries = 0
+      [Note]Secondaries from AlongStepDoIt included.
+
+    ++G4Track Information 
+      -----------------------------------------------
+        G4Track Information  
+      -----------------------------------------------
+        Step number         :                    4
+        Position - x (mm)   :                    0
+        Position - y (mm)   :                    0
+        Position - z (mm)   :               -3e+03
+        Global Time (ns)    :                 19.7
+        Local Time (ns)     :                 19.7
+        Momentum Direct - x :                    0
+        Momentum Direct - y :                    0
+        Momentum Direct - z :                   -1
+        Kinetic Energy (MeV):                6e+03
+        Polarization - x    :                0.225
+        Polarization - y    :                0.974
+        Polarization - z    :                    0
+        Track Length        :                3e+03
+        Track ID #          :                    1
+        Parent Track ID #   :                    0
+        Next Volume         :           OutOfWorld 
+        Track Status        :          StopAndKill
+        Vertex - x (mm)     :                    0
+        Vertex - y (mm)     :                    0
+        Vertex - z (mm)     :                    0
+        Vertex - Px (MomDir):                    0
+        Vertex - Py (MomDir):                    0
+        Vertex - Pz (MomDir):                   -1
+        Vertex - KineE (MeV):                6e+03
+        Creator Process     :      Event Generator
+      -----------------------------------------------
+
+#Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+    4        0        0   -3e+03     6e+03        0  2.8e+03     3e+03  OutOfWorld Transportation
+Stacking Action: Number of Scintillation photons produced in this event : 0
+Stacking Action: Number of Cerenkov photons produced in this event : 0
+<<< Event  0 has ended.
+0x7f8e0b866d30 G4 HCE of this event 
+0x7f8e0b867120 hits colleted 
+0 this is the number of hits in this event 
+G4VisManager: Using G4TrajectoryDrawByCharge as fallback trajectory model.
+See commands in /vis/modeling/trajectories/ for other options.
+ end of runc . 

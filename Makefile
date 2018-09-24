@@ -1,6 +1,8 @@
-all: basic person test
+all: basic ch6 person
 
-basic: basic.cpp 
+basic: basic.cpp
 	g++ -Wall -std=c++11 -g basic.cpp -o basic
-# test: test.cpp
-# 	g++ -Wall -std=c++11 -g test.cpp -o test
+ch6: ch6.cpp
+	g++ -Wall -std=c++11 -g ch6.cpp -o ch6
+person: person.cpp
+	g++ -Wall -std=c++11 -g person.cpp -o person

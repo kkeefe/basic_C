@@ -1,0 +1,67 @@
+#include <cstddef>
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <vector> //library for vectur usage
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+using std::vector;
+
+int main(){
+
+
+  int ia[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12},
+  };
+
+  //print the multi-D array using three different methods:
+
+
+  typedef int rows[4];
+
+  
+  cout << "Ordinary for : range loop - " << std::endl;
+  //range : for loop
+  for(rows &col : ia){
+    for(int &row : col){
+      cout << row << "\t";
+    }
+    cout << std::endl;
+  }
+  //note that the range of the n dimensional arrow starts from the outside in. The array is integers, made of rows. Thus, rows is the first type: int[4], and int is the last type held in the array.
+
+  cout << "Ordinary for loop: " << std::endl;
+  //ordinary for loop with subscripts
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 4; j++){
+      cout << ia[i][j] << "\t";
+    }
+    cout << std::endl;
+  }
+
+  //ordinary for loop with pointers for indicies
+  //pointer points to a four dimensional interger array
+
+  int ia2[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12},
+  };
+
+  cout << "Array using pointer notation: " << std::endl;
+  
+  for(int(*p)[4] = std::begin(ia2); p != std::end(ia2); p++){
+    for(int c : *p){
+      cout << c << "\t";
+    }
+    cout << std::endl;
+  }
+  
+  return 0;
+  
+}

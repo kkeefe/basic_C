@@ -1,22 +1,12 @@
-#include <initializer_list>
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include "basic.hh"
-#include "Sales_item.h"
-#include "Sales_Data.cpp"
-#include "screens.cc"
+#include "basic.hh"//includes algorithm, function, vector headers, etc..
 
-using namespace std;
 
 int main(){
 
-  Screens myScreen(5,5, 'x');
-  myScreen.move(4,0).set('H').display(cout);
-  cout << endl << endl;
-  myScreen.display(cout);
-  cout << endl;
+  //missing all of the chapter 11 notes..
+
+  cout << "hello world!" << endl;
+
   
   return 0;
 }

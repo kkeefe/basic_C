@@ -1,0 +1,127 @@
+#include <initializer_list>
+#include <vector>
+#include <iostream>
+#include <string>
+#include "basic.hh"
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::initializer_list;
+using std::begin;
+using std::end;
+
+//define a recursive function to print the contents of a vector
+
+//recursive array listing
+int recursive_list(int vec [], int index){
+  if(index != 0){
+    cout << vec[index-1] << "\t";
+    return recursive_list(vec, index-1);
+  }
+  return 0;
+}
+
+//recursive factorial
+int recursive_list(int a){
+  if(a > 0){
+    return recursive_list(a-1)*a;
+  }
+  return 1;
+}
+
+//recursive vector listing
+int recursive_list(vector<int> vec, int index){
+  if(index != 0){
+    cout << vec[index-1] << "\t";
+   return recursive_list(vec, index-1);
+  }
+  return 0;
+}
+
+void mult(int a){
+  cout << "single int called: " << endl;
+}
+
+void mult(int a, int b){
+  cout << "double int called: " << endl;
+
+}
+
+void mult(double a){
+  cout << "single double called: " << endl;
+}
+
+void mult(double a, double b){
+  cout << "double-double called: " << endl;
+}
+
+//define a function that takes two int paramters and returns an int. declare a vector whose elements have this function pointer type
+int multiply(int a, int b){
+  return a*b;
+}
+
+
+int main(){
+
+  //print the contents of a integer vector with debugging turned on and off.
+
+  using f2 = int (*)(int a, int b);
+  
+  vector<int> vec_integer1;
+  vector<f2> vec_pointer;
+  
+  
+  int vec_int1[10];
+
+  for(int i = 0; i < 10; ++i){
+    vec_integer1.push_back(i);
+  }
+
+  cout << endl;
+
+  for(int c : vec_integer1){
+    cout << c << "\t";
+  }
+    
+
+  //fill the vector you wish to print.
+  for(int i = 0; i < 10; i++){
+    vec_int1[i] = i;
+  }
+
+  for(int c : vec_int1){
+    cout << c << "\t";
+  }
+  
+  // cout << "the recursive list of the array is : " << endl;
+  // recursive_list(vec_int1, 10);
+
+  int input2;
+  cout << "enter a number to recursively call: " << endl;
+  cin >> input2;
+  cout << recursive_list(input2);
+
+  //ambiguous
+  // mult(2.56, 42);
+  mult(42); //single int
+  mult(42,0); //double int
+  mult(2.56, 3.14); //double double
+
+  /* below series of code uses an inline function defined in the header basic.hh*/
+  // string input1;
+  // cout << "please enter the first word you want to compare: " << endl;
+  // cin >> input1;
+
+  // cout << make_plural(sizeof(input1), input1);
+
+  // string input2;
+  // cout << "please enter the second word you want to compare: " << endl;
+  // cin >> input2;
+
+  // cout << input1 << " is longer than " << input2 << is_shorter(input1, input2);
+
+  
+  return 0;
+}

@@ -1,0 +1,79 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <list>
+#include <string>
+
+using namespace std;
+
+string replace_string(string& a, const string fill, const string replace){
+
+  string fillWord;
+  string::iterator prevSpace = a.begin();
+  string::iterator currentSpace = a.begin();
+  
+  cout << "working to replace string.. \n";
+
+  //do this for every element in string ref a
+  for(char& c : a){
+
+    //c is a space, does not read the last value of the string as a space
+    if(c == ' '){
+      if(fillWord == replace){
+	cout << fillWord << " equals " << replace << endl;
+	cout << "erasing.. " << endl;
+	prevSpace = a.erase(prevSpace, prevSpace+fillWord.size());
+	prevSpace++;
+	cout << *prevSpace << " is new space held.. \n";
+	// currentSpace = a.insert(prevSpace, replace);
+      }else if(fillWord!=replace){
+	//if the words don't match, move to the next word.
+	prevSpace+=fillWord.size()+1;
+	fillWord.erase();
+      }
+    }else{
+      fillWord+=c;
+    }
+  }
+
+  return a;
+}
+
+
+int main(){
+
+  //exercise 9.5.2
+  string a, oldVal, newVal;
+  a = "through through kelp kelp kelp kelp kelp kelp through kelp through through kelp";
+  oldVal = "through";
+  newVal = "kelp";
+  string::iterator abegin = a.begin();
+
+  // erase returns the iterator to the last element that wasn't erased..
+  string example("this is my design");
+  string::iterator beginExample = example.begin();
+  beginExample = example.erase(example.begin()+1, example.end()-1);
+  cout << example << " :is the example" << endl;
+  cout << *beginExample << " :is the beginExample" << endl;
+  cout << example << " :is the example" << endl;
+
+  
+  cout << "OLD STRING VALUE: " << a << endl << endl;
+  
+  replace_string(a, oldVal, newVal);  
+
+  cout << "\nNEW STRING VALUE: " << a << endl;
+
+  
+  // //exercise 9.5.1
+  // vector<char> charVec ={'t','h', 'i','s'};
+  // vector<char>::iterator charPtr = charVec.begin();
+  // string charString(charVec.begin(), charVec.end());
+  
+
+  // cout << charString << " is value charString \n";
+
+  
+  return 0;
+
+}

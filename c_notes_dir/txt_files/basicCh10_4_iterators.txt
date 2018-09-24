@@ -1,0 +1,132 @@
+#include <iostream>
+#include <fstream>
+#include <numeric>//this is the for accumulate algorithm
+#include <vector>
+#include <algorithm> //includes swap and unique algorithms, notice they're not called directly onto the vector
+#include <functional>
+#include <list>
+
+using namespace std;
+using namespace std::placeholders;
+
+//write a function to count the words of size 6 or less
+int is_less_than_function(vector<int> int_vec, int compare){
+  int a(0);
+  for(auto c : int_vec){if(c < compare)a++;};
+    
+  return a;
+  
+}
+
+bool compare_function(int int_vec_part, int compare){
+  return int_vec_part < compare;
+}
+
+void print_vector(const vector<int> a){
+  for(auto c : a){cout << c << "\t";}
+  cout << endl;
+  }
+
+
+void print_list(const list<int> a){
+  for(auto c : a){cout << c << "\t" << "....";}
+  cout << endl;
+  }
+
+int main(){
+ 
+  //exercise section 4 - reverse iterators
+
+  //print the contents of a vector in reverse order
+  ostream_iterator<int> output(cout, " ");
+  vector<int> int_vec1 = {1,2,3,4,5,6,7,8,9};
+  copy(int_vec1.rbegin(),int_vec1.rend(),output);
+  
+  //print the contents of a vector in reverse order using normal iterators
+  vector<int>::iterator vec_itr_end = int_vec1.end();
+  vector<int>::iterator vec_itr_begin = int_vec1.begin();
+  for(vec_itr_end; vec_itr_end != vec_itr_begin-1; --vec_itr_end){cout << *vec_itr_end << endl;} //need the -1 so that vec_itr_end prints the last element..
+
+  //use find to find the last element of a list of ints of value 0
+  list<int> int_list = {9,8,7,0,6,5,4,4,2,2,1,0};
+  auto find_last_zero = find_if(int_list.rbegin(),int_list.rend(),
+				[](int& a){return a == 0;});
+  cout << *find_last_zero << ": last zero is at place..";
+
+  //given a vector of 10 elements, use iterators to print elements 3 through 7 in reverse order to a list.
+  vector<int> int_vec10 = {1,2,3,4,5,6,7,8,9,10};
+  list<int> int_list_3to7;
+  auto reverse_insert = front_inserter(int_list_3to7);
+  
+  for(int i = 3; i < 7; i++){
+    reverse_insert = int_vec10[i];
+  }
+  copy(int_list_3to7.cbegin(),int_list_3to7.cend(), output);
+  
+  //exercise 10.33 - read integers from a file source - place the even integers in one file separated by a line - place the odd integers in a different file separated by a space
+  ofstream output_even("output_even.txt");
+  ofstream output_odd("output_odd.txt");
+  ifstream input_integers("input_integers.txt");
+
+  ostream_iterator<int> of_even_int_itr(output_even, "\n");
+  ostream_iterator<int> of_odd_int_itr(output_odd, " ");
+  istream_iterator<int> if_int_itr(input_integers), end_of_file;
+
+  vector<int> int_vec_read;
+
+  while(if_int_itr != end_of_file){
+    if(*if_int_itr%2){
+      of_odd_int_itr = *if_int_itr++;
+    }else
+      of_even_int_itr = *if_int_itr++;
+  }
+
+
+  exercise 10.29 - 10.31
+  //user stream iterators to copy sort to read from standard input and then write them back to the standard output
+  ostream_iterator<int> read_out_int(cout, " ");
+  istream_iterator<int> read_in_int(cin), stop_read_in_int;
+  vector<int> int_vec;
+  auto fill_int_back = back_inserter(int_vec);
+  // copy(read_in_int, stop_read_in_int, fill_int_back); //copies all of the inputs from standard input
+  unique_copy(read_in_int, stop_read_in_int, fill_int_back); //reads all of the inputs from the standard input but only updates the selection if it is unique..
+  sort(int_vec.begin(),int_vec.end(), //returns the vec in decreasing order of size..
+       [](int&a, int& b){return a > b;});
+  copy(int_vec.cbegin(),int_vec.cend(),read_out_int); //produces the vector on the standard output..
+  
+
+  //use stream iterators to read words from a textfile and fill a string vector
+  ifstream read_file("word_strings.txt");
+  istream_iterator<string> read_file_iterator(read_file), end_of_file_iterator;
+  ostream_iterator<string> output_file(cout, " ");
+  vector<string> string_vec_fill;
+  auto f = back_inserter(string_vec_fill);
+  copy(read_file_iterator, end_of_file_iterator, f);
+  copy(string_vec_fill.cbegin(),string_vec_fill.cend(), output_file);
+
+  istream_iterator<string> read_input(cin), cin_eof;
+  ostream_iterator<string> output_stuff(cout, "\t");
+  vector<string> unique_input;
+  auto unique_inserter = back_inserter(unique_input);
+  while(read_input != cin_eof and *read_input != "exit"){
+    output_stuff = *read_input++;
+  }
+  
+  //exercise 10.4 (iostream iterators..)
+  istream_iterator<int> read_int(cin), end_read;
+  while(read_int != end_read){
+    cout << "please enter more numbers;" << endl;
+    read_int++; //don't forget to increment the read_int iterator before running the loop otherwise it's recursive!
+  }
+
+  //exercise 10.4.26-28 (insert operators)
+  vector<int> int_vec0 = {0,1,2,3,4,5,6,7,8,9,10,10};
+  list<int> int_ls0;
+  auto it = back_inserter(int_ls0);
+  print_list(int_ls0);
+  unique_copy(int_vec0.cbegin(), int_vec0.cend(), it);
+  print_list(int_ls0);
+		      
+  
+  return 0;
+}

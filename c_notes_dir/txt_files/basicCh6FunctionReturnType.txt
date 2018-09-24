@@ -1,0 +1,151 @@
+// #include <initializer_list>
+// #include <vector>
+// #include <iostream>
+// #include <string>
+// #include "basic.hh"
+// using std::vector;
+// using std::cin;
+// using std::cout;
+// using std::endl;
+// using std::string;
+// using std::initializer_list;
+
+
+// //create an initializer parameter list.
+
+// int sum(initializer_list<int> a){
+//   int sum = 0;
+//   for(auto b : a){
+//     cout << b << " is added to " << sum << endl;
+//     sum += b;
+//   }
+//   return sum;
+// }
+
+
+// int &fill_array(int* array, int b){
+//   return (array[b]);
+// }
+
+// //create a function that returns a reference to an array of 10 ints
+
+// int a[5] = {0, 1, 2, 3, 4};
+// int b[5] = {0, 0, 0, 0, 0};
+
+// int (*func(int i))[5]{
+//   if(i != 0){
+//     return &a;
+//   }else
+//     return &b;
+// }
+
+// decltype(a) * func2(int i){
+//   if(i != 0){
+//     return &a;
+//   }else
+//     return &b;  
+// }
+
+// auto func3(int i) -> int(*)[5]{
+//   if(i != 0){
+//     return &a;
+//   }else
+//     return &b;
+// }
+
+// typedef int int_array[5];
+// int_array * func4(int i){
+//   if(i != 0){
+//     return &a;
+//   }else
+//     return &b;
+// }
+
+// //write an int main function which takes two arguments from the command line:
+
+// int main(int argc, char**argv){
+
+//   /* exercise 6.3.3 */
+//   //write a function which returns a reference to an array of 10 strings. Do not use retailing return, decltype, or type alias
+
+//   //define an array of 10 strings:
+//   string a[10];
+//   int input_a;
+
+  
+  
+
+//   while(cin >> input_a ){
+//     //create a leave condition.
+//     if(input_a == 2)break;
+//     cout << "enter an integer you want to fill: " << endl;
+//     cout <<  func(input_a) << endl;
+//   }
+
+//   while(cin >> input_a ){
+//     if(input_a == 2)break;
+//     cout << "enter an integer you want to fill: " << endl;
+//     cout <<  func2(input_a) << endl;
+//   }
+
+//   while(cin >> input_a ){
+//     if(input_a == 2)break;
+//     cout << "enter an integer you want to fill: " << endl;
+//     cout <<  func3(input_a) << endl;
+//   }
+
+//   while(cin >> input_a ){
+//     if(input_a == 2)break;
+//     cout << "enter an integer you want to fill: " << endl;
+//     cout <<  func4(input_a) << endl;
+//   }
+  
+  
+//   //fill the string array with garbage
+//   for(string& c : a){
+//     c = "garbage";
+//   }
+    
+  
+
+  
+//   /* fill an array function section 6.3.2*/
+//   // vector<string> string_vec;
+//   // int array[10];
+
+  
+//   // for(int i = 0; i != 10; ++i){
+//   //   fill_array(array, i) = i;
+//   //   cout << "filled array value: " << i << "\t";
+//   // }
+
+//   // for(auto c: array){
+//   //   cout << c << " is the value of the array " << endl;
+//   // }
+
+  
+//   /* error function presented on 6.3.2 - no return value in calling fucntion: str_subrange*/
+//   // string in1, in2;
+
+//   // cout << "please input a string: " << endl;
+//   // cin >> in1;
+
+//   // cout << "please input a string: " << endl;
+//   // cin >> in2;
+
+//   // cout <<  str_subrange(in1, in2) << " str_subrange " << endl;
+  
+  
+//   cout << "you have entered the following: " << endl;
+//   cout << "arguements: " << "\n";
+//   cout << argc;
+//   cout << endl;
+//   initializer_list<int> b = {argc, 1, 2, 3};
+  
+//   for(int i = 0; i < argc; i++){
+//     cout << argv[i] << "\t";
+//   }
+//   cout << sum(b) << " is sum of arguments " << endl;
+  
+//   return 0;
+// }

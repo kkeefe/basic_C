@@ -1,0 +1,4 @@
+this is my design
+what are you ganna do about it
+im the juggernaut, bitch!
+#changing some of the text of the .txt file to test the .gitignore file

@@ -1,0 +1,127 @@
+#include <vector>
+#include <iostream>
+
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+int main(){
+
+  // int a, b, c, d1;
+
+  // a = -30*3 + 21/5;
+  // b = -30+3*21/5;
+  // c = 30/3*21%5;
+  // d1 = -30/3*21%4+1;
+
+  // int a1 = 5;
+  // int*p1 = &a1;
+  // vector<int> intVec1;
+
+  // //compare different values of initialized ints and int*'s. 
+  // cout << "value \t name \t location " << endl;
+  // cout << a << " \t  a " << "\t" << &a << endl;
+  // cout << b << " \t b " << "\t" << &b << endl;
+  // cout << c << " \t c " << "\t" << &c << endl;
+  // cout << d1 << " \t d1 " << "\t" << &d1 << endl;
+  // cout << a1 << " \t  a1 " << "\t" << &a1 << endl;
+  // cout << *p1 << " \t *p1 " << "\t" << p1 << endl;
+
+  // cout << endl;
+  
+  // //how does p1++, ++p1, differ
+  // cout << "value \t operand \t location " << endl;
+  // cout << *p1 << " \t *p1 " << "\t" << p1 << endl;
+  // cout << ++p1 << "\t ++p1 " << "\t" << p1 << endl;
+  // cout << p1++ << "\t p1++ " << "\t" << p1 << endl;
+
+  // cout << endl;
+  
+  // //how does ++(*p1) differ from ++*p1;
+  // cout << "value \t operand \t location " << endl;
+  // cout << *p1 << " \t *p1 " << "\t" << p1 << endl;
+  // cout << ++(*p1) << "\t ++(*p1) " << "\t" << p1 << endl;    
+  // cout << ++*p1 << "\t ++*p1 " << "\t" << p1 << endl;  
+  // cout << ++*p1 << "\t ++*p1 " << "\t" << p1 << endl;
+
+  // cout << endl;
+  
+  // //how does (*p1)++ differ from *p1++;
+  // cout << "value \t operand \t location " << endl;
+  // cout << *p1 << " \t *p1 " << "\t" << p1 << endl;
+  // cout << (*p1)++ << "\t (*p1)++ " << "\t" << p1 << endl;    
+  // cout << *p1++ << "\t *p1++ " << "\t" << p1 << endl;  
+  // cout << *p1++ << "\t *p1++ " << "\t" << p1 << endl;
+
+  // cout << endl;
+  
+  // //relist original integer values
+  // cout << "value \t name \t location " << endl;
+  // cout << a << " \t  a " << "\t" << &a << endl;
+  // cout << b << " \t b " << "\t" << &b << endl;
+  // cout << c << " \t c " << "\t" << &c << endl;
+  // cout << d1 << " \t d1 " << "\t" << &d1 << endl;
+  // cout << a1 << " \t  a1 " << "\t" << &a1 << endl;
+  // cout << *p1 << " \t *p1 " << "\t" << p1 << endl;
+
+  
+  
+  // int i;
+  // double d;
+
+  // i = d = 3.5;
+  // cout << " i = d = 3.5 " << endl;
+  // cout << i << " is the value of i " << endl;
+  // cout << d << " id the value of d " << endl;
+  
+  // d = i = 3.5;
+  // cout << "  d = i = 3.5 " << endl;
+  // cout << i << " is the value of i " << endl;
+  // cout << d << " id the value of d " << endl;
+
+  // d = 3.6;
+  
+  // //d is converted to type int and therefore this condition is apparently always met
+  // if(d == 3.5){
+  //   cout << "d = 3.5, is a true statement. " << endl;
+  // }else if (d != 3.5){
+  //   cout << "d != 3.5, is a true statement. " << endl;
+  // }
+
+  // vector<int> iv1;
+  
+  // for(int i = 0; i <= 3; i++){
+  //   cout << "please enter the value you would like to add to the integer vector" << endl;
+  //   cin >> c;
+  //   iv1.push_back(c);
+  // }
+
+  // for(auto c : iv1){
+  //   cout << "the values you entered are " << c << endl;
+    
+  // }
+
+  // for(int i = 0; i != iv1.size(); i++){
+  //   if(iv1[i] < iv1[i+1]){
+  //     cout << i << " position is smaller than " << i+1 << " position." << endl;
+  //   }
+  // }
+  
+  
+  // int evenodd;
+
+  // cout << "please enter a number you would like to determine if it is even or odd: " << endl;
+  // cin >> evenodd;
+
+   
+  // if(evenodd%2 != 0){
+  //   cout << "your number odd!" << endl;
+  // }else if (evenodd%2 == 0){
+  //   cout << "your number is even!" << endl;
+  // }
+
+  
+  return 0;
+}

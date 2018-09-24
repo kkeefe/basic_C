@@ -1,0 +1,103 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+
+
+//define a struct class type
+struct Sales_Data {
+  string sales_isbn;
+  int sales_count;
+  double sales_price;
+};
+
+
+int main(){
+
+  string s1, s2, s3, s4;
+  string cat;
+  s1 = "please enter the name of the file you wish to open: " ;
+  std::fstream infile;    
+
+
+  const string s5 = "This is my design. ";
+
+  for(auto&c : s5){cout << c;}
+
+    
+
+  
+  /* ~~~~~ below continually scanes a file of your choice and changes all punctuation to the number 5  ~~~~~~~~ */  
+
+  // //prompt for file open
+  // cout << s1;
+
+  // //select the file you wish to open
+  // cin >> s2;
+
+  // //open the file
+  // infile.open(s2);
+
+  // //read through the file string by string
+  // while(infile >> s3){
+
+  //   //file is not empty
+  //   if(!s3.empty()){
+  //     for(auto&c : s3){
+  // 	//select the punctuation in the string word
+  // 	if(ispunct(c)){
+  // 	  //make all of the punctuation characters to capital H
+  // 	  c = '5';
+  // 	  cout << " is punct " << std::endl;
+  // 	}
+  //     }
+  //   }
+  //   cout << s3;
+  // }
+  // //close the altered file.
+  // infile.close();
+
+  
+  /* ~~~~~ below continually adds to a new string  ~~~~~~~~ */  
+  // do{
+  //   cin >> s2;
+  //   if(!s2.empty() and s2 != "exit"){
+  //     s3+=s2 + " ";
+  //   }
+  // }while(s2!="exit");
+
+  // cout << s3 << std::endl;
+  // cout << "above is the concatenated string you entered. " << std::endl;
+
+  /* ~~~~~ below compares strings from a file line by line ~~~~~~~~ */
+  // //open the file
+  // infile.open(s2);
+
+  // //read fime the file
+  // int line_count = 0;
+  // while(getline(infile, s3)){
+  //   if(s3 == s4){
+  //     cout << "The lines are identical at lines: " << line_count << " and " << line_count +1;
+  //     cout << "\n";
+  //   }else if(s3 != s4){
+  //     if(s3 < s4){
+  // 	cout << line_count << " is greater than " << line_count + 1 << "\n";}
+  //     else{
+  // 	cout << line_count + 1 << " is greater than " << line_count << "\n";}
+  //   }
+    
+  //   s4 = s3;
+  //   line_count++;
+
+  // }
+
+  // //close the file
+  // infile.close();
+  
+  return 0;
+  
+}

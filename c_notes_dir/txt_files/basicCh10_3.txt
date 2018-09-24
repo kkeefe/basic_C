@@ -1,0 +1,44 @@
+#include <iostream>
+#include <numeric>//this is the for accumulate algorithm
+#include <vector>
+#include <algorithm> //includes swap and unique algorithms, notice they're not called directly onto the vector
+
+using namespace std;
+
+//removes duplicate integer values from vector<int>
+vector<int> elim_dups(vector<int> & values){
+  sort(values.begin(), values.end());
+  auto unique_ints = unique(values.begin(), values.end());
+  values.erase(unique_ints, values.end());
+  return values;
+}
+
+//used to pass to sort function to sort a vector<int> in DECREASING size..
+bool isLessThan (int a, int b){
+  if(a<b){return a;}
+  else return b;
+}
+
+bool stringSizeLessThan5(string a){
+  if(a.size()<5){return false;}
+  else return true;
+}
+
+
+int main(){
+
+  //exercise 10.3.11 - passing function returns to algorithms as parameters.
+  vector<int> int_vec = {1,2,3,4,3,6,1,8,9,10};
+
+  elim_dups(int_vec);                               //remove the duplicates
+  sort(int_vec.begin(), int_vec.end(), isLessThan); //sort it in decreasing order
+  for(int c : int_vec){cout << c << endl;}          //print the result
+
+  vector<string> string_vec = {"this","is","my","design"}; //define a string_vec
+  auto stop = partition(string_vec.begin(),string_vec.end(),stringSizeLessThan5); //reorganize the string_vec to have strings of size 5 or greater at the front.. 
+  for(auto c = string_vec.begin(); c != stop; c++){cout << *c << endl;} //cout all of the values pointed to by c, stop when c points to the values less than 5..
+
+
+  return 0;
+
+}

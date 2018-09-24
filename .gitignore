@@ -1,9 +1,7 @@
 *.h
-*.txt
 *.dSYM
 *~
 iterm/
-**/c_notes_dir
 book_sales
 .DS_Store
 **/FunctionFiles/

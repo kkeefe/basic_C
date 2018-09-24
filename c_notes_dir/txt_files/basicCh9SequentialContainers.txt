@@ -1,0 +1,145 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <deque>
+#include <forward_list>
+
+using namespace std;
+
+
+//function takes a forward list and adds a word after a matching word is found
+void insert_string(forward_list<string>&fwdL, const string & compareString, const string & addString){
+
+  forward_list<string>::iterator itr = fwdL.begin();
+  forward_list<string>::iterator prevIter = fwdL.before_begin();
+  bool found(false);
+  
+  do{
+    if(*prevIter == compareString){
+      fwdL.insert_after(prevIter, addString);
+      cout << "adding " << addString <<  " to forward list " << endl;
+      cout << "adding between " << *prevIter << " and " << *itr << endl;
+      found = true;
+    }
+    prevIter = itr;
+    ++itr;
+  } while(itr != fwdL.end());
+
+  if(!found){
+      fwdL.insert_after(prevIter, addString);
+      cout << "adding " << addString <<  " to end of forward list " << endl;
+  }
+}
+
+
+int main(){
+
+
+
+  //exercise 9.3.6
+
+
+  
+  //9.31 - write a program to remove even elements and double odd elemnts in a forward_list and a list
+
+  forward_list<int> fwdInt = {0,1,2,3,4,5,6,7,8,9,9,9,2,1};
+  list<int> listInt = {0,1,2,3,4,5,6,7,8,9};
+
+  forward_list<int>::iterator fwdIter = fwdInt.begin();
+  forward_list<int>::iterator prevIter = fwdInt.before_begin();  
+  list<int>::iterator listIter = listInt.begin();
+
+  cout << "unchanged fwd iterator list \n";
+  for(int& c : fwdInt){
+    cout << c << "\t";
+  }
+  
+  while(fwdIter!=fwdInt.end()){
+    //if the value is odd, add another one to the list
+    if(*fwdIter%2){
+      //place the odd value after the iterator that found it
+      cout << "inserting element " << *fwdIter << endl;
+      //returns an iterator to the last inserted element.
+      fwdInt.insert_after(fwdIter, *fwdIter);
+      fwdIter++;
+    }else{
+      //move the fwdIter ahead to the next spot
+      cout << "erasing element " << *fwdIter << endl;
+      fwdInt.erase_after(prevIter);
+    }
+    prevIter = fwdIter;
+    fwdIter++;
+  }
+
+  for(auto c : fwdInt){
+    cout << c << "\t";
+  }
+
+  cout << endl;
+  
+  
+  // //9.33 - check to see what happens when you ignore the assignment of a program wirrten on page 356
+  // while(begin != v.end()){
+  //   ++begin;
+  //   begin = v.insert(begin,42);
+  //   ++begin;
+
+  // }
+  
+  // //9.34 - predict the behavior of the example program given:  //vi is a vector of ints with odd and even values
+
+  // vector<int> vi = {1,2,3,4};
+  
+  // iter = vi.begin();
+  // while(iter != vi.end()){
+  //   if(*iter%2){
+  //     iter = vi.intsert(iter, *iter);
+  //   }
+  //   ++iter;
+  // }
+
+
+  //all of the typical container functions for a forward list have <_after> for them ie:
+  //insert_after(iterator p, n times, object t,) 
+  //insert returns an iterator pointing to the last insert element. 
+
+  //remember that forward list is a sequential container and has syntax similar to that of a vector or list.
+  forward_list<int> fwdList = {1,2,3,4,5,6,7,8};
+
+  // for(int& c : fwdList){
+  //   cout << c << " is the value of fwdlist \n";
+  // }
+
+  forward_list<int>::iterator itr1 = fwdList.begin();
+  forward_list<int>::iterator itrEnd = fwdList.end(); 
+  forward_list<int>::iterator previous = fwdList.before_begin();
+
+  while(itr1 != itrEnd){
+
+    //which to remove the odd elements
+    if(*itr1%2){
+      itr1 = fwdList.erase_after(previous);
+    }else{
+      previous = itr1;
+      itr1++;
+    }
+  }
+
+  for(int& c : fwdList){
+    cout << c << " is the value of fwdlist \n";
+  }
+
+  forward_list<string> fwdlistString = {"this", "is", "my"};
+
+  //function call to insert design in a spot within string list
+  insert_string(fwdlistString, "this", "design");
+
+  for(auto c : fwdlistString){
+    cout << c << "\t";
+  }
+  
+  
+  return 0;
+}

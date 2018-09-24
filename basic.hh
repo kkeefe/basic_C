@@ -5,14 +5,16 @@
 #include <fstream>
 #include <string>
 #include <vector>
-using std::vector;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::initializer_list;
-using std::begin;
-using std::end;
+#include <algorithm>
+#include <function>
+#include <vector>
+#include <map>
+#include <set>
+#include <utility> //includes pair
+
+
+using namespace std;
+
 
 //define a struct class type
 class Sales_Data {

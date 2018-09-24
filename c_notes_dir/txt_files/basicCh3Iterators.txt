@@ -1,0 +1,66 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector> //library for vectur usage
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+using std::vector;
+
+int main(){
+
+  //define the integer vectors
+  vector<int> v1;
+  vector<int> v2(11);
+  vector<int> v3(10, 42);
+
+  //create a s1 string vector to fill
+  vector<int> sv1; 
+
+  //define input file to read from:
+  std::ifstream infile;
+
+  //ask which file to read from
+  cout << "Please enter the file name you would like to read from: " << std::endl;
+  string s1 = "num.txt";
+  int inte1;
+  infile.open(s1);
+
+
+  //fill an arbitrary sized integer vector
+  while(infile >> inte1){
+    sv1.push_back(inte1);
+  }
+
+  //define the iterator for the filled vector
+  const auto it2 = v2.begin();
+
+  //scan every value of the sv1 integer vector (class grades)
+  for(auto int1 = sv1.begin(); int1 != sv1.cend(); ++int1){
+
+    //define which value the box should fill.
+    int a = *int1 / 10;
+
+    //decide which element to fill
+    auto it2fill = it2 + a;
+
+    //add one to that element
+    *it2fill+=1;
+
+  }
+
+  int i = 0;
+  for(auto c: v2){
+    cout << c << "\t" << i*10 << "'s spot" << std::endl;
+    i++;
+  }
+
+  
+  //always remember to close the file
+  infile.close();
+  
+  return 0;
+  
+}

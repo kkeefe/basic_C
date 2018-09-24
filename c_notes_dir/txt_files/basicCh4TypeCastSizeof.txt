@@ -1,0 +1,51 @@
+#include <vector>
+#include <iostream>
+#include <string>
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+int main(){
+
+
+  int ival = 5, ival3 = 3, ival2 = 2;
+  double dbl1 = 3.64159;
+
+  
+  ival =   static_cast<double>(ival3) / ival2;
+  dbl1 =   static_cast<double>(ival3) / ival2;
+  cout << ival << " ival = 3/2 " << endl;
+  cout << dbl1 << " dbl1 = 3/2 " << endl;
+  
+  
+  vector<int> ivec(10);
+  
+  //define an integer vector
+  vector<int>::size_type cnt = ivec.size();
+
+  cout << cnt << " cnt " << endl;
+
+  for(vector<int>::size_type ix = 0; ix != ivec.size(); ix++, --cnt){
+    ivec[ix] = cnt;
+    cout << ivec[ix] << "\t";
+  }
+  cout << endl;
+  
+  int x[10];
+  int *p = x;
+
+  //size of an 10 int array, size of a pointer to a 10 int array
+  cout << sizeof(x) << " sizeof(x) " << endl;
+  cout << sizeof(*x) << " size of (*x) " << endl;
+  cout << sizeof(x)/sizeof(*x) << " sizeof(x)/sizeof(*x) " << endl;
+
+  //size of a pointer's memory, size of the pointers reference.
+  cout << sizeof(p) << " sizeof(p) " << endl;
+  cout << sizeof(*p) << " sizeof(*p) " << endl;
+  cout << sizeof(p)/sizeof(*p) << " sizeof(p)/sizeof(*p) " << endl;
+  
+  
+  return 0;
+}

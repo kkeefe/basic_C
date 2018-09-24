@@ -1,0 +1,37 @@
+//#include <alogorithm>
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//10.2 questions - generic algorithms
+int main(){
+
+  string b;
+  vector<string> string_vec = {"this","is","my","design"};
+
+  cout << "input a vector you want to check for:\t";
+  cin >> b;
+
+  //note that for read only algorithms it is best to use: cbegin() and cend()
+  int result_string = count(string_vec.begin(), string_vec.end(), b);
+  cout << "\nthe result of the search is :" << result_string << endl;
+
+  
+  
+
+  //use an algorithm to count the number of ints in a vector
+  int a;
+  vector<int> int_vec = {1,2,3,3,4};
+
+  cout << "input a vector you want to check for:\t";
+  cin >> a;
+
+  int result = count(int_vec.begin(), int_vec.end(), a);
+  cout << "\nthe result of the search is :" << result << endl;
+
+  
+  return 0;
+
+}

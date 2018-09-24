@@ -1,0 +1,259 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <deque>
+
+using namespace std;
+
+// bool scan_vector(vector<int>::iterator a, int* b){
+//   bool match(false);
+//   cout << "current value to pointed by iterator: " << *a << endl;
+//   while(*a != 9){
+//     a++;
+//     if(*a == *b){
+//       match = true;
+//       cout << "succesful match." << endl;
+//     }
+//   }
+//   return match;
+// }
+
+// vector<int>::iterator find_element(vector<int>::iterator a, int* b){
+//   int step(0);
+//   vector<int>::iterator c = a;
+//   while(*a != 9){
+//     if(*a == *b){return a;}
+//     else a++;
+//   }
+//   cout << "no matches were found, returning beginning iterator.";
+//   a = c;
+//   return a;
+// }
+
+
+
+int main(){
+
+  vector<vector<int>> vecVInt;
+  list<deque<int>> lisDeqInt;
+
+  // int check(11);
+  // int *checkPoint = &check;
+  
+  
+  vector<int> vecInt(10, 5);
+  vector<int> vecInt2(11, 5);  
+  vector<string> vecString;
+  
+  deque<int> deqInt(10, 5);
+  deque<string> deqString;
+
+  list<string> listString;  
+  list<int> listInt2(12, 5);
+  
+  list<const char *> listCharPntr(10, "hi");
+
+  string input;
+
+  // 9.3.3
+  //9.26
+  int ia[] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
+  vector<int> evenVec;
+  list<int> oddList;
+  for(int c : ia){
+    cout << c << "\t";
+    evenVec.push_back(c);//fill the vector and list with the same array
+    oddList.push_back(c);
+  }
+
+  //filter the even vector
+  {
+    vector<int>::iterator itr = evenVec.begin();
+    while(itr != evenVec.end()){
+      if(*itr % 2){evenVec.erase(itr);}
+      else
+  	++itr;
+    }
+  }
+  cout << "\neven vec" << endl;
+  for(int c : evenVec){
+    cout << c << "\t";
+  }
+  
+  
+  // //9.25 - what if you erase elements of the same iterator
+
+  // vector<int> a = {5, 4, 3, 2, 1};
+  // auto aFront =  a.front();
+  // auto aBack = a.back();
+  // vector<int>::iterator itr = a.begin();
+  // vector<int>::iterator offEnd = a.end();
+  
+  // itr = a.erase(itr, a.begin()); //range erase does nothing if iterators point to same spot
+  // for(int c : a){
+  //   cout << c << "\t";
+  // }
+  
+  // // itr = a.erase(itr, offEnd + 1); //this will cause immediate segfault to increment iterator beyond a vector<int>
+  // // for(int c : a){
+  // //   cout << c << "\t";
+  // // }
+
+  
+  // cout << aFront << " aFront " << aBack << " aback \n";
+  // itr = a.erase(itr, a.end()); //will completely erase a
+
+  // for(int c : a){
+  //   cout << c << "\t";
+  // }
+  
+  
+  // //9.3.2
+ 
+  // //9.23
+  // vector<int> a = {5};
+  // auto aFront =  a.front();
+  // auto aBack = a.back();
+
+  // cout << aFront << " a front " << endl;
+  // cout << aBack << " a back " << endl;
+  // cout << a.at(0) << " a.at(0) \n";
+  
+  // //9.24
+  // cout << a.size() << " size of a before erase " << endl;
+  // a.erase(a.begin(), a.end());
+  // cout << aFront << " a front " << endl; //reference values still hold 5
+  // cout << aBack << " a back " << endl; // still value 5
+  // cout << a.size() << " size of a after erase " << endl; //now empty
+
+  // auto aFront2 = a.front();
+  // auto aBack2 = a.back();
+  // cout << aFront2 << " a front2 " << endl; //reference values still hold 5
+  // cout << aBack2 << " a back2 " << endl; // now value 0 after being erased
+  // cout << a.at(0) << " a.at(0) \n";
+  
+  //9.3.1
+  
+  //  //9.18 - exercise - fill a deque
+  //  cout << "input words into a deque: ";
+  //  while(cin >> input and input != "exit")
+  //    deqString.push_back(input);
+  //  for(string c : deqString){
+  //    cout << c << "\t";
+  //  }
+
+  //  //9.19 - exercise - fill a list
+  //  cout << "\n input words into a list: ";
+  //  while(cin >> input and input != "exit")
+  //    listString.push_back(input);
+  //  for(string c : listString){
+  //    cout << c << "\t";
+  //  }
+
+  //  //9.20 -copy values from list<int> into 2 deques, one even deque and one odd deque
+  // list<int> listIntCopy = {0, 1, 2, 3, 4, 5};
+  //  deque<int> deqEven;
+  //  deque<int> deqOdd;
+  //  for(int & c : listIntCopy){
+  //    if(c%2 == 0){deqEven.push_back(c);}
+  //    else if (c%2 != 0){deqOdd.push_back(c);}
+  // }
+
+  //  cout << "even deque: " << endl;
+  //  for(int & c : deqEven){
+  //    cout << c << "\t";
+  //  }
+
+  //  cout << "\nodd deque: " << endl;
+  //  for(int & c : deqOdd){
+  //    cout << c << "\t";
+  //  }
+
+
+  // //9.21 - how does insert work with iterators on a vector instead:
+
+  /*it works similarly, but the return type of the insert is a pointer to the container it was called, so insert would need to be called on
+    a vector<string> instead of a list<string> to return the same type to add to a vector instead. (repeatedly this is mentioned as a "costly" operation. */
+
+  // vector<string> stringVector = {"this", "is", "my", "design"};
+  // vector<string>::iterator itr = stringVector.begin();
+  // string input2;
+  // while(cin >> input2 and input2 != "exit")
+  //   itr = stringVector.insert(itr, input2);
+
+  // for(string c : stringVector){
+  //   cout << c << "\t";
+  // }
+  
+
+  // //9.2.7 - compare vector<int>'s with eachother and a vector<int> with a list<int>
+  /*MAKE SURE TO DECLARE THE BELOW TO FUNCTIONS OUTSIDE OF MAIN*/
+  // bool compare_vecInts(vector<int> a, vector<int> b){
+  //   if(a == b){return true;} //direct comparison is defined between similar containers
+  //   else return false;
+  // }
+
+  // bool compare_vecInt_listInt(vector<int> a, list<int> b){ 
+  //   {
+  //     vector<int>::iterator astart; //comparison between two different container types is not defined
+  //     list<int>::iterator bstart;// iterators to compare values held in each container, note that they are defined outside of for loop scope.
+  //     for(astart = a.begin(), bstart = b.begin();//this function could be largely improved with a .size() function call which returns the member count in each container
+  // 	  astart != a.end() or bstart != b.end();
+  // 	  ++astart, ++bstart){
+  // 	if(*astart != *bstart){return false;}
+  //     }
+  //   }
+  //   return true;
+  // }
+
+  // cout << compare_vecInts(vecInt, vecInt2) << " --1 is equal 0 is unequal Vector Comparison \n";
+  // cout << compare_vecInt_listInt(vecInt, listInt2) << " --1 is equal 0 is unequal Vector and List comparison \n";
+  
+  // //9.2.5 assign list of const char* to vector of strings
+  // vecString.assign(listCharPntr.begin(), listCharPntr.end());
+
+  
+  // //9.2.4 0 how would you initialize a vector<double> from a list<int>, and from a vector<int>
+  // vector<double> vecDouble(vecInt.begin(), vecInt.end());
+  // vector<double> vecDouble2(listInt2.begin(), listInt2.end());
+  // list<int> listInt(vecInt.begin(),  vecInt.end());
+  // //use iterators and a range initialization to copy directly each of the memebers
+
+  
+  //below code fill a deque<int> and a vector<int> from a double loop. the scan and fill functions find matching values.
+  // for(int i = 0; i < 10; ++i){
+  //   for(int j = 0; j < 10; ++j){
+  //     vecInt.push_back(j);
+  //     deqInt.push_back(j);
+  //   }
+  //   vecVInt.push_back(vecInt);
+  //   lisDeqInt.push_back(deqInt);
+  // }
+
+  // cout << "enter the number you would like to can in your vector of integer vectors:" << endl;
+  // cin >> check;
+  
+  // cout << "vecVInt: " << endl;
+  // for(auto & c : vecVInt){
+  //   for(auto & d : c){
+  //     cout << d;
+  //   }
+  //   cout << endl;
+  // }
+
+  // cout <<  scan_vector(vecInt.begin(), checkPoint) << " is the match " << endl;
+  // vector<int>::iterator found = find_element(vecInt.begin(), checkPoint);
+  // cout << *found << " is the scan element " << endl;
+  // cout << &found << " is the location scan element " << endl;  
+
+  // cout << "lisDeq int: " << endl;
+  // for(auto & c : lisDeqInt){
+  //   for(auto & d : c){
+  //     cout << d;
+  //   }
+  //   cout << endl;
+  // }
+
+  
+  return 0;
+}

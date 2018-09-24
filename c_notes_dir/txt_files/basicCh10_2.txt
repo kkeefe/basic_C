@@ -1,0 +1,40 @@
+#include <numeric>//this is the for accumulate algorithm
+#include <vector>
+#include <iostream>
+#include <algorithm> //includes swap and unique algorithms, notice they're not called directly onto the vector
+
+using namespace std;
+
+vector<int> elim_dups(vector<int> & values){
+
+  sort(values.begin(), values.end());
+
+  auto unique_ints = unique(values.begin(), values.end());
+
+  values.erase(unique_ints, values.end());
+
+  return values;
+
+}
+
+int main(){
+
+  //exercise: 10.2.2 - writing algorithms
+  vector<int> int_vec2 = {1,2,3,4,5,6,7,8,9,10};
+  auto int_return = fill_n(int_vec2.begin(), int_vec2.size(), 0);
+  for(auto c : int_vec2){cout << c << "\t";} //resets every value in int_vec2 to 0
+
+  //exercise: 10.2.2 - writing algorithms
+  vector<int> int_vec3 = {1,2,3,4,5,6,3,8,9,10};  
+  elim_dups(int_vec3);
+  for(auto c : int_vec3){cout << c << "\t";}
+
+  
+  //exercise: 10.2.1 - read only algorithms
+  vector<int> int_vec = {1,2,3,4,5,6,7,8,9,10};
+  int result = accumulate(int_vec.cbegin(),int_vec.cend(),0);
+  cout << "the result is: \t" << result << endl; //as expect the result is 55
+  
+  return 0;
+
+}

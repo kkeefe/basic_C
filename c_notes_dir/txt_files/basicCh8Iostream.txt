@@ -1,0 +1,72 @@
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+istream & read_file(istream & cin)
+{
+  string a;
+  cout << "please input a line of string you wish to read. " << endl;    
+  auto old_state = cin.rdstate();
+  getline(cin, a);
+  cout << a << endl;
+
+  if(!cin.eof()){
+    return read_file(cin);
+  }
+  else
+    cin.setstate(old_state);
+  return cin;
+}
+
+//this function takes a input istream reference and returns a string value
+string & read_fillLine(istream & cin){
+  string a;
+  getline(cin, a);
+  return a;
+}
+
+
+//this function takes a input istream reference and returns a string value
+string & read_fill(istream & cin){
+  string a;
+  cin >> a;
+  return a;
+}
+
+int main()
+{
+
+  ifstream infile("temp.txt");
+  ofstream outfile;
+  outfile.open("temp.copy");
+
+  //create the vector to push_back
+  vector<string> sv, sv2;
+  string a, b;
+
+  while(!infile.eof()){
+    a = read_fillLine(infile);
+    sv.push_back(a);
+    // b = read_fill(infile);
+    // sv2.push_back(b);
+  }
+  
+  for(string& c : sv){
+    cout << c << endl;
+  }
+
+  for(string& c : sv2){
+    cout << c << endl;
+  }
+  
+  //remember to close the files
+  infile.close();
+  outfile.close();
+  
+
+  
+  return 0;
+}

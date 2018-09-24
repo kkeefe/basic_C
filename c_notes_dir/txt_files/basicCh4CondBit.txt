@@ -1,0 +1,95 @@
+#include <vector>
+#include <iostream>
+#include <string>
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+int main(){
+/*
+  the idea of the bitzie comparitors: >>, <<, move bits the assigned length. Do this only with unsigned values so as to avoid wrap around..
+  also, the bitwise comparators: |=, &=, compare the two different unsigned bit longs bit by bit.
+  ie: 4UL = 0100, and 3UL = 0011, thus:
+  4UL &= 3UL is value 0 = 0000  
+  4UL |= 3UL is value 7 = 0111
+*/ 
+
+  // unsigned long ul1 = 3;
+  // unsigned long ul2;
+
+  // //compare 001 AND 010 = 000
+  // cout << (1UL & 2UL) << "\t 1UL and 2UL" << endl;
+
+  // //compare 001 OR 010 = 011
+  // cout << (1UL | 2UL) << "\t 1UL or 2UL" << endl;  
+
+  // ul1 |= 4UL;
+  // cout << ul1 << " ul1 &= 4UL, since ul1 = 3 = 011 and is equal to itself or'd with 4 (0110) it will now equal 0000 or 0 " << endl;
+
+
+  // //integer has size 8
+  // cout << sizeof(int) << " size of integer " << endl;
+
+  
+  /* below is the code for the conditional operator which executes a simple series of if else statements (cond) ? ifexp1 : else.exp2 */  
+  
+  // vector<int> intVec1;
+
+  // //add values to the integer vector
+  // for(int i = 0; i < 10; i++){
+  //   intVec1.push_back(i);
+  // }
+
+  // //display the original values of the vector
+  // for(int  c : intVec1){
+  //   cout << c << "\t";
+  // }
+
+  // //alter the values of the odd vectors;
+  // for(int &c : intVec1){
+  //   (c%2 != 0) ? c*=2 : c = c;
+  // }
+
+  // cout << endl;
+  
+  // //re-display the components of intVec1
+  // for(int & c : intVec1){
+  //   cout << c << "\t";
+  // }
+
+  // //assign varying reports to values of grades.
+  // cout << "please enter the grades you would like to assign pass or fail: " << endl;
+  // int grades;
+  // std::string report;
+  // while(cin >> grades and grades != 0){
+  //     (grades > 90)  ? report = "high pass" :
+  //     (grades >= 75) ? report = "pass" :
+  //     (grades < 60)  ? report = "fail" :
+  // 	/* ELSE */     report = "low pass";
+  //     cout << "a score of " << grades << " is a " << report << endl;
+  //     cout << "please enter another grade: ";
+  // }
+
+  // cout << "the same scheme, with only if statements: " << endl;
+
+  // int grades2;
+  // while(cin >> grades2 and grades2 != 0){
+  //   if(grades2 > 90){
+  //     report = "high pass";
+  //   }else if(grades2 < 60){
+  //     report = "fail";
+  //   }else if(grades2 >= 75){
+  //     report = "pass";
+  //   }else if(grades2 < 75) {
+  //     report = "low pass";
+  //   }
+  //   cout << "a score of " << grades2 << " is a " << report << endl;
+  //   cout << "please enter another grade: ";
+  // }
+
+
+  
+  return 0;
+}

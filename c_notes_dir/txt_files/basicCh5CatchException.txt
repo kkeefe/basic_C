@@ -1,0 +1,97 @@
+#include <vector>
+#include <iostream>
+#include <string>
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+
+
+
+int main(){
+
+  /* EXCEPTION EXAMPLE, EXERCISE 5.6.3 */
+
+  //read two integers print the results
+
+  cout << "Please input two intergers you would like to result of: " << endl;
+
+  int a,b;
+  while(cin >> a >> b){
+    if(b == 0){
+      cout << "you can not enter 0 are a denominator\n";
+    }else
+      cout << "the quotient is: " << a / b << endl;
+  }
+
+  
+  //note: floating point exceptions are not handled with basic try / catch exception, and below code does not work.
+  //note: the main idea is that floating point exceptions should be handled directly. see above code.
+  // int a, b;
+  
+  // cout << "Please input two numbers to divide: " << endl;
+
+  // while(cin >> a >> b){
+  //   try{
+  //     cout << a << " divided by " << b << " is " << a/b << endl;
+  //   }catch(std::length_error err){
+  //     cout << "inside the catch block of code.. " << endl;
+  //     cout << err.what() << "\t type of error" << endl;
+  //     cout << "\n Try Again? Enery y or no" << endl;
+  //     char c;
+  //     cin >> c;
+  //     if (!cin or c == 'n') break; // break out of the while loop
+  //   }
+  // }
+
+
+  /* EXAMPLE EXERCISE SECTION 5.5.3 */
+
+/*
+    write code that makes this go to unnecessary:
+     begin:
+     int sz = get_size();
+     if (sz <= 0){
+     goto begin;
+}
+*/ 
+  
+
+
+
+  
+  
+
+  /* EXAMPLE EXERCISE SECTION 5.5.1-2 */
+
+  // string word1, word2 = "";
+
+  // //initialize to false, incase first word is exit.
+  // bool repeat = false;
+  
+  // //read from the stand input, create an exit condition
+  // while(cin >> word1 and word1 != "exit"){
+
+  //   //go to the next iteration if the first letter is not uppercase. 
+  //   if(!isupper(word1[0])){
+  //     word2 = word1;
+  //     continue;
+  //   }
+    
+  //   //if we leave the loop, repeat is true.
+  //   repeat = true;
+  //   if(word1 == word2) break;   
+
+  //   //the word was not repeated, set repeat to false and save the current word
+  //   else{
+  //     word2 = word1;
+  //     repeat = false;
+  // 	}
+  // }
+
+  // if(repeat) cout << "the word that was repeated is: " << word1 << endl;
+  // else cout << "no words were repeated" << endl;
+  
+  return 0;
+}

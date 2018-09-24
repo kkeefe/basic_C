@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include "basic.hh"
+
+using std::cin;
+using std::cout;
+using std::string;
+using std::endl;
+
+int factorial (int x){
+  int b = 1;
+  for(int i = 1; i <= x; i++){
+    b *= i;
+  }
+  return b;
+}
+
+
+int main(){
+
+  int a;
+  
+  cout << "please input a value you would like to have 'factorialed'. " << endl;
+  cin >> a;
+  cout << factorial(a);
+
+  
+  return 0;
+}

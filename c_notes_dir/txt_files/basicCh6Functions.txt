@@ -1,0 +1,204 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include "basic.hh"
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+
+/*FUNCTION EXAMPLES: CHAPTER 6 */
+
+/*
+FUNCTIONS ARE DISPLAYED IN HEADER FILE
+
+
+Syntax of function explained:
+
+return type = double 
+function name = square
+parameter type = double
+parameber name = x
+return type = double, no error
+
+*/
+
+void reset( int& a){
+  a = 0;
+}
+
+void swap_var(int* a, int* b){
+
+  int swap_a = *a;
+  int swap_b = *b;
+
+  cout << " swap values " << endl;
+
+  *b = swap_a;
+  *a = swap_b;
+
+}
+
+void swap_int(int & a, int& b){
+  int hold;
+  hold = a;
+  a = b;
+  b = hold;
+}
+
+
+double square (double x){ return x*x;}
+
+int factorial (int x){
+  int b = 1;
+  for(int i = 1; i <= x; i++){
+    b *= i;
+  }
+  return b;
+}
+
+int abs_value(int a){
+
+  if(a <= 0){
+    a *= -1;
+    cout << " a is less than 0 " << endl;
+    return a;
+  }else
+    cout << " a is greater than 0 " << endl;
+    return a;
+}
+
+
+void Interact(int a){
+  cout << factorial(a) << endl;
+  cout << "please enter a number you would like to see the factorial of: " << endl;
+}
+
+int function_counter(int a){
+
+  static int count = 0;
+
+  if(count == 0){
+    ++count;
+    return count;
+  }
+  //increment the count after each additional call;
+  ++count;
+  cout << "\t";
+  return count;
+}
+
+int compare_pointer(int a, int* b){
+  if(a >= *b){
+    return a;
+  }else
+    return *b;
+  
+}
+
+
+void print_array(const int* a){
+  while(a){
+    cout << *a << "\t";
+    a++;
+  }
+}
+
+
+int main(){
+
+
+  /* Section 6.2.4 exercises */
+
+
+  
+
+
+  // //write a function that takes an int and a int* and returns the larger value.
+  // //implementation of int and int* comparison.
+  // int a_nonp = 5;
+  // int b_nonp = 6;
+  // int* b_pointer = &b_nonp;
+
+  // cout << "comparing: " << a_nonp << " and value at " << b_pointer << " which is: " << *b_pointer << endl;
+  // cout <<  compare_pointer(a_nonp, b_pointer) << " is the larger value " << endl;
+
+  //implementation of print pointer array;
+
+  int arr[2] = {0, 1};
+  int arr1 = 0;
+
+  cout << "printed value of " << arr1 << " is ";
+  print_array(&arr1);
+  cout << endl;
+  cout << "printed value of " << arr[0] << " is ";
+  cout << endl;
+  print_array(arr);
+  
+  //implementation of integer swap:  
+  int a = 5, b = 6;
+  int*point_a = &a;
+  int*point_b = &b;
+  
+  cout << a << " is the value of a " << endl;
+  cout << b << " is the value of b " << endl;
+
+  swap_var(point_a, point_b);
+
+  cout << a << " is the value of a " << endl;
+  cout << b << " is the value of b " << endl;
+
+
+  //reset integer exchange
+  cout << "please enter an integer you would like to reset: " << endl;
+  int f = 0;
+  cin >> f;
+
+  reset(f);
+
+  cout << f << " is now the value you just entered. " << endl;
+
+
+  //swap integer exchange
+  cout << "Please enter to integers you would like to swap: " << endl;
+  int d = 0, e = 0;
+  cin >> d >> e;
+  
+  swap_int(d,e);
+
+  cout << d << " is now the first value " << e << " is now the second value " << endl;
+    
+
+
+										
+  //implementation of counter function
+  // int a = 0;
+
+  // cout << "Please tell me how many times you would like me to count: ";
+  // cin >> a;
+  
+  // for(int i = 0; i < a; i++){
+  //   cout << function_counter(a);
+  // }
+  // cout << endl;
+
+  //implementation of square and factorial functions;
+  // int a = 5;
+  // cout << square(a) << " is square of " << a << endl;
+  // cout << factorial(a) << " is factorial of " << a << endl;
+
+  //implement abs value cunction
+  // while(cin >> a){
+  //   abs_value(a);
+  //   cout << a << " is the absolute value " << endl;
+  // }
+
+  //implement interact function
+  // cout << "please enter a number you would like to see the factorial of" << endl;
+  // while(cin >> a){Interact(a);}
+
+
+  
+  return 0;
+}

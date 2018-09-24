@@ -1,0 +1,70 @@
+#include <initializer_list>
+#include <vector>
+#include <iostream>
+#include <string>
+#include "basic.hh"
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::initializer_list;
+using std::begin;
+using std::end;
+
+//overload function pointers
+
+int divide(int a, int b){
+  cout << " division of " << a << " and " << b << " is ";
+  return a/b;
+}
+int subtract(int a, int b){
+  cout << " subtraction of " << a << " and " << b << " is ";
+  return a-b;
+}
+int add (int a, int b){
+  cout << " addition of " << a << " and " << b << " is ";
+  return a+b;
+}
+int multiply(int a, int b)
+{  cout << " multiplication of " << a << " and " << b << " is ";
+  return a*b;
+}
+
+int main(){
+
+  using fpointer = int(*)(int a, int b);
+
+  //declare a function pointer;
+  fpointer fp;
+  //intger vector
+  vector<int> iv1;
+  //function pointer vector, note that functions can only return pointers and not functions.
+  vector<fpointer> fv1;
+
+  fp = divide;
+
+  fv1.push_back(fp);
+
+  fp = subtract;
+
+  fv1.push_back(fp);
+
+  fp = add;
+
+  fv1.push_back(fp);
+
+  fp = multiply;
+
+  fv1.push_back(fp);
+
+  for(auto c : fv1){
+    cout << "please enter two numbers you would like to process: " << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << c(a, b) << endl;
+    cout << &c << " is the address " << endl;
+  }
+  
+  return 0;
+}

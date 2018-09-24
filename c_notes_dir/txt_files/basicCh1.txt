@@ -1,0 +1,51 @@
+#include <iostream>
+#include "Sales_item.h"
+#include <fstream>
+
+
+int main(){
+
+  Sales_item item1, item2, item3;
+  std::ifstream infile;
+  std::string input1, input2;
+  int count = 0;
+
+  
+  
+  std::cout << "Please indicate the file you would like to read " << std::endl;
+  std::cin >> input1;
+
+  std::cout << "Please indicate whether you want a total sum, or a specific ISBN" << "\n";
+  std::cin >> input2;
+
+  if(input2 == "total"){
+  infile.open(input1);
+  while(infile >> item1){
+    count++;
+    std::cout << "The value of the sum at step: " << count << " is: ";
+    item2 += item1;
+    std::cout << item2 << "\n";
+  }
+  }else if(input2 == "particular"){
+    std::cout << "please input the particular isbn you want to check for: ";
+    std::cin >> item2;
+    infile.open(input1);
+    while(infile >> item1){
+      if(item2.isbn()==item1.isbn()){
+	item3 += item1;
+	count++;
+      }
+    }
+      std::cout << "The the number of total transtions is: " << count << " total sales is: ";
+      std::cout << item3 << "\n";
+
+  }else{
+    std::cerr << "input not correct \n";
+  return -1;
+  }
+
+  infile.close();
+
+  return 0;
+  
+}

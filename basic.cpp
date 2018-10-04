@@ -11,6 +11,20 @@ void print_map_string_stringvec(map<string, vector<string>> a){
   }
 }
 
+void print_map_string_vecPair_string_string(map<string, vector<pair<string,string>>> a){
+  for(auto c : a){ //c has type pair string vec_pair
+    cout << "Family Name: " << c.first << ", has the following children:\n";
+    int a(1);
+    for(auto d : c.second){ //d has type pair<string,string>
+      cout << a << ". " << d.first << "\t";
+      cout << d.first << "'s birthday is: " << d.second << endl;
+      a++;
+    }
+  }
+}
+
+
+
 int main(){
 
 
@@ -87,7 +101,8 @@ int main(){
   
   //exercise 11.11
   //redefine bookstore without using decltype
-
+  //don't know what bookstore is..
+  
   // //exercise 11.12
   // //write a program to read a sequence of strings and ints, storing each into a pair. store the pairs in a vector.
   // int number;
@@ -108,9 +123,33 @@ int main(){
   // pair_string_int_1 = make_pair("this", 1);
   // pair<string, int> pair_string_int_2("too", 2);
   
-  //exercise 11.14
-  //extend the map of children to their fmaily name that you wrote by having the vector store a pair that hold's a child's name and birthday..
+  // //exercise 11.14
+  // //extend the map of children to their fmaily name that you wrote by having the vector store a pair that hold's a child's name and birthday..
+  // //this is an extension from exercise 11.7
+  // string last_name, first_name, birthday;
+  // map<string, vector<pair<string, string>>> Family_Names;
+  // cout << "Please enter the family name you wish to check for:  ";
+  // while(cin >> last_name and last_name != "exit"){
+  //   //use this to create a last name key..
+  //   cout << "\nPlease enter a child's first name..  ";
+  //   while(cin >> first_name and first_name != "exit"){
+  //     string choice;
+  //     birthday = "00/00/0000";
+  //     cout << "\nwould you like to enter a birthday for the child?(type yes to enter)  ";
+  //     cin >> choice;
+  //     if(choice == "yes"){
+  // 	cout << "\nplease enter a birthday:  ";
+  // 	cin >> birthday;
+  //     }
+  //     cout << "\nplease enter a child's first name.. (type exit to leave..)  ";
+  //     Family_Names[last_name].push_back(make_pair(first_name, birthday));
+  //   }
+  //   cout << "\nPlease enter the family name you wish to check for (type exit to leave):  ";
+  // }
+  // print_map_string_vecPair_string_string(Family_Names);
 
+
+  
   // //exercise 11.15
   // //what are the mapped_type, key_type, and value_type of a map from int to vector<int>?
   // map<int, vector<int>> map_int_vec_int = {

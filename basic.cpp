@@ -49,47 +49,91 @@ int main(){
   // print_map_string_stringvec(Family_Names);
   
   
-  //exercise 11.8
-  //write a program that stores the excluded words in a vector instead of in a set,
-  //what are the advantages to useing a set??
-  string words;
-  vector<string> excluded_words;
-  set<string> last_name_set= {
-    {"Keefe"},
-    {"Proctor"}
-  };
-  cout << "please input some excluded words.." << endl;
-  while(cin >> words and words != "exit"){
-    last_name_set.insert(words);
-    excluded_words.push_back(words);
-    cout << "please input some excluded words..(type exit to leave)" << endl;
-  }
+  // //exercise 11.8
+  // //write a program that stores the excluded words in a vector instead of in a set,
+  // //what are the advantages to useing a set??
+  // string words;
+  // vector<string> excluded_words;
+  // set<string> last_name_set= {
+  //   {"Keefe"},
+  //   {"Proctor"}
+  // };
+  // cout << "please input some excluded words.." << endl;
+  // while(cin >> words and words != "exit"){
+  //   last_name_set.insert(words);
+  //   excluded_words.push_back(words);
+  //   cout << "please input some excluded words..(type exit to leave)" << endl;
+  // }
   
-  //exercise 11.9
-  //define a map that associates words with a list of line numbers on which the word might occur
-
-  //exercise 11.10
-  //could we define a map from vector<int>::ioterator in int?
-  //what about list<int>::iterator to int> in each case, if not, why not?
-
+  // //exercise 11.9
+  // //define a map that associates words with a list of line numbers on which the word might occur
+  // map<string, list<int>> map_string_listInt;
+  
+  // //exercise 11.10
+  // //could we define a map from vector<int>::iterator in int?
+  // //what about list<int>::iterator to int> in each case, if not, why not?
+  // vector<int> vec_int = {1,2,3,4,5};
+  // vector<int>::iterator vec_int_begin = vec_int.begin();
+  // map<vector<int>::iterator, int> map_vecItr_int;
+  // cout << *vec_int_begin << endl;
+  // cout << vec_int[1] << endl;
+  // list<int> list_int = {1,2,3,4,5};
+  // list<int>::iterator list_int_begin = list_int.begin();
+  // cout << *list_int_begin << endl;
+  // list_int_begin++;
+  // //cout << list_int[1] << endl; //error from indexing a list
+  // cout << *list_int_begin << endl;  
+  // map<list<int>::iterator, int> map_listItr_int;
+  
   //exercise 11.11
   //redefine bookstore without using decltype
 
-  //exercise 11.12
-  //write a program to read a sequence of strings and ints, storing each into a pair. store the pairs in a vector.
+  // //exercise 11.12
+  // //write a program to read a sequence of strings and ints, storing each into a pair. store the pairs in a vector.
+  // int number;
+  // string word;
+  // pair<string, int> pair_word_int;
+  // vector<pair<string, int>> vec_pair_word_int;
+  // while(cin >> word and word != "exit"){
+  //   cout << "please enter a number to associate with this word!\t";
+  //   cin >> number;
+  //   cout << endl;
+  //   pair_word_int = make_pair(word, number);
+  //   vec_pair_word_int.push_back(pair_word_int);
+  // }
 
-  //exercise 11.13
-  //there are at lest 3 ways to create a pair. create a pair in 3 different ways. which is the best?
-
+  // //exercise 11.13
+  // //there are at lest 3 ways to create a pair. create a pair in 3 different ways. which is the best?
+  // pair<string, int> pair_string_int_1;
+  // pair_string_int_1 = make_pair("this", 1);
+  // pair<string, int> pair_string_int_2("too", 2);
+  
   //exercise 11.14
   //extend the map of children to their fmaily name that you wrote by having the vector store a pair that hold's a child's name and birthday..
 
-  //exercise 11.15
-  //what are the mapped_type, key_type, and value_type of a map from int to vector<int>?
-
-  //exercise 11.16
-  //using a map iterator write an expression that assigns a value to an element.
-
+  // //exercise 11.15
+  // //what are the mapped_type, key_type, and value_type of a map from int to vector<int>?
+  // map<int, vector<int>> map_int_vec_int = {
+  //   {1, {1,2,3}},
+  //   {2, {4,5,6}},
+  //   {3, {7,8,9}},
+  // };
+  // //keys are 1,2,3 (int), mapped type is (vector<int>), value type is (pair<int, vector<int>>)
+  
+  // //exercise 11.16
+  // //using a map iterator write an expression that assigns a value to an element.
+  // map<int, vector<int>> map_int_vec_int = { //declare a map int vec int set to use
+  //   {1, {1,2,3}},
+  //   {2, {4,5,6}},
+  //   {3, {7,8,9}},
+  // };
+  // auto map_itr = map_int_vec_int.begin();
+  // //map_int_vec_int is a pair..
+  // map_itr->second.push_back(1); //increase the vector size by 1..
+  // for(auto c : map_itr->second){
+  //   cout << c << endl; //print all of the vector elements of the first pair in the map
+  // }
+  
   //exercise 11.17
   //explain which of the following calls are legal on page 431..
 
@@ -105,7 +149,7 @@ int main(){
   //which is the easier / better program to write and why?
 
   //exercise 11.21
-  //assuming word_count is a mpa from string to size_t, and word is a string explain the following loop:
+  //assuming word_count is a map from string to size_t, and word is a string explain the following loop:
   /*
     while (cin >> word)
     ++word_count.insert({word,0}.first->second;

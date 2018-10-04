@@ -1,5 +1,6 @@
 //function defintions
 // #include "Sales_item.h"--moved to another directory?
+#include <list>
 #include <string>
 #include <iostream>
 #include <fstream>

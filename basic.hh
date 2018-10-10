@@ -65,3 +65,33 @@ int function_counter(int a);
 inline bool is_shorter (const string& a, const string& b){
   return  (a > b) ? true : false;
 }
+
+
+/*
+  PRINT FUNCTIONS!!
+*/
+
+
+void print_map_string_stringvec(map<string, vector<string>> a){
+  for(auto c : a){
+    cout << "Family Name: " << c.first << ", has the following children:\n";
+    int a(1);
+    for(auto d : c.second){
+      cout << a << ". " << d << endl;
+      a++;
+    }
+  }
+}
+
+void print_map_string_vecPair_string_string(map<string, vector<pair<string,string>>> a){
+  for(auto c : a){ //c has type pair string vec_pair
+    cout << "Family Name: " << c.first << ", has the following children:\n";
+    int a(1);
+    for(auto d : c.second){ //d has type pair<string,string>
+      cout << a << ". " << d.first << "\t";
+      cout << d.first << "'s birthday is: " << d.second << endl;
+      a++;
+    }
+  }
+}
+

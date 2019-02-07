@@ -1,8 +1,12 @@
 #include "basic.hh"//includes algorithm, function, vector headers, etc..
 
+using namespace std; 
+
 int main(){
 
   //exercises in 11_3
+
+  cout << "this is my design.." << endl;
 
   // //exercise 11.24
   // //what does the following program do?

@@ -13,9 +13,7 @@
 #include <set>
 #include <utility> //includes pair
 
-
 using namespace std;
-
 
 //define a struct class type
 class Sales_Data {
@@ -82,8 +80,8 @@ void print_map_string_stringvec(map<string, vector<string>> a){
     }
   }
 }
-
 void print_map_string_vecPair_string_string(map<string, vector<pair<string,string>>> a){
+
   for(auto c : a){ //c has type pair string vec_pair
     cout << "Family Name: " << c.first << ", has the following children:\n";
     int a(1);

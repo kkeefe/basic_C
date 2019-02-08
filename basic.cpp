@@ -7,6 +7,11 @@ int main(){
   //exercises in 11_3
 
   cout << "this is my design.." << endl;
+  system("pause");
+
+  string word; 
+  cout << "please enter some word .. " << endl;
+  cin >> word;
 
   // //exercise 11.24
   // //what does the following program do?

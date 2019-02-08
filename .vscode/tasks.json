@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build basic.cpp",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g", "-Wall", "--std=c++11", "basic.cpp", "-o", "basic"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

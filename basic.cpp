@@ -13,6 +13,8 @@ int main(){
   cout << "please enter some word .. " << endl;
   cin >> word;
 
+  cout << "the word you entered was: " << word << endl;
+  
   // //exercise 11.24
   // //what does the following program do?
   // map<int, int> m;

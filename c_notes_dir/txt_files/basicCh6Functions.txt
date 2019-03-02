@@ -97,7 +97,6 @@ int compare_pointer(int a, int* b){
   
 }
 
-
 void print_array(const int* a){
   while(a){
     cout << *a << "\t";
@@ -105,15 +104,9 @@ void print_array(const int* a){
   }
 }
 
-
 int main(){
 
-
   /* Section 6.2.4 exercises */
-
-
-  
-
 
   // //write a function that takes an int and a int* and returns the larger value.
   // //implementation of int and int* comparison.
@@ -149,7 +142,6 @@ int main(){
   cout << a << " is the value of a " << endl;
   cout << b << " is the value of b " << endl;
 
-
   //reset integer exchange
   cout << "please enter an integer you would like to reset: " << endl;
   int f = 0;
@@ -158,7 +150,6 @@ int main(){
   reset(f);
 
   cout << f << " is now the value you just entered. " << endl;
-
 
   //swap integer exchange
   cout << "Please enter to integers you would like to swap: " << endl;
@@ -169,9 +160,6 @@ int main(){
 
   cout << d << " is now the first value " << e << " is now the second value " << endl;
     
-
-
-										
   //implementation of counter function
   // int a = 0;
 
@@ -197,7 +185,6 @@ int main(){
   //implement interact function
   // cout << "please enter a number you would like to see the factorial of" << endl;
   // while(cin >> a){Interact(a);}
-
 
   
   return 0;

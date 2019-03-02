@@ -228,9 +228,6 @@ int main(){
   //   }
   //   cout << "Please enter the family name you wish to check for (type exit to leave):\t";
   // }
-
-  
-
   
   return 0;
 }

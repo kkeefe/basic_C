@@ -44,9 +44,9 @@ private:
   unsigned sales_count;
   double sales_price;
 
-//~~defined public functions
-friend std::istream & read(std::istream & is, Sales_Data& data1);
-friend std::ostream &  print(std::ostream & os, const Sales_Data& data1);
+  //~~defined public functions
+  friend std::istream & read(std::istream & is, Sales_Data& data1);
+  friend std::ostream &  print(std::ostream & os, const Sales_Data& data1);
 };
 
 //old functions defined previously
@@ -80,6 +80,7 @@ void print_map_string_stringvec(map<string, vector<string>> a){
     }
   }
 }
+
 void print_map_string_vecPair_string_string(map<string, vector<pair<string,string>>> a){
 
   for(auto c : a){ //c has type pair string vec_pair
@@ -93,3 +94,16 @@ void print_map_string_vecPair_string_string(map<string, vector<pair<string,strin
   }
 }
 
+void print_map_iterator(map<string, vector<int>>::iterator map){
+  cout << map->first << " is the first element.. " << endl;
+  cout << map->second[1] << " is the second element of the vector space.. " << endl;
+}
+
+void print_multiMap_stringString(multimap<string, string> map){
+  multimap<string, string>::iterator start = map.begin();
+  while(start != map.end()){
+    cout << start->first << " is the author name .. ";
+    cout << start->second << " is the work .. " << endl;
+    start++;
+  }
+}

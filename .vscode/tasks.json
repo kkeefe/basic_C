@@ -6,7 +6,12 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g", "-Wall", "--std=c++11", "basic.cpp", "-o", "basic"
+                "-g",
+                "-Wall",
+                "--std=c++11",
+                "basic.cpp",
+                "-o",
+                "basic"
             ],
             "group": {
                 "kind": "build",

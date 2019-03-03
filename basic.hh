@@ -17,24 +17,14 @@
 
 using namespace std;
 
-
 /* 
    Word transformation functions!! 
  */
 
 
-
-
-
-
 /* 
    END transformation functions!! 
  */
-
-
-
-
-
 
 //best practice is to declare and define all inline and constexpr functions inside header files only: they must all match exactly and definition must be known at compile time.
 inline bool is_shorter (const string& a, const string& b){
@@ -44,7 +34,6 @@ inline bool is_shorter (const string& a, const string& b){
 /*
   PRINT FUNCTIONS!!
 */
-
 
 void print_map_string_stringvec(map<string, vector<string>> a){
   for(auto c : a){

@@ -6,8 +6,7 @@ using namespace std;
 // word transformation map
 
 int main(int argc, char** argv){
-
-  
+ 
   string word;
   while(word != "exit"){
     cout << " please enter a any string of characters you want to be processed: ";

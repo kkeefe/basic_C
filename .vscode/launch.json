@@ -1,32 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
-        {
-            "name": "(gdb) Bash on Windows Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "pipeTransport": {
-                "debuggerPath": "/usr/bin/gdb",
-                "pipeProgram": "${env:windir}\\system32\\bash.exe",
-                "pipeArgs": ["-c"],
-                "pipeCwd": ""
-            },
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        
         {
             "name": "(gdb) Launch",
             "type": "cppdbg",
@@ -39,14 +13,14 @@
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
+            "preLaunchTask": "build basic.cpp",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "build basic.cpp"
+            ]
         }
     ]
 }

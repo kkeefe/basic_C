@@ -20,5 +20,13 @@ int main(int argc, char** argv){
     }
   }
 
-  return 0;
+  int a(4);
+  while(a < 5){
+    cout << "a is still less than 5.. ";
+    cin >> a;  
+  }
+
+  cout << "a is no longer less than 5.. " << endl;
+
+return 0;
 }

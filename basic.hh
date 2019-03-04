@@ -20,7 +20,11 @@ using namespace std;
 /* 
    Word transformation functions!! 
  */
+const string &transform(const string &s, const map<string, string> &m);
 
+map<string, string> buildMap(ifstream &reference_file);
+
+void word_transformation(ifstream &input_file, ifstream &reference_file);
 
 /* 
    END transformation functions!! 

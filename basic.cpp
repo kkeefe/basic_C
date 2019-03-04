@@ -1,36 +1,69 @@
 #include "basic.hh"//includes algorithm, function, vector headers, etc..
-#include <sstream> // this is the place where istringstream is located..
+#include <sstream> // 4 is the place where istringstream is located..
 
 using namespace std; 
 
-// word transformation map
-
-int main(int argc, char** argv){
-  
- // why is c++ giving me so much shit?
- string word;
-
-// this won't work
-
-  while(word != "exit"){
-    cout << " please enter a any string of characters you want to be processed: ";
-    getline(cin, word);
-    istringstream stream(word);
-    cout << word << " -- this is what you entered .." << endl;
-
-    while(stream >> word){
-      cout << " new word .. " << endl;
-      cout << word << " this is what word is now currently pointing too " << endl;
+map<string, string> buildMap(ifstream &reference_file)
+{
+  map<string, string> transformation;
+  string key;
+  string value;
+  while (reference_file >> key && getline(reference_file, value))
+    if (value.size() > 1)
+    {
+      transformation[key] = value.substr(1);
     }
+    else
+    {
+      throw runtime_error("no rule for " + key);
+    }
+  return transformation;
+}
+
+const string &transform(const string &s, const map<string, string> &m)
+{
+  auto map_it = m.find(s);
+  if (map_it != m.cend())
+    return map_it->second;
+  else
+    return s;
+}
+
+void word_transformation(ifstream &input_file, ifstream &reference_file)
+{
+  auto transformation = buildMap(input_file);
+  string text;
+  while (getline(reference_file, text))
+  {
+    istringstream stream(text);
+    string word;
+    bool firstword = true;
+    while (stream >> word)
+    {
+      if (firstword)
+        firstword = false;
+      else
+        cout << " ";
+
+      cout << transform(word, transformation);
+    }
+    cout << endl;
   }
+}
 
-  int a(4);
-  while(a < 5){
-    cout << "a is still less than 5.. ";
-    cin >> a;  
-  }
+int main(int argc, char **argv)
+{
 
-  cout << "a is no longer less than 5.. " << endl;
+  ifstream input_file;
+  input_file.open("input_transformation.txt");
 
-return 0;
+  ifstream reference_file;
+  reference_file.open("word_transformation_file.txt");
+
+  word_transformation(reference_file, input_file);
+
+  input_file.close();
+  reference_file.close();
+
+  return 0;
 }

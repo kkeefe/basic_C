@@ -10,6 +10,8 @@ int main(int argc, char** argv){
  // why is c++ giving me so much shit?
  string word;
 
+// this won't work
+
   while(word != "exit"){
     cout << " please enter a any string of characters you want to be processed: ";
     getline(cin, word);

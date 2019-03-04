@@ -2,11 +2,9 @@
 #include <sstream> // this is the place where istringstream is located..
 
 using namespace std; 
-
 // word transformation map
 
 int main(int argc, char** argv){
- 
   string word;
   while(word != "exit"){
     cout << " please enter a any string of characters you want to be processed: ";
@@ -18,7 +16,6 @@ int main(int argc, char** argv){
       cout << " new word .. " << endl;
       cout << word << " this is what word is now currently pointing too " << endl;
     }
-  }
-
+}
 return 0;
 }

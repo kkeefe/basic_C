@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}"
+                "${workspaceFolder}",
+                "C:/MinGW/lib/gcc/mingw32/8.2.0/include/ssp"
             ],
             "defines": [
                 "_DEBUG",
@@ -11,9 +12,9 @@
                 "_UNICODE"
             ],
             "compilerPath": "C:\\mingw-w64\\bin\\gcc.exe",
-            "intelliSenseMode": "msvc-x64",
+            "intelliSenseMode": "clang-x64",
             "browse": {
-                "path": [   
+                "path": [
                     "${workspaceFolder}",
                     "C:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++"
                 ],

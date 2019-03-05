@@ -6,9 +6,15 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+  shared_ptr<string> p1;
+  shared_ptr<list<int>> p2;
 
-  
-  printf("this is my design.. \n");
+  if(p1 and p1->empty()){
+    *p1 = "hi"; 
+  }
+
+  printf("ni hao\n");
+
 
   return 0;
 }

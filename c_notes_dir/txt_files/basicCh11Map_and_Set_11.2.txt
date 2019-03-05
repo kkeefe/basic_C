@@ -2,6 +2,8 @@
 #include <map>
 #include <set>
 #include <utility> //includes pair
+//make sure to include the unordered_map sets if you need them.. 
+#include <unordered_map>
 
 //find the number of times a set of strings appears in a given input stream
 
@@ -107,6 +109,25 @@ int main() {
   //   out = " appeared this number of time(s): ";
   //   cout <<  map_value.second; //note that size_t does not like out operator
   // }
+
+//  simple set matching and checking program. if the element is not found in the set, it will be added to the set. 
+// the iteration continues until a certain input is found in the string.. 
+  set<string> key_names;
+  string word;
+
+  printf("type exit to leave..");
+  while(cin >> word and word != "exit") {
+
+    if(key_names.find(word) == key_names.end()){
+      printf("name is not found!\n");
+      printf("will add the name to the set..\n");
+      key_names.insert(word);
+    }else
+    {
+      printf("name is FOUND!\n");
+    }
+  }
+
 
   return 0;
 }

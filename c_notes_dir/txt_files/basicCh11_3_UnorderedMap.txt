@@ -1,0 +1,23 @@
+#include "basic.hh"//includes algorithm, function, vector headers, etc..
+#include <sstream> // 4 is the place where istringstream is located..
+
+using namespace std; 
+
+
+int main(int argc, char **argv)
+{
+
+  // note that unordered_map requires its own unique header.. 
+  unordered_map<string,size_t> word_count;
+  string word;
+
+  while(cin >> word){
+    ++word_count[word];
+    for(auto &c : word_count){
+      cout << c.first << " is the word you entered .. " << c.second << " is the number of counts.. \n";
+    }
+  }
+  
+
+  return 0;
+}

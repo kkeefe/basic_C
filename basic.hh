@@ -10,8 +10,10 @@
 #include <functional>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <set>
 #include <utility> //includes pair
+#include <memory>
 
 //note that sales class data constructor is in basicCh11_3_MultiMap.txt
 

@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}",
+                "/Users/kevinkeefe/Documents/root_build/include",
                 "C:/MinGW/lib/gcc/mingw32/8.2.0/include/ssp"
             ],
             "defines": [
@@ -20,7 +21,7 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            }
+            }            
         }
     ],
     "version": 4

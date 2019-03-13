@@ -81,17 +81,27 @@ int main(int argc, char **argv)
   }
   // print_map(pixel_to_JandAsic); //uncomment print map to standard output to check values..
 
-  ofstream outfile1("pixel_cable_channel.txt");
+  // ofstream outfile1("pixel_cable_channel.txt");
+  // for (auto c : pixel_to_JandAsic) // c has type map<int, pair<int, int>> and uses the pixel as its key::type, which is the same key for the cable number..
+  // {
+  //   pair<int, int> row_column = conv_jNum_to_asicRowCol[c.second.first];
+  //   int Asic_channel = conv_pin_to_channel[c.second.second];
+  //   outfile1 << "pixel number: " << c.first
+  //            << "\t cable number is: " << cable_to_pixel[c.first]
+  //            << "\t channel number is: " << convert_to_Channel(Asic_channel, row_column)
+  //            << endl;
+  // }
+  // outfile1.close();
+
+  ofstream outfile1("pixel_channel_only.txt");
   for (auto c : pixel_to_JandAsic) // c has type map<int, pair<int, int>> and uses the pixel as its key::type, which is the same key for the cable number..
   {
     pair<int, int> row_column = conv_jNum_to_asicRowCol[c.second.first];
     int Asic_channel = conv_pin_to_channel[c.second.second];
-    outfile1 << "pixel number: " << c.first
-             << "\t cable number is: " << cable_to_pixel[c.first]
-             << "\t channel number is: " << convert_to_Channel(Asic_channel, row_column)
-             << endl;
+    outfile1 <<  c.first << "\t" << convert_to_Channel(Asic_channel, row_column) << endl;
   }
   outfile1.close();
 
+  
   return 0;
 }

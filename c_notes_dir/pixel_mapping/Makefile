@@ -1,4 +1,4 @@
-all: basic 
+all: pixel_map
 
-basic: basic.cpp
-	g++ -Wall -std=c++11 -g basic.cpp -o basic
+pixel_map: pixel_map.cpp
+	g++ -Wall -std=c++11 -g pixel_map.cpp -o pixel_map

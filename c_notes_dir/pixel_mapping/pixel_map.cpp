@@ -31,18 +31,18 @@ void print_map(const map<int, int> m)
 {
   printf("pixel_num\tcable_num\n");
   for (auto &c : m)
-  {
-    std::cout << c.first << "\t\t" << c.second << "\n";
-  }
+    {
+      std::cout << c.first << "\t\t" << c.second << "\n";
+    }
 }
 
 void print_map(const map<int, pair<int, int>> mp)
 {
   printf("pixel_num\tJ_num\t\tpin_num\n");
   for (auto &c : mp)
-  {
-    std::cout << c.first << "\t\t" << c.second.first << "\t\t" << c.second.second << "\n";
-  }
+    {
+      std::cout << c.first << "\t\t" << c.second.first << "\t\t" << c.second.second << "\n";
+    }
 }
 
 //Must supply pin Num and Row Column information
@@ -83,17 +83,17 @@ int main(int argc, char **argv)
   int pixel_num, cable_num;
   map<int, int> cable_to_pixel;
   while (read_file >> pixel_num >> cable_num)
-  {
-    cable_to_pixel[pixel_num] = cable_num; //create an ordered map between pixel numbers and cable numbers
-  }
+    {
+      cable_to_pixel[pixel_num] = cable_num; //create an ordered map between pixel numbers and cable numbers
+    }
   // print_map(cable_to_pixel); //uncomment print map to standard output to check values..
 
   int j_num, pin_num;
   map<int, pair<int, int>> pixel_to_JandAsic;
   while (read_file2 >> pixel_num >> j_num >> pin_num)
-  {
-    pixel_to_JandAsic[pixel_num] = make_pair(j_num, pin_num); //create an ordered map between pixel number and (j_num / pin_num) pair
-  }
+    {
+      pixel_to_JandAsic[pixel_num] = make_pair(j_num, pin_num); //create an ordered map between pixel number and (j_num / pin_num) pair
+    }
 
   print_map(pixel_to_JandAsic); //uncomment print map to standard output to check values..
 
@@ -121,21 +121,26 @@ int main(int argc, char **argv)
   // use this file to print the map you want.. 
   ifstream infile2("pixel_channel_reg.txt");
   ofstream print_map("pixel_reg_map.cpp");
+  ofstream print_map2("register_to_channel_map.cpp");
   ofstream print_set("register_set.cpp");
 
   print_map << " int conv_RegN_to_pixN(int regN){" << endl;
+  print_map2 << " int conv_RegN_to_chN(int regN){" << endl;
   print_set << " set<int> register_set = \n {";
   int pixN, chN, regN;
   while(infile2 >> pixN >> chN >> regN){
     print_map << "{" << regN << ", " << pixN << "}," << endl;
+    print_map2 << "{" << regN << ", " << chN << "}," << endl;
     print_set << regN << ", ";
   }
 
   print_map << "};";
+  print_map2 << "};";
   print_set << "};";
 
   infile2.close();
-  print_map.close();
+  print_map.close();  
+  print_map2.close();
   print_set.close();
   
   // want to create a set of values from which to read reg_I_want and so to prevent useless register checks..

@@ -8,4 +8,5 @@ book_sales
 
 #ignore anything in stupid vscode dir..
 .vscode/
-.vsode/**/
+.vscode/**/
+.vscode/ipch/

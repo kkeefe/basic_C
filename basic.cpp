@@ -49,16 +49,14 @@ public:
   //const member functions modify this identify that the parameters of the person class they are called on won't change..
   string getName() const { return this->name; }
   string getAddress() const { return this->address; }
-  // void setName(string nme) {this->nme = name;}
-  // void setAddress(string addr) {this->addr = address;}
+  void setName(string nme) {this->address = name;}
+  void setAddress(string addr) {this->address = address;}
 
 private:
   string name;
   string address;
 
 };
-
-
 
   // use this badboy to fill information about a person..
   istream &read(istream &is, Person p)
@@ -68,6 +66,8 @@ private:
     is >> name >> address;
     return is;      
   }
+
+
 
 
 int main(int argc, char **argv)
@@ -107,8 +107,7 @@ int main(int argc, char **argv)
   // cout << second.revenue; 
 
   //7.5 - create your own person class..
-
-
-
+  
+  
   return 0;
 }

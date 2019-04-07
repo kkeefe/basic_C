@@ -3,5 +3,9 @@
 *~
 iterm/
 book_sales
-.DS_Store
+.DS_Store/
 **/FunctionFiles/
+
+#ignore anything in stupid vscode dir..
+.vscode/
+.vsode/**/

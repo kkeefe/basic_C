@@ -1,80 +1,98 @@
 #include "basic.hh" //includes algorithm, function, vector headers, etc..
 #include <sstream>  // 4 is the place where istringstream is located..
 
+// chapter 7 cpp textbook notes, for some reason i skipped the chapter including classes..
+
 using namespace std;
+
+// keep in mind that a class has data_members private by default, in contrast with struct..
+// basic overlay of what a class looks like:
+class Sales_Data
+{
+
+public:
+  //~~~~~~CONSTRUCTORS~~~~~~
+ 
+  //~~MEMBER FUNCTIONS - functions defined here are implicitly inline..
+  std::string isbn() const { return bookNo; };
+  Sales_Data& combine(const Sales_Data&);
+  double avg_price() const;
+
+  //~member values 
+  string bookNo;
+  unsigned units_sold = 0;
+  double revenue = 0.0;
+
+private:
+
+
+//~~defined public functions - friends
+  
+};
+
+double Sales_Data::avg_price() const {
+  if (units_sold)
+    return revenue / units_sold;
+  else
+    return 0;
+}
+
+Sales_Data& Sales_Data::combine(const Sales_Data & rhs){
+  units_sold += rhs.units_sold;
+  revenue += rhs.revenue;
+  return *this;
+}
+
+class Person {
+public:
+  //note that the below are const member functions as const follows the function declaration..
+  //const member functions modify this identify that the parameters of the person class they are called on won't change..
+  string getName() const { return this->name; }
+  string getAddress() const { return this->address; }
+
+private:
+  string name;
+  string address;
+
+};
 
 int main(int argc, char **argv)
 {
+  //7.1 defining abstract data types
+  // some key words to know:
+  // interface        - things available to the user to interact with a class
+  // implementation   - data members / member functions of a class that include private and public memebers..
+  // data abstraction - refers to a programming technique which relies on interface and implementation..
+  // encapsulation    - enforces the separation of a class' interface and implementation
 
-  if(argc != 2){
-    printf("please only enter the file name you wish to open as your second argument..\n");
-    return 1;
-  }
-  
-  ifstream input_file(argv[1]);
-
-  string name[129];
-  string word;
-  for(int i = 0; i < 129; ++i){
-    input_file >> word;
-    name[i] = word;
-    // cout << word << " is the word read.." << endl; // printing stuff to make sure it's reading what you expect..
-  }
-
-  vector<int> threshold_value;
-  vector<int> scaler_counts[128];
-
-  int value;
-  
-  do{
-    for(int i = 0; i < 129; ++i){
-      input_file >> value;
-      if(i == 0){
-	threshold_value.push_back(value);
-      }else
-	scaler_counts[i-1].push_back(value);
-    }
-  }while(!input_file.eof()); //get all of the values that you want.
-
-  // uncomment this to print a list of the used REGISTERS to the standard output..
-  // //lets make a check to see which files actually read any noise, and print them to standard output..
-  // //c iterates through all the members of the vector<int> array..
-  // int array_num(0);
-  // for(auto c : scaler_counts){
-  //   ++array_num;
-  //   bool nonzero(false);
-  //   //look through each vector<int> to find non-zero elements..
-  //   for(auto d : c){
-  //     if(d != 0){
-  // 	nonzero = true; //found something..
-  //     }
-  //   }
-  //   if(nonzero)cout << "found nonzero elements at array: " << array_num << endl;
+  // cout << "hey there! " << endl;
+  // Sales_Data first;
+  // cout << "enters how many units you sold: ";
+  // cin >> first.units_sold;
+  // cout << "\nyou sold: " << first.units_sold << " number of books.. \n";
+  // for (int i = 0; i < first.units_sold; i++)
+  // {
+  //   cin >> first.revenue;
   // }
-  
-  for(int i = 0; i < 129; ++i){
+  // cout << "you have made: " << first.revenue << " monies!\n";
 
-    string file_name("_Channel_SiPM.txt");
-    string count = std::to_string(i);
+  //7.1.2
+  //7.2 - include the above member function definitions..
+  //7.3 - revise previous program steps..
+  // Sales_Data second;
+  // printf("enter the following:\n isbn: ");
+  // cin >> second.bookNo;
+  // printf("\nunits sold: ");
+  // cin >> second.units_sold;
+  // printf("\nrevenue: ");
+  // cin >> second.revenue;
+  // printf("avg value is: ");
+  // cout << second.avg_price();
+  // second = second.combine(second);
+  // printf("\ndouble that revenue is:");
+  // cout << second.revenue; 
 
-    file_name = count + file_name;
+  //7.3 - create your own person class..
 
-    ofstream output_file(file_name);
-
-    if (threshold_value.size() == scaler_counts[i].size()){ //make sure they're the same size..
-
-      auto c = threshold_value.begin();
-      auto d = scaler_counts[i].begin();
-
-      while(c != threshold_value.end()){
-	output_file << *c << "\t" << *d << "\t" << i << endl;
-	c++;
-	d++;
-      }
-    }else {
-      printf("iterators are not of the same length..\n");
-      cout << "file found: " << file_name << endl;
-    }
-  }
   return 0;
 }

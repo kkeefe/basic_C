@@ -9,7 +9,6 @@ using namespace std;
 // basic overlay of what a class looks like:
 class Sales_Data
 {
-
 public:
   //~~~~~~CONSTRUCTORS~~~~~~
   Sales_Data() = default;
@@ -27,28 +26,29 @@ public:
   double revenue = 0.0;
 
 private:
-
-
 //~~defined public functions - friends
-  
 };
 
 
-double Sales_Data::avg_price() const {
+double Sales_Data::avg_price() const 
+{
   if (units_sold)
     return revenue / units_sold;
   else
     return 0;
 }
 
-Sales_Data& Sales_Data::combine(const Sales_Data & rhs){
+Sales_Data& Sales_Data::combine(const Sales_Data & rhs)
+{
   units_sold += rhs.units_sold;
   revenue += rhs.revenue;
   return *this;
 }
 
-class Person {
-
+class Person 
+{
+//friend functions are externally declared / defined functions 
+//they have access to private data memebers..
 public:
   Person() = default;
   Person(const string &nm) : name(nm) { };
@@ -65,10 +65,11 @@ public:
 private:
   string name;
   string address;
-
 };
 
-  istream& read_person(istream &is, Person &p){
+  // use this badboy to fill information about a person..
+  istream& read_person(istream &is, Person &p)
+  {
     string name, addr;
     printf("who are you?..\t");
     is >> name;
@@ -79,22 +80,53 @@ private:
    
     return is;
   }
-  
-  Person::Person(istream &is){
+
+  Person::Person(istream &is)
+  {
     read_person(is, *this);
   }
-  // use this badboy to fill information about a person..
 
-
-  ostream& print_person(ostream &os, Person &p){
+  ostream& print_person(ostream &os, Person &p)
+  {
     os << "address is: " << p.getAddress() << endl;
     os << "name is: " << p.getName() << endl;
 
     return os;
   }
 
+class Screen 
+{
+  public: 
+    typedef std::string::size_type pos;
+    //Constructors
+    Screen() = default;
+    Screen(pos ht, pos wd, char c) : height(ht), width(wd), contents(ht*wd, c) { }
+    Screen(pos ht, pos wd) : height(ht), width(wd), contents(ht*wd, ' ') { }
+
+    //member functions
+    char get() const 
+      { return contents[cursor]; }
+    inline char get(pos ht, pos wd) const;
+    Screen &move(pos r, pos c);
+  
+  private:
+    //mutable data memebers can always be changed, even by const memever functions
+    mutable unsigned access_ctr = 0;
+    pos cursor = 0;
+    pos height = 0, width = 0;
+    std::string contents;
+};
+
+class Window_mgr 
+{
+  private:
+    //Window_mgr stores a vector of screens, and is default initialized with a single element
+    //notice the single element uses Screen-class initializer..
+    std::vector<Screen> screens { Screen(24, 80, ' ') } ;
+};
+
   int main(int argc, char **argv)
-  {
+{
     //7.1 defining abstract data types
     // some key words to know:
     // interface        - things available to the user to interact with a class
@@ -135,8 +167,14 @@ private:
     print_person(cout, you);
 
     //constructors
-    Person me(cin);
+    Person me(cin); //create a person from standard input calling the read_person function
     print_person(cout, me);
 
+    //sect 7.2 -
+    // public vs. private : public memembers are directly available to code outside of class.
+    // whereas private members are only available to class member functions. (encapsulation)
+    // struct vs. class - default data member are public vs. private..
+
+
     return 0;
-}
+  }

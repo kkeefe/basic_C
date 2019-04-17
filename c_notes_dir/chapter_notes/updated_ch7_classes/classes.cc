@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
 #include "classes.hh"
-
 
 Sales_Data &Sales_Data::combine(const Sales_Data &rhs)
 {
@@ -39,7 +36,7 @@ std::ostream &print_data(std::ostream &os, const Sales_Data &sales)
   return os;
 }
 
-inline double Sales_Data::avg_price() const
+double Sales_Data::avg_price() const
 {
   if (units_sold)
     return revenue / units_sold;
@@ -51,7 +48,7 @@ inline double Sales_Data::avg_price() const
 istream &read_person(istream &is, Person &p)
 {
   string name, addr;
-  printf("who are you?..\t");
+  printf("\nwho are you?..\t");
   is >> name;
   p.setName(name);
   printf("where do you live?.. ");
@@ -75,19 +72,19 @@ ostream &print_person(ostream &os, Person &p)
 }
 
 //note memeber function definitions are compiled after all class declarations have been seen.
-inline Screen &Screen::set(char c)
+Screen &Screen::set(char c)
 {
   contents[cursor] = c;
   return *this;
 }
 
-inline Screen &Screen::set(pos r, pos col, char c)
+Screen &Screen::set(pos r, pos col, char c)
 {
   contents[r * width + col] = c;
   return *this;
 }
 
-inline Screen &Screen::move(pos r, pos c)
+Screen &Screen::move(pos r, pos c)
 {
   pos row = r * width;
   cursor = row + c;

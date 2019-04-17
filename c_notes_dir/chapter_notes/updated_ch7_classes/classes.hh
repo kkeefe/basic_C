@@ -45,10 +45,14 @@ class Sales_Data
     //~~defined public functions - friends
 };
 
+
 class Person
 {
     //friend functions are externally declared / defined functions
     //they have access to private data memebers..
+  friend istream &read_person(istream &, Person &);
+  friend ostream &print_person(ostream &, Person &);
+
   public:
     // default constructor can be used by setting the below arguement in the parentheses
     explicit Person(istream &is = std::cin); // effective default
@@ -71,6 +75,10 @@ class Person
 class Screen
 {
   typedef std::string::size_type pos;
+  
+  //do you have any friends??
+  //friends MUST be decalred outside of the class scope..
+  friend class Window_mgr;
 
   public:
     //Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,16 +110,12 @@ class Screen
 
   private:
     //mutable data memebers can always be changed, even by const memever functions
-    // mutable unsigned access_ctr = 0;
+    mutable unsigned access_ctr = 0;
     pos cursor = 0;
     pos height = 0, width = 0;
     std::string contents;
     //private memeber functions
     void do_display(std::ostream &os) const { os << contents; }
-
-    //do you have any friends??
-    //friends MUST be decalred outside of the class scope..
-    friend class Window_mgr;
 };
 
 class Window_mgr

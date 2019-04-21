@@ -27,16 +27,16 @@
  * 	Fax: (201) 236-3290
 */ 
 
-#include <string>
-using std::string;
+// #include <string>
+// using std::string;
 
-#include "Account.h"
+// #include "Account.h"
 
-// define static data and function members
-const string Account::accountType("Savings Account");
-double Account::interestRate = initRate();
+// // define static data and function members
+// const string Account::accountType("Savings Account");
+// double Account::interestRate = initRate();
 
-void Account::rate(double newRate) 
-{
-    interestRate = newRate; 
-}
+// void Account::rate(double newRate) 
+// {
+//     interestRate = newRate; 
+// }

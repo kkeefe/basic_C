@@ -41,7 +41,7 @@ inline bool is_shorter (const string& a, const string& b){
   PRINT FUNCTIONS!!
 */
 
-void print_map_string_stringvec(map<string, vector<string>> a){
+void print_map_string_stringvec(map<string, vector< string > > a){
   for(auto c : a){
     cout << "Family Name: " << c.first << ", has the following children:\n";
     int a(1);
@@ -78,3 +78,29 @@ void print_multiMap_stringString(multimap<string, string> map){
     start++;
   }
 }
+
+// function for ch12 ex 6
+shared_ptr<vector<int>> make_shared_vector(vector<int> vec_int){
+  shared_ptr<vector<int>> shared_vec_int(new vector<int> (vec_int));
+  return shared_vec_int;
+}
+
+// now make a function to print the values which we read..
+
+ostream& print_shared_vector(ostream& os, shared_ptr<vector<int>> shared_vec_int){
+  
+  for(auto c : *shared_vec_int){
+    os  << c << "\n";
+  }
+  return os;
+}
+
+// additional smart pointer practice:
+
+void process_1(shared_ptr<int> ptr){
+  cout << *ptr << " is the value pt shared_ptr " << ptr.use_count() << "\n";
+}
+
+
+
+

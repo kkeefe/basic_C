@@ -89,9 +89,9 @@ int main(int argc, char **argv)
   // explain if the following calls are legal:
   // the below function creates a new shared_ptr, passes it to process
   // the count inside of process is 2, and returns to 1 after scope.
-  shared_ptr<int> p(new int(2048));
-  process_1(shared_ptr<int>(p));
-  cout << *p << " value again? " << p.use_count() << endl;
+  // shared_ptr<int> p(new int(2048));
+  // process_1(shared_ptr<int>(p));
+  // cout << *p << " value again? " << p.use_count() << endl;
 
   // // Exercise 12.11
   // // what happens if instead?
@@ -121,6 +121,10 @@ int main(int argc, char **argv)
   // Exercise 12.15
   // rewrite the above exercise to use a lamba
   // callable instead of a function..
+  Data d1;
+  d1.value = 1;
+  manage_analysis(d1);
+  manage_analysis2(d1);    
 
 return 0;
 }

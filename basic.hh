@@ -101,6 +101,43 @@ void process_1(shared_ptr<int> ptr){
   cout << *ptr << " is the value pt shared_ptr " << ptr.use_count() << "\n";
 }
 
+// part of exercises 12.14 / 12.15
+struct Data
+{
+  Data() = default;
+  int value;
+  int value2;
+};
 
+struct Analysis
+{
+  Analysis() = default;
+  int value;
+};
 
+Analysis analyze(Data *d){
+  Analysis a;
+  a.value = 2*d->value;
+  return a;
+}
 
+void stopAnalyze(Analysis){
+  printf("analysis complete.\n");
+}
+
+void endAnalysis(Analysis* a){
+  stopAnalyze(*a);
+}
+
+void manage_analysis(Data &c){
+  cout << "running analysis.." << endl;
+  Analysis d = analyze(&c);
+  shared_ptr<Analysis>p(&d , endAnalysis);
+}
+
+// ex 12.15 wants to use endAnalysis as a lambda fnc instead..
+void manage_analysis2(Data &c){
+  cout << "running analysis2..\n";
+  Analysis d = analyze(&c);
+  shared_ptr<Analysis>p(&d, [](Analysis *a){stopAnalyze(*a);});
+}

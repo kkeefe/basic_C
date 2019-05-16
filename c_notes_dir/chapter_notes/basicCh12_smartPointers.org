@@ -1,0 +1,247 @@
+#+TITLE: basicCh12_smartPointers
+** header file stuff
+#+BEGIN_SRC C++
+//function defintions
+// #include "Sales_item.h"--moved to another directory?
+#include <list>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <vector>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <utility> //includes pair
+#include <memory>
+
+using namespace std;
+
+/*
+   Word transformation functions!!
+ ,*/
+const string &transform(const string &s, const map<string, string> &m);
+
+map<string, string> buildMap(ifstream &reference_file);
+
+void word_transformation(ifstream &input_file, ifstream &reference_file);
+
+/*
+   END transformation functions!!
+ ,*/
+
+//best practice is to declare and define all inline and constexpr functions inside header files only: they must all match exactly and definition must be known at compile time.
+inline bool is_shorter (const string& a, const string& b){
+  return  (a > b) ? true : false;
+}
+
+/*
+  PRINT FUNCTIONS!!
+,*/
+
+void print_map_string_stringvec(map<string, vector< string > > a){
+  for(auto c : a){
+    cout << "Family Name: " << c.first << ", has the following children:\n";
+    int a(1);
+    for(auto d : c.second){
+      cout << a << ". " << d << endl;
+      a++;
+    }
+  }
+}
+
+void print_map_string_vecPair_string_string(map<string, vector<pair<string,string>>> a){
+
+  for(auto c : a){ //c has type pair string vec_pair
+    cout << "Family Name: " << c.first << ", has the following children:\n";
+    int a(1);
+    for(auto d : c.second){ //d has type pair<string,string>
+      cout << a << ". " << d.first << "\t";
+      cout << d.first << "'s birthday is: " << d.second << endl;
+      a++;
+    }
+  }
+}
+
+void print_map_iterator(map<string, vector<int>>::iterator map){
+  cout << map->first << " is the first element.. " << endl;
+  cout << map->second[1] << " is the second element of the vector space.. " << endl;
+}
+
+void print_multiMap_stringString(multimap<string, string> map){
+  multimap<string, string>::iterator start = map.begin();
+  while(start != map.end()){
+    cout << start->first << " is the author name .. ";
+    cout << start->second << " is the work .. " << endl;
+    start++;
+  }
+}
+
+// function for ch12 ex 6
+shared_ptr<vector<int>> make_shared_vector(vector<int> vec_int){
+  shared_ptr<vector<int>> shared_vec_int(new vector<int> (vec_int));
+  return shared_vec_int;
+}
+
+// now make a function to print the values which we read..
+
+ostream& print_shared_vector(ostream& os, shared_ptr<vector<int>> shared_vec_int){
+
+  for(auto c : *shared_vec_int){
+    os  << c << "\n";
+  }
+  return os;
+}
+
+// additional smart pointer practice:
+
+void process_1(shared_ptr<int> ptr){
+  cout << *ptr << " is the value pt shared_ptr " << ptr.use_count() << "\n";
+}
+
+// part of exercises 12.14 / 12.15
+struct Data
+{
+  Data() = default;
+  int value;
+  int value2;
+};
+
+struct Analysis
+{
+  Analysis() = default;
+  int value;
+};
+
+Analysis analyze(Data *d){
+  Analysis a;
+  a.value = 2*d->value;
+  return a;
+}
+
+void stopAnalyze(Analysis){
+  printf("analysis complete.\n");
+}
+
+void endAnalysis(Analysis* a){
+  stopAnalyze(*a);
+}
+
+void manage_analysis(Data &c){
+  cout << "running analysis.." << endl;
+  Analysis d = analyze(&c);
+  shared_ptr<Analysis>p(&d , endAnalysis);
+}
+
+// ex 12.15 wants to use endAnalysis as a lambda fnc instead..
+void manage_analysis2(Data &c){
+  cout << "running analysis2..\n";
+  Analysis d = analyze(&c);
+  shared_ptr<Analysis>p(&d, [](Analysis *a){stopAnalyze(*a);});
+}
+#+END_SRC
+** useful parts:
+*** section 1
+#+BEGIN_SRC C++
+
+  // Dynamic memory is managed through two operators: new and delete
+  // new frees new object memory to associate with a pointer,
+  // delete, obviously destroys the said pointer and frees memory..
+
+  // three kinds of smart pointers: (all located in memory header)
+  // shared_ptr -> multiple pointers to refer to the same object
+  // unique_ptr -> "owns" object to which it points
+  // weak_ptr   -> weak reference to an object managed by a shared_ptr
+
+  // 12.1.1 - shared_ptr
+  // these bad bois are templates, like vector< >
+
+  shared_ptr<string> p1; // this guy can point to a string
+  shared_ptr<list<int>> p2; // can point to a list of ints
+
+  //lets check to see if p1 is empty
+  if (p1 && p1->empty()) *p1 = "hi"; // will not currently at to p1..
+
+  shared_ptr<int> p3 = make_shared<int>(42);
+  cout << *p3;
+
+  // exercise 1/2 -create SrBlob class and test size of addition..
+  StrBlob b1;
+  {
+    StrBlob b2 = {"a", "an", "the"};
+    b1 = b2;
+    b2.push_back("about");
+  }
+
+  //  cout << "size of shared_ptr is: " << b1.size();
+
+  // exercise 3 - do the push_back and pop_back functions need const?
+  // exercise 4 - dat	a could be null pointer, but if it is pointer to 0, value is destroyed.
+  // exercise 5 - constructor for initializer_list is not explicit, what are the pros / cons?
+  // -> Pros : can be used for implicit conversion types
+  // -> Cons : these pointers are fuckin confusing..
+
+  // smart pointers are explicit..
+  // smart pointers with new:
+  // error : shared_ptr<int> shared_int = new int(1024);
+  // shared_ptr<int> shared_int(new int(1024));
+  // cout << "\nthe value of shared int is: " << *shared_int << endl;
+
+  #+END_SRC
+*** section 2
+#+BEGIN_SRC C++
+  // write a function which returns a dynamically allocated vector of ints..
+  // pass that vector to another function that reads std::in to give values to
+  // the elements
+  // remember to delete the vector at the appropriate time..
+  vector<int> vec1 = {1, 2, 3};
+  auto shared_vec1 = make_shared_vector(vec1);
+  print_shared_vector(cout, shared_vec1);
+
+  // use no throw when you don't want to fail if there is in fact no new memory..
+  int a(7);
+  int *p3 = new (nothrow) int(a);
+
+  // if you delete the pointer, it must be a dynamic pointer..
+  // it is also okay to delete nullptrs..
+  cout << *p3 << ", value of *p3\n";
+  cout << a << ", value of a\n";
+  delete p3;
+  cout << a << ", value of a\n";
+  cout << *p3 << ", value of *p3\n";
+
+  // exercise 12.8 if you use a function to create dynamic memory objects, delete them
+  // inside of the same scope. they are not freed by leaving the scope of the function..
+
+  // Exercise: 12.9
+  // explains what happens in the following code"
+  int *q = new int(42) , *r = new int(100);
+  r = q; // the memory is not freed from the original r value!
+  // note that deleteing -either- p or r frees the memory..
+
+  auto q2 = make_shared<int>(42) , r2 = make_shared<int>(100);
+  cout << r2.use_count() << endl; // 1 ptr
+  r2 = q2;
+  cout << r2.use_count() << endl; // 2 ptr..
+
+  Exercise 12.10
+  explain if the following calls are legal:
+  the below function creates a new shared_ptr, passes it to process
+  the count inside of process is 2, and returns to 1 after scope.
+  shared_ptr<int> p(new int(2048));
+  process_1(shared_ptr<int>(p));
+  cout << *p << " value again? " << p.use_count() << endl;
+
+  // // Exercise 12.11
+  // // what happens if instead?
+  shared_ptr<int> w(new int(4098));
+  process_1(shared_ptr<int>(w.get())); // bad malloc error!
+  // this occurs since we initialized a shared_ptr from get..
+  // get returns a built-in pointer and is destroyed in function call..
+#+END_SRC
+
+** main file stuff
+(to do) - fill in when all complete.

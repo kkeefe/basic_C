@@ -1,0 +1,133 @@
+** because no one likes to start off using std namespace..
+#+BEGIN_SRC C++
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector> //library for vector usage
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+using std::vector;
+
+
+#+END_SRC
+
+
+** begin the code:
+#+BEGIN_SRC C++
+  int main(){			
+
+    //define the integer vectors
+    vector<int> v1;
+    // below initializes a vec of size 10 all ements 10
+    vector<int> v2(10);
+    // below initializes a vec of size 10, all elements are 42..
+    vector<int> v3(10, 42);
+
+    std::fstream fFile;
+    string file_name;
+
+    cout << "Please input the file name you would like to read from: ";
+    cin >> file_name;
+
+
+    //open the fStream file
+    fFile.open(file_name);
+
+    //fill the elements of the vector from the file
+    int int1;
+    while(fFile >> int1){
+      v1.push_back(int1);
+    }
+
+    int i = 0;
+    int j = v1.size() - 1;
+    int sum;
+
+    for(int i = 0; i <= j; i++, j--){
+      cout << v1[i] << " i'th value, found on line " << i <<  std::endl;
+      cout << v1[j] << " j'th value, found on line " << j << std::endl;
+      sum = v1[i] + v1[j];
+      cout << sum << " is the value of the sum " << std::endl;
+    }
+
+
+    //change the elements of the vector
+    int place_holder = 0, next = 0;
+    for(auto& c : v1){
+      next = c;
+      c+=place_holder;
+      place_holder = next;
+      cout << c << std::endl;
+    }
+
+
+    //make sure to close the file
+    fFile.close();
+
+    /* the below code adds and reads informations to string vector and
+       changes all elements to uppercase */
+    //define the string operations
+    vector<string> sv1;
+    string s1;
+
+    cout << "Please enter any string would like to add to the string vector. Type
+  exit to escape";
+    //construct the string vector
+    while(cin >> s1 and s1 != "exit"){
+      sv1.push_back(s1);
+    }
+
+    //alter the string vector type
+    for(auto c : sv1){
+      for(auto&d : c){
+        d = toupper(d);
+      }
+      cout << c << std::endl;
+    }
+
+    /* the below code adds and reads informations to vstring and vint vector types */
+    //leave the vector unintialized since it is usually more effecient to add to an arbitrary sized vector
+    vector<string> vstring;
+
+    string a;
+
+    vector<int> vint;
+
+    cout << "Please input integers you would like to add to your vector. " << std::endl;
+
+    //add integers to vstring
+    while(cin >> a and a != "exit"){
+      vstring.push_back(a);
+    }
+
+    //spit out all of the values of the vector
+    //vector is a "array" type like a string, and may have a range : for loop to iterate over it's values.
+    for(auto c : vstring){
+      cout << c;
+    }
+
+    //declare the procedure for an integer vector type
+    cout << "Please enter the numbers you would like added to your integer vector: " << std::endl;
+
+
+    //add elements to the vector array
+    int a1;
+    while(cin >> a1){
+      vint.push_back(a1);
+    }
+
+    //cube the elements of the vector array and put them on the iostream
+    a1 = 0;
+    for(auto& c : vint){
+      a1++;
+      c = c*c*c;
+      cout << c << " this is the " << a1 << "th element of the vint array. " << std::endl;
+    }
+    return 0;
+  }
+#+END_SRC
+

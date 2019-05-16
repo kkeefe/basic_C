@@ -1,0 +1,114 @@
+* chapter 3
+** header stuff
+#+BEGIN_SRC C++
+
+#include <cstddef>
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <vector> //library for vectur usage
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+using std::vector;
+
+#+END_SRC
+
+** fnc stuff
+#+BEGIN_SRC C++
+int main(){
+
+  //define the integer vectors
+  vector<int> v1;
+  vector<int> v2(11);
+  vector<int> v3(10, 42);
+
+  //char array
+  const size_t sz = 6;
+  char ca1[sz] = {'a', 'c', 'c', 'd', 'e', 'f'};
+  char ca2[sz] = {'a', 'b', 'c', 'd', 'e', 'g'};
+
+  const char ca3[sz] = {'h','e','l','l','o'};
+  const char* consp = ca3;
+
+#+END_SRC
+
+** I/O stuff
+#+BEGIN_SRC C++
+  while(*consp){
+    cout << *consp << std::endl;
+    consp++;
+  }
+  
+  //create pointers for each array to compare, and an ending array value
+  char* p1 = ca1;
+  char* p3 = ca2;
+  char*p2 = std::end(ca1);
+  
+  //compare the values of each pointer, indexing each pointer.
+  for(p1, p3; p1 != p2 and p3 != p2; p1++, p3++){
+    if(*p1 == *p3){
+      cout << "values are eaual at line. " << std::endl;
+    }else if(*p1 != *p3){
+      cout << *p1 << " is not equal to " << *p3 << std::endl;
+    }
+  }
+ 
+#+END_SRC
+
+** more I/O stuff
+#+BEGIN_SRC C++
+ //compare to different string vectors
+  vector<string> sv1;
+  cout << "Please input values you would like to add to your first string: " << std::endl;
+  string a;
+  while(cin >> a and a != "exit"){
+    sv1.push_back(a);
+  }
+
+  cout << "the string vector you entered is: " << std::endl;  
+  for(auto c: sv1){
+    cout << c << "\t";
+  }
+
+  std::ifstream infile;
+  vector<string> sv2;
+  string s2;
+  infile.open("read.txt");
+  while(infile >> s2){
+    sv2.push_back(s2);
+  }
+
+  cout << "the file you read from 'read.txt' is: " << std::endl;
+  for(auto c: sv2){
+    cout << c << "\t";
+  }
+
+  infile.close();
+#+END_SRC
+
+** comparison between itrs..
+#+BEGIN_SRC C++
+
+  auto it1 = sv1.begin();
+  auto it2 = sv2.begin();
+
+  cout << "This comparision between the vectors is: " << std::endl;
+  for(it1, it2; it1 != sv1.end() and it2 != sv2.end(); it1++, it2++){
+    cout << *it1 << " and " << *it2;
+    if(*it1 == *it2){
+      cout << " are equal " << std::endl;
+    }else if (*it1 != *it2){
+      cout << " are not equal " << std::endl;
+    }
+  }
+
+
+  
+  
+  return 0;
+  
+}
+#+END_SRC

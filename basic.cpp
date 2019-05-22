@@ -1,7 +1,6 @@
 #include "basic.hh"
 #include "StrBlob.hh"
 
-
 // Chapter 12 notes.. Dynamic Memory
 int main(int argc, char **argv)
 {
@@ -20,7 +19,7 @@ int main(int argc, char **argv)
   // auto sp = make_shared<int>();
   // auto p4  = sp.get();
   // delete p4; // like 12.11 this deletes the make_shared pointer, sp..
-  
+
   // Exercise 12.14
   // write your own version of a function which manages a
   // connection with a shared_ptr
@@ -61,6 +60,10 @@ int main(int argc, char **argv)
   // IntP p5(p2.get()); // malloc error on release..
   IntP p4(new int(2048));
   IntP p2(pi2);
+
+
+  double money(3.50);
+  money = 5;
 
   // exercise 12.18:
   // why doesn't shared_ptr have a release memeber?

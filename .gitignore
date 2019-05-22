@@ -8,4 +8,8 @@ book_sales
 
 #ignore anything in stupid vscode dir..
 .vscode/
-.vsode/**/
+.vsode/**/*#*
+*.html
+*.json
+*.txt
+*.el

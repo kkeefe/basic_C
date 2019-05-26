@@ -111,6 +111,8 @@ ostream& print(ostream& os, const QueryResult& qr)
 // Chapter 12 notes.. Dynamic Memory
 int main(int argc, char **argv)
 {
+
+
   int val = 5;
   // protip - do not assign uniq_ptr to val and then destroy it..
   unique_ptr<int> uniq_int2(new int (42));
@@ -242,29 +244,41 @@ int main(int argc, char **argv)
   std::string strT = str1 + str2;
   std::cout << strT << ", combined string\n";
 
-  // 12.24 do this but some standard input
-  char* userInput(new char[10]);
-  while( userInput[0] != 'e'){
-    char test[10] , smol[5];
-    std::cin >> userInput;
-    std::cout << "you've entered: " << userInput << std::endl;
-    std::cout << "please enter test, followed by smol:\n";
-    std::cin >> test >> smol;
-    std::cout << "you've entered: " << test << "\t" << smol << std::endl;
-    std::cout << "ni hao" << endl;
-  }
+  // // 12.24 do this but some standard input
+  // char* userInput(new char[10]);
+  // while( userInput[0] != 'e'){
+  //   char test[10] , smol[5];
+  //   std::cin >> userInput;
+  //   std::cout << "you've entered: " << userInput << std::endl;
+  //   std::cout << "please enter test, followed by smol:\n";
+  //   std::cin >> test >> smol;
+  //   std::cout << "you've entered: " << test << "\t" << smol << std::endl;
+  //   std::cout << "ni hao" << endl;
+  // }
 
-  // 12.3 using a text query program
-  while(true){
-    string s;
-    std::cout << "please enter a word: " << endl;
-    if(!(cin >> s) or s == "q") break;
-    std::cout << "you entered a word.." << endl;
-  }
+  // // 12.3 using a text query program
+  // while(true){
+  //   string s;
+  //   std::cout << "please enter a word: " << endl;
+  //   if(!(cin >> s) or s == "q") break;
+  //   std::cout << "you entered a word.." << endl;
+  // }
 
   // using a text query program -> data looking program
   // want two classes -> place to read and store data file
   // second one       -> place to get results from the first class 
+
+  ifstream readFile("blah.txt");
+
+  TextQuery tq(readFile);
+  while(true){
+    string looking_for;
+    cout << "please enter a string you want to search for: ";
+    cin >> looking_for;
+    if (looking_for == "exit") break;
+    auto result = tq.query(looking_for);
+    print(cout , result);
+  }
 
   return 0;
 }

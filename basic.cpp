@@ -106,6 +106,18 @@ ostream& print(ostream& os, const QueryResult& qr)
   return os;
 }
 
+void runQueries(ifstream &infile){
+  TextQuery tq(infile);
+  while(true){
+    string looking_for;
+    cout << "please enter a string you want to search for: ";
+    cin >> looking_for;
+    if (looking_for == "exit") break;
+    auto result = tq.query(looking_for);
+    print(cout , result);
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 // Chapter 12 notes.. Dynamic Memory
@@ -268,17 +280,9 @@ int main(int argc, char **argv)
   // want two classes -> place to read and store data file
   // second one       -> place to get results from the first class 
 
+  // better implementation in the main code.
   ifstream readFile("blah.txt");
-
-  TextQuery tq(readFile);
-  while(true){
-    string looking_for;
-    cout << "please enter a string you want to search for: ";
-    cin >> looking_for;
-    if (looking_for == "exit") break;
-    auto result = tq.query(looking_for);
-    print(cout , result);
-  }
+  runQueries(readFile);
 
   return 0;
 }

@@ -14,6 +14,7 @@
 #include <set>
 #include <utility> //includes pair
 #include <memory>
+#include <sstream>
 
 //note that sales class data constructor is in basicCh11_3_MultiMap.txt
 

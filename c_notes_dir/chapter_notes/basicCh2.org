@@ -1,3 +1,6 @@
+* Chapter 2 of C++ Primer
+** header stuff
+#+BEGIN_SRC C++
 #include <iostream>
 #include <fstream>
 
@@ -5,13 +8,17 @@ using std::string;
 using std::cout;
 using std::cin;
 
+#+END_SRC
+** struct definition
+#+BEGIN_SRC C++
 struct Sales_Data {
   string sales_isbn;
   int sales_count;
   double sales_price;
 };
-
-
+#+END_SRC
+** begin the main() function
+#+BEGIN_SRC C++
 int main(){
 
   std::ifstream items;
@@ -19,7 +26,10 @@ int main(){
   Sales_Data data1, data2;
   double partial_price;
   char check;
-  
+ 
+#+END_SRC
+** more things..
+#+BEGIN_SRC C++
   //ask for the file name you want to read from
   cout << "Please input the file name you wish to read from: " << std::endl;
   cin >> file_name;
@@ -31,39 +41,43 @@ int main(){
     std::cerr << "That is not a valid input.. " << std::endl;
     return -1;
   }
-
+#+END_SRC
+** get some user input
+#+BEGIN_SRC C++
   //for yes, add the isbn to data2
   if(check == 'y'){
-  cout << "Please input the ISBN you wish to cross-check: #-###-#####-# " << std::endl;
-  cin >> data2.sales_isbn;
-  }
-  
+    cout << "Please input the ISBN you wish to cross-check: #-###-#####-# " << std::endl;
+    cin >> data2.sales_isbn;
+   }
+
   items.open(file_name);
 
   while(!items.eof()){
-  //read the items to data1
-  items >> data1.sales_isbn >> data1.sales_count >> data1.sales_price;
+    //read the items to data1
+    items >> data1.sales_isbn >> data1.sales_count >> data1.sales_price;
 
-  //calculate the total price from the sale
-  partial_price = data1.sales_count*data1.sales_price;
-  
-  //take the values from data1 to send to data2
-  data2.sales_price+=partial_price;
+    //calculate the total price from the sale
+    partial_price = data1.sales_count*data1.sales_price;
 
-  //cross check the isbn
-  if(data1.sales_isbn == data2.sales_isbn){
-    data2.sales_count+=data1.sales_count;
-  }
-  
-  
-  };
+    //take the values from data1 to send to data2
+    data2.sales_price+=partial_price;
+
+    //cross check the isbn
+    if(data1.sales_isbn == data2.sales_isbn){
+      data2.sales_count+=data1.sales_count;
+    }
+   };
   items.close();
-
+#+END_SRC
+** see some of the user input..
+#+BEGIN_SRC C++
   //print the results of the file read
   cout << data2.sales_count << " is the total sales count " << std::endl;
   cout << data2.sales_price << " is the total sales price " << std::endl;
-
-  
+#+END_SRC
+** don't forget to end the function again..
+#+BEGIN_SRC C++
   return 0;
-  
 }
+#+END_SRC 
+  

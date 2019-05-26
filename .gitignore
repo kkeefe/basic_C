@@ -7,4 +7,9 @@ book_sales
 **/FunctionFiles/
 
 #ignore anything in stupid vscode dir..
-.vscode/ipch/
+.vscode/
+.vsode/**/*#*
+*.html
+*.json
+*.txt
+*.el

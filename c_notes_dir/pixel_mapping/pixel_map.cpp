@@ -132,6 +132,10 @@ int main(int argc, char **argv)
   // pixel# channel# register#
   ifstream read_file3("pixel_channel_reg.txt");
 
+  // pixel# channel# register#
+  ifstream read_file4("fOutcard_to_sOutcard.txt");
+  ofstream print_map("conv_fast_to_slow_pixel_map.cpp");
+
   int pixel_num, cable_num;
   map<int, int> cable_to_pixel;
   while (read_file >> pixel_num >> cable_num)
@@ -146,10 +150,28 @@ int main(int argc, char **argv)
     pixel_to_JandAsic[pixel_num] = make_pair(j_num, pin_num); //create an ordered map between pixel number and (j_num / pin_num) pair
   }
 
-  ofstream outfile("pixelData.json");
-  ofstream outfile2("pixelData.txt");
-  outfile << "{\n\t\"allPixelMappings\":[\n";
-  outfile2 << "pixelNum\tjNum\tregNum\trow\tcol\tcableNum\tchNum\treadNum\tbitNum\n";
+  // // only useful to create the actual pixel mapping between slow and fast output cards
+  // int fastPixel , slowPixel ;
+  // map<int , int>conv_fast_to_slow_pixel;
+  // while (read_file4 >> fastPixel >> slowPixel){
+    // conv_fast_to_slow_pixel[fastPixel] = slowPixel;
+  // }
+
+  // print_map << "map<int,int> conv_fast_to_slow_pixel = {\n";
+  // for(auto c : conv_fast_to_slow_pixel){
+    // print_map << "\t{" << c.first << ", " << c.second << "},\n";
+  // }
+  // print_map << "};";
+  // print_map.close();
+
+  ofstream fast_outfile_json("fast_pixelData.json");
+  ofstream fast_outfile_txt("fast_pixelData.txt");
+  ofstream slow_outfile_json("slow_pixelData.json");
+  ofstream slow_outfile_txt("slow_pixelData.txt");
+  fast_outfile_json << "{\n\t\"allPixelMappings\":[\n";
+  fast_outfile_txt << "pixelNum\ts_pixelNum\tjNum\tregNum\trow\tcol\tcableNum\tchNum\treadNum\tbitNum\n";
+  slow_outfile_json << "{\n\t\"allPixelMappings\":[\n";
+  slow_outfile_txt << "pixelNum\ts_pixelNum\tjNum\tregNum\trow\tcol\tcableNum\tchNum\treadNum\tbitNum\n";
   for(int i = 1; i <= 64; ++i){
     int cableNum = cable_to_pixel[i];
 
@@ -166,14 +188,20 @@ int main(int argc, char **argv)
 
     int readNum = convert_bitNum_to_readOrder(bitNum);
 
-    create_Json(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , outfile);
-    create_Txt(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , outfile2);
+    create_Json(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , fast_outfile_json);
+    create_Txt(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , fast_outfile_txt);
+    create_Json( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , slow_outfile_json);
+    create_Txt( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , slow_outfile_txt);
   }
-  outfile << "\t]\n}";
+  fast_outfile_json << "\t]\n}";
+  slow_outfile_json << "\t]\n}";
+
   // close the files you're looking at
   read_file3.close();
-  outfile.close();
-  outfile2.close();
+  slow_outfile_json.close();
+  slow_outfile_txt.close();
+  fast_outfile_json.close();
+  fast_outfile_txt.close();
 
   return 0;
 }

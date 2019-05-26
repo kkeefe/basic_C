@@ -243,5 +243,39 @@ void manage_analysis2(Data &c){
   // get returns a built-in pointer and is destroyed in function call..
 #+END_SRC
 
+*** section 3
+#+BEGIN_SRC C++
+  // Exercise 12.12
+  // use the following p & sp declarations. find what is legal / not
+  auto pa = new int();
+  auto sp = make_shared<int>();
+  process_1(sp); // good to go
+  process_1(make_shared<int>()); // good to go
+  process_1(new int()); // no dice, like pa..
+  process_1(pa); // no good, pa not a shared_ptr..
+
+  // Exercise 12.13
+  // what happens with the following code:
+  auto sp = make_shared<int>();
+  auto p4  = sp.get();
+  delete p4; // like 12.11 this deletes the make_shared pointer, sp..
+
+  // # Exercise 12.14
+  // write your own version of a function which manages a
+  // connection with a shared_ptr
+  //
+  //  Exercise 12.15
+  // rewrite the above exercise to use a lamba
+  // callable instead of a function..
+  Data d1;
+  d1.value = 1;
+  manage_analysis(d1);
+  manage_analysis2(d1);
+
+  // begin section 5 stuff:
+  uniqute_prts
+  must use direct form of initialization
+  find this beginning on page 470
+#+END_SRC
 ** main file stuff
 (to do) - fill in when all complete.

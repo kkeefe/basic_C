@@ -1,28 +1,32 @@
 #include "basic.hh"
 #include "StrBlob.hh"
 
-// class queryData
-// {
-// using std::vector<vector<double>> = Data;
-// private:
-//   std::shared_ptr<Data> data; // place to point to where the data is 
-//   std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
-//   std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
+// reads a txt file
+// stores first line of text file into 'items'
+// reads the rest of the data line by line, associating each column with the column name
+// 
+class queryData
+{
+using std::vector<vector<double>> = Data;
+private:
+  std::shared_ptr<Data> data; // place to point to where the data is 
+  std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
+  std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
 
-// public:
-//   queryData queryData(std::ifstream &);
-// };
+public:
+  queryData queryData(std::ifstream &);
+};
 
-// class dataResult
-// {
-// private:
-//   std::shared_ptr<Data> data; // place to point to where the data is 
-//   std::string dataName;
-//   std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
-//   std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
-// public:
-//   basic dataResult();
-// };
+class dataResult
+{
+private:
+  std::shared_ptr<Data> data; // place to point to where the data is 
+  std::string dataName;
+  std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
+  std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
+public:
+  basic dataResult();
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// textbook stuff: /////////////////////////////////
@@ -44,6 +48,7 @@ class QueryResult
 {
   friend std::ostream &print(std::ostream&, const QueryResult&);
   public:
+    // much better to store ordering information in a set -> auto sorts -> easier to ignore duplicates.
     QueryResult(std::string s, std::shared_ptr<std::set<line_no>> p, std::shared_ptr<std::vector<std::string>> f) : sought(s), lines(p), file(f) {}
   private:
     std::string sought; // word you're looking for 
@@ -96,6 +101,7 @@ QueryResult TextQuery::query(const string &sought) const
   else
     return QueryResult(sought, loc->second , file); // found ;)
 }
+
 // finally define the print function:
 ostream& print(ostream& os, const QueryResult& qr)
 {
@@ -108,6 +114,8 @@ ostream& print(ostream& os, const QueryResult& qr)
 
 void runQueries(ifstream &infile){
   TextQuery tq(infile);
+  // not much different with a do-while, 
+  // except that the loop is guaranteed to be executed..
   while(true){
     string looking_for;
     cout << "please enter a string you want to search for: ";
@@ -117,7 +125,6 @@ void runQueries(ifstream &infile){
     print(cout , result);
   }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 
 // Chapter 12 notes.. Dynamic Memory
@@ -280,9 +287,9 @@ int main(int argc, char **argv)
   // want two classes -> place to read and store data file
   // second one       -> place to get results from the first class 
 
-  // better implementation in the main code.
-  ifstream readFile("blah.txt");
-  runQueries(readFile);
+  // // better implementation in the main code.
+  // ifstream readFile("blah.txt");
+  // runQueries(readFile);
 
   return 0;
 }

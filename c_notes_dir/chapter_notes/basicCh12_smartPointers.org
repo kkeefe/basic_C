@@ -277,6 +277,44 @@ void manage_analysis2(Data &c){
   must use direct form of initialization
   find this beginning on page 470
 #+END_SRC
+*** section 1.5 cont..
+
+#+BEGIN_SRC C++
+  // 12.24 do this but some standard input
+  char* userInput(new char[10]); // creating this dynamic array
+  while( userInput[0] != 'e'){
+    char test[10] , smol[5];
+    std::cout << "please enter your dynamically allocated input: ";
+    std::cin >> userInput; // note input can be larger than 10, but undefined use??
+    std::cout << "you've entered: " << userInput << std::endl;
+    std::cout << "please enter test, followed by smol:\n";
+    std::cin >> test >> smol; // test and smol with break if input is larger than 10 / 5 respectively
+    std::cout << "you've entered:\ntest: " << test << "\nsmol: " << smol << std::endl;
+  }
+#+END_SRC
+- make a copy function which copies two const char ptrs into the same
+  dynamically allocated const char ptr..
+#+BEGIN_SRC C++
+  // Exercise 12.26 - rewrite the program from the previous section using an allocator
+  // this is exercises 12.23-26 together..
+  const char* rawCharP("rawBurnt");
+  const char* rawCharP2("rawChar");
+
+  const int totalSize = (sizeof(rawCharP) + sizeof(rawCharP2));
+  unique_ptr<char[]>dynamicRaw(new char[totalSize]);
+
+  // copy the first elements into the array
+  for(int i = 0; i < sizeof(rawCharP); ++i){
+    dynamicRaw[i] = rawCharP[i];
+  }
+
+  // copy the second elements into the array.
+  // make sure to start the second word at 0!
+  for(int i = sizeof(rawCharP); i < totalSize; ++i){
+    int j = i - sizeof(rawCharP); // this is index for starting second word.
+    dynamicRaw[i] = rawCharP2[j];
+  }
+#+END_SRC
 *** section 2.2 the allocator class
 #+BEGIN_SRC C++
   // the allocator class:
@@ -304,6 +342,60 @@ void manage_analysis2(Data &c){
   // 2) return memory back to system with: alloc_data.deallocate(pointer , n_items);
   alloc_data.deallocate(dblData , 1);
 
+#+END_SRC
+
+- allocated memory must be:
+  - actually allocated..
+  - constructed with whatever item you want to put there..
+  - destroyed if you want to put another item there or do something with it
+  - deallocated to free and release the memory
+#+BEGIN_SRC C++
+// rewrite the program on 481 using an allocator class
+// program on p481:
+
+// create some integer to define a size
+int n(3);
+// make a string array of three strings
+std::string *const p = new std::string[n];
+std::string s; // a string to do the work
+std::string *q = p; // a point to keep track of the current location
+std::cout << "please enter words into new memory:\n";
+// lets get some info into the container
+while( std::cin >> s and q != p + n){
+    ,*q++ = s;
+    const size_type size = q - p;
+    std::cout << size << ", is the size..\n";
+};
+// read out everything that we stored
+while( q != p ){
+    std::cout << *(--q) << ", q" << std::endl;
+}
+// get rid of the new string array
+delete[] p;
+
+allocator<std::string> alloc;
+// redefinition of n, but standalone..
+int n(3);
+// where to get the new srting
+std::string s;
+std::string *const p1 = alloc.allocate(n); // first make the memory available
+std::string *q1 = p1;
+std::cout << "please enter words into allocated memory:\n";
+while( std::cin >> s and q1 != p1 + n )
+{
+    // don't forget to increment q1
+    alloc.construct(++q1 , s); // use this to create the object at the memory.
+    const size_type size = q1 - p1;
+    std::cout << size << ", is the size..\n"; // see what you're writing..
+}
+std::cout << "the words in the allocated memory are:\n";
+// read out the words you just wrote in
+while( q1 != p1 ){
+    std::cout << *q1 << endl;
+    alloc.destroy(--q1); // destroy the memory you don't need anymore..
+}
+// free the memory you just destroyed..
+alloc.deallocate(p1 , n);
 #+END_SRC
 *** section 2.1 new and arrays
 #+BEGIN_SRC C++
@@ -387,5 +479,291 @@ void manage_analysis2(Data &c){
   shr_p.reset();
 
 #+END_SRC
-** main file stuff
-(to do) - fill in when all complete.
+
+** StrBlobPtr info
+*** header stuff
+**** StrBlob
+#+BEGIN_SRC C++
+#include <vector>
+#include <string>
+#include <stdexcept>
+#include <initializer_list>
+
+//define the class structure as well as all functions / definitions used therin..
+class StrBlobPtr; // give the forward declaration so it's known in StrBlob..
+class ConstStrBlobPtr; // give the forward declaration so it's known in StrBlob..
+class StrBlob
+{
+    typedef std::vector<std::string>::size_type size_type;
+
+    // for exercise 12.19 stuff
+    friend class StrBlobPtr;
+    friend class ConstStrBlobPtr;
+
+    public:
+        //include your constructors
+        StrBlob(); //default
+        // initializer_list is a template which tolds a comma separted list of type <T>
+        StrBlob(std::initializer_list<std::string> il);
+
+        //include your member functions
+        size_type size() const { return data->size(); }
+        bool empty() const { return data->empty(); }
+        //add or remove stuff
+        void push_back(const std::string &t) { data->push_back(t); }
+        void pop_back();
+
+        //element access - these functions should be const member functions,
+        std::string& front() const;
+        std::string& back() const;
+
+        // functions used to make StrBlobPtrs..
+        StrBlobPtr begin();
+        StrBlobPtr end();
+
+        // functions used to make ConstStrBlobPtrs..
+        ConstStrBlobPtr constbegin() const;
+        ConstStrBlobPtr constend() const;
+
+    private:
+        std::shared_ptr<std::vector<std::string>> data;
+        void check(size_type i, const std::string &msg) const;
+};
+
+// lets define those constructors..
+StrBlob::StrBlob(): data(std::make_shared<std::vector<std::string>>()) { };
+StrBlob::StrBlob(std::initializer_list<std::string> il) : data(std::make_shared<std::vector<std::string>>(il)) { };
+
+// lets start defining some of the stuff you've created for this class..
+void StrBlob::check(size_type i, const std::string &msg) const
+{
+    if (i >= data->size())
+    throw std::out_of_range(msg);
+}
+
+std::string& StrBlob::front() const
+{
+    check(0, "front on empty StrBlob");
+    // front is a vector method which returns the first element in the vector
+    return data->front();
+}
+
+std::string& StrBlob::back() const
+{
+    check(0, "back on empty StrBlob");
+    // back is a vector method which returns the last element in the vector
+    return data->back();
+}
+
+void StrBlob::pop_back()
+{
+    check(0, "pop_back on empty StrBlob");
+    // pop_back is a vector method which deletes the last element in the vector
+    data->pop_back();
+}
+
+//////////////////// StrBlobPtr Stuff ////////////////////
+class StrBlobPtr{
+
+    typedef std::vector<std::string>::size_type size_type;
+
+    public:
+        StrBlobPtr(): curr(0) {  }
+        StrBlobPtr(StrBlob &a , size_type sz = 0): wptr(a.data), curr(sz) {  }
+
+        std::string& deref() const;
+        StrBlobPtr& incr();
+    private:
+        std::shared_ptr<std::vector<std::string>> check(size_type, const std::string&) const;
+        std::weak_ptr<std::vector<std::string>> wptr;
+        size_type curr;
+};
+
+std::shared_ptr<std::vector<std::string>>
+StrBlobPtr::check(size_type i, const std::string &msg) const
+{
+    // check to see if the wptr has expired or not
+    auto ret = wptr.lock();
+
+    // if it has, throw a runtime error
+    if (!ret) throw std::runtime_error("unbound StrBlobPtr");
+
+    // if the range exceeds the ptr, say that's to big
+    if( i >= ret->size() ) throw std::out_of_range(msg);
+
+    // if everything is good, give the ptr back.
+    return ret;
+}
+
+std::string& StrBlobPtr::deref() const
+{
+    auto p = check(curr , "dereference past end");
+    return (*p)[curr];
+}
+
+// prefix: return a reference to the incremented state
+StrBlobPtr& StrBlobPtr::incr()
+{
+    // if curr already points past the end of the container, can't increment is
+    auto p = check(curr , "increment past end of StrBlobPtr");
+    ++curr;
+    return *this;
+}
+
+StrBlobPtr StrBlob::begin() { return StrBlobPtr(*this); }
+StrBlobPtr StrBlob::end() { return StrBlobPtr(*this, data->size()); }
+#+END_SRC
+**** StrBlobPtr
+#+BEGIN_SRC C++
+//////////////////// StrBlobPtr Stuff ////////////////////
+class StrBlobPtr{
+
+    typedef std::vector<std::string>::size_type size_type;
+
+    public:
+        StrBlobPtr(): curr(0) {  }
+        StrBlobPtr(StrBlob &a , size_type sz = 0): wptr(a.data), curr(sz) {  }
+
+        std::string& deref() const;
+        StrBlobPtr& incr();
+    private:
+        std::shared_ptr<std::vector<std::string>> check(size_type, const std::string&) const;
+        std::weak_ptr<std::vector<std::string>> wptr;
+        size_type curr;
+};
+
+std::shared_ptr<std::vector<std::string>>
+StrBlobPtr::check(size_type i, const std::string &msg) const
+{
+    // check to see if the wptr has expired or not
+    auto ret = wptr.lock();
+
+    // if it has, throw a runtime error
+    if (!ret) throw std::runtime_error("unbound StrBlobPtr");
+
+    // if the range exceeds the ptr, say that's to big
+    if( i >= ret->size() ) throw std::out_of_range(msg);
+
+    // if everything is good, give the ptr back.
+    return ret;
+}
+
+std::string& StrBlobPtr::deref() const
+{
+    auto p = check(curr , "dereference past end");
+    return (*p)[curr];
+}
+
+// prefix: return a reference to the incremented state
+StrBlobPtr& StrBlobPtr::incr()
+{
+    // if curr already points past the end of the container, can't increment is
+    auto p = check(curr , "increment past end of StrBlobPtr");
+    ++curr;
+    // return the object on which incr() was called..
+    return *this;
+}
+
+StrBlobPtr StrBlob::begin() { return StrBlobPtr(*this); }
+StrBlobPtr StrBlob::end() { return StrBlobPtr(*this, data->size()); }
+#+END_SRC
+**** ConstStrBlobPtr
+- main difference is that this takes a const& in the constructor and the member
+  functions are all const
+#+BEGIN_SRC C++
+class ConstStrBlobPtr{
+
+    typedef std::vector<std::string>::size_type size_type;
+
+    public:
+        ConstStrBlobPtr(): curr(0) {  }
+        ConstStrBlobPtr(const StrBlob &a , size_type sz = 0): wptr(a.data), curr(sz) {  }
+
+        std::string& deref() const;
+        ConstStrBlobPtr& incr();
+    private:
+        std::shared_ptr<std::vector<std::string>> check(size_type, const std::string&) const;
+        std::weak_ptr<std::vector<std::string>> wptr;
+        size_type curr;
+};
+
+std::shared_ptr<std::vector<std::string>>
+ConstStrBlobPtr::check(size_type i, const std::string &msg) const
+{
+    // check to see if the wptr has expired or not
+    auto ret = wptr.lock();
+
+    // if it has, throw a runtime error
+    if (!ret) throw std::runtime_error("unbound ConstStrBlobPtr");
+
+    // if the range exceeds the ptr, say that's to big
+    if( i >= ret->size() ) throw std::out_of_range(msg);
+
+    // if everything is good, give the ptr back.
+    return ret;
+}
+
+std::string& ConstStrBlobPtr::deref() const
+{
+    auto p = check(curr , "dereference past end");
+    return (*p)[curr];
+}
+
+// prefix: return a reference to the incremented state
+ConstStrBlobPtr& ConstStrBlobPtr::incr()
+{
+    // if curr already points past the end of the container, can't increment is
+    auto p = check(curr , "increment past end of ConstStrBlobPtr");
+    ++curr;
+    return *this;
+}
+
+ConstStrBlobPtr StrBlob::constbegin() const{ return ConstStrBlobPtr(*this); }
+ConstStrBlobPtr StrBlob::constend() const{ return ConstStrBlobPtr(*this, data->size()); }
+#+END_SRC
+*** all main code
+#+BEGIN_SRC C++
+  // 12.20 write a program to read a file line by line, then put each line into a strblob type
+  // use a strblobptr to then print each element in that strblob..
+  ifstream infile("strblob.txt");
+  strblob blobfile;
+  int linecount(0);
+  // get the stuff from the infile..
+  while(!infile.eof()){
+    std::string line;
+
+    // get the element from the file
+    getline(infile , line);
+
+    // put that element in the blob..
+    blobfile.push_back(line);
+
+    // keep track of the line count we're on
+    linecount += 1;
+  }
+
+  // the strblobptr is initialized from the strblob: it needs that wptr data
+  strblobptr sbp(blobfile);
+  const strblob csb = blobfile;
+  conststrblobptr csbp(csb);
+
+  // just keep going..
+  while(true)
+  {
+    // get the element you want to spit out
+    cout << sbp.deref() << endl;
+
+    // go to the next element
+    sbp = sbp.incr();
+
+    cout << "constant stuff:\n";
+    cout << csbp.deref() << endl;
+
+    // go to the next element
+    csbp = csbp.incr();
+
+    //  think of any stopping condition you want.
+    if (linecount == 1) break;
+    else linecount -= 1;
+  }
+#+END_SRC

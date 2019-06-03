@@ -5,12 +5,14 @@
 
 //define the class structure as well as all functions / definitions used therin..
 class StrBlobPtr; // give the forward declaration so it's known in StrBlob..
+class ConstStrBlobPtr; // give the forward declaration so it's known in StrBlob..
 class StrBlob
 {
     typedef std::vector<std::string>::size_type size_type;
 
     // for exercise 12.19 stuff
     friend class StrBlobPtr;
+    friend class ConstStrBlobPtr;
 
     public:
         //include your constructors
@@ -32,6 +34,10 @@ class StrBlob
         // functions used to make StrBlobPtrs..
         StrBlobPtr begin();
         StrBlobPtr end();
+
+        // functions used to make ConstStrBlobPtrs..
+        ConstStrBlobPtr constbegin() const;
+        ConstStrBlobPtr constend() const;
 
     private:
         std::shared_ptr<std::vector<std::string>> data;
@@ -120,3 +126,57 @@ StrBlobPtr& StrBlobPtr::incr()
 
 StrBlobPtr StrBlob::begin() { return StrBlobPtr(*this); }
 StrBlobPtr StrBlob::end() { return StrBlobPtr(*this, data->size()); }
+
+// what changes need to be made to incorporate a a const StrBlob object
+// main chains are that constructor needs a const StrBlob &
+// the shared_ptrs don't do anything to change the StrBlob overlaying object, so it's 'easy'
+// to make this thing const
+class ConstStrBlobPtr{
+
+    typedef std::vector<std::string>::size_type size_type;
+
+    public:
+        ConstStrBlobPtr(): curr(0) {  }
+        ConstStrBlobPtr(const StrBlob &a , size_type sz = 0): wptr(a.data), curr(sz) {  }
+
+        std::string& deref() const;
+        ConstStrBlobPtr& incr();
+    private:
+        std::shared_ptr<std::vector<std::string>> check(size_type, const std::string&) const;
+        std::weak_ptr<std::vector<std::string>> wptr;
+        size_type curr;
+};
+
+std::shared_ptr<std::vector<std::string>>
+ConstStrBlobPtr::check(size_type i, const std::string &msg) const
+{
+    // check to see if the wptr has expired or not
+    auto ret = wptr.lock();
+
+    // if it has, throw a runtime error
+    if (!ret) throw std::runtime_error("unbound ConstStrBlobPtr");
+
+    // if the range exceeds the ptr, say that's to big
+    if( i >= ret->size() ) throw std::out_of_range(msg);
+
+    // if everything is good, give the ptr back.
+    return ret;
+}
+
+std::string& ConstStrBlobPtr::deref() const
+{
+    auto p = check(curr , "dereference past end");
+    return (*p)[curr];
+}
+
+// prefix: return a reference to the incremented state
+ConstStrBlobPtr& ConstStrBlobPtr::incr()
+{
+    // if curr already points past the end of the container, can't increment is
+    auto p = check(curr , "increment past end of ConstStrBlobPtr");
+    ++curr;
+    return *this;
+}
+
+ConstStrBlobPtr StrBlob::constbegin() const{ return ConstStrBlobPtr(*this); }
+ConstStrBlobPtr StrBlob::constend() const{ return ConstStrBlobPtr(*this, data->size()); }

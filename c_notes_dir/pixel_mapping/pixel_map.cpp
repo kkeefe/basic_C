@@ -111,6 +111,7 @@ void create_Json(int pixel , int jNum , int regNum , int row , int col , int cab
   outputFilename << "\t\t\"bitNum\""   << ":" << bitNum << "\n";
 
   // end the item in the ist..
+  // this currently gives two errors in the slow pixel map since the last pixel isn't 64..
   if ( pixel != 64 ) outputFilename << "\t},\n";
   else outputFilename << "\t}\n";
 

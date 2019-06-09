@@ -1,0 +1,25 @@
+#+TITLE: basicCh13CopyAssignDestroy
+
+* Main overview notes:
+- Copy
+- Assign
+- Destroy
+
+** 13.1 Exercises
+
+Exercise 13.1
+#+BEGIN_SRC C++
+
+#+END_SRC
+
+Exercise 13.2
+#+BEGIN_SRC C++
+
+#+END_SRC
+
+** 13.1.2 Exercises
+
+Exercise 13.6
+#+BEGIN_SRC C++
+
+#+END_SRC

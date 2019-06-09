@@ -1,0 +1,175 @@
+#+TITLE: basicCh8IOstream
+
+** header stuff:
+#+BEGIN_SRC C++
+
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+#+END_SRC
+*** header descriptions:
+- vector: useful container space for any object you want.
+- iostream: header which defines cin and cout for cpp. stuff you see on the terminal.
+- fstream: header to allow I/O with files. includes ofstream, ifstream, etc..
+- string: cpp container for char[] but doesn't include the extra null
+  terminator. slightly more straight forward than a char[], in my opinion.
+- sstream is used for the stringstream type
+  - this bad boy can read string line, and will break up the entire string line
+    into words. you can then perform operations on the string word, like turn it
+    into hex and then into an integer.
+
+** io stream functions
+- quick overview of three different istream reading functions.
+- they're all grouped in the next section with slightly better comments..
+
+#+BEGIN_SRC C++
+istream & read_file(istream & is)
+{
+  string a;
+  auto old_state = is.rdstate();
+  getline(is, a);
+
+  if(!is.eof()){
+    // this will make the function continue to call itself
+    cout << a << endl;
+    return read_file(is);
+  }
+  else
+    is.setstate(old_state);
+  return is;
+}
+
+//this function takes a input istream reference and returns a string value
+string & read_fill(istream & is){
+  string a;
+  is >> a;
+  return a;
+}
+#+END_SRC
+*** function descriptions:
+- variable is can be input stream: it can be an ifstrem or even cin..
+- the return type must be the istream&, however since we're using the stream and
+  it doesn't disappear from the scope of this function call.
+#+BEGIN_SRC C++
+istream & read_file(istream & is)
+{
+  string a;
+  auto old_state = is.rdstate();
+  getline(is, a);
+
+  if(!is.eof()){
+    // this will make the function continue to call itself
+    cout << a << endl;
+    return read_file(is);
+  }
+  else
+    is.setstate(old_state);
+  return is;
+}
+#+END_SRC
+
+- probably the most useful kinda of read statement. this will read a single
+  string from is and return that value.
+#+BEGIN_SRC C++
+//this function takes a input istream reference and returns a string value
+string & read_fill(istream & is){
+  string a;
+  is >> a;
+  return a;
+}
+#+END_SRC
+
+** main function:
+#+BEGIN_SRC C++
+int main()
+{
+  ofstream outfile;
+  outfile.open("temp.copy"); // where do you want to store your stuff
+  ifstream infile("temp.txt"); // declaring the ifstream like this opens the file immediately
+  ifstream infile2("temp.txt");
+
+  //create the vector to push_back
+  vector<string> sv, sv2;
+  string a, b;
+
+  while(!infile.eof()){
+    // a becomes the entire line of the file
+    getline(infile, a); // getline reads from infile and stores the line into a
+
+    // add the line to the vector we want
+    // make sure getline didn't get the end of the file..
+    if (!infile.eof()) sv.push_back(a); // add the line to sv
+  }
+  // need a second loop for the second file
+  while(!infile2.eof())
+  {
+    b = read_fill(infile2, b); // wrote a similar function to getline, but get a word at a time
+    // read_fill will read a string at a time instead of a single line at a tine..
+    sv2.push_back(b);
+  }
+  // at this point, a is a vector a strings which each element being a line in temp.txt
+  // similarly for b, it's a vector with each element being a string from temp.txt:w
+
+  // for every element in the string filled by lines vector we just made, send it to standard output
+  // note when a variable is passed by reference like this, we can change it value if we want.
+  for(string& c : sv){
+    // this will print every line
+    cout << c << endl;
+  }
+
+  // for every element in the string vector we just made, send it to standard output
+  for(string& c : sv2){
+    // this will print every word
+    cout << c << endl;
+  }
+
+  // this will turn the string word into a hex value and then into an integer, which is stored in value..
+  const string word("ABCDE");
+  stringstream ss;
+  ss << word;
+  int value;
+  ss >> std::hex >> value;
+  // print the value or store the value wherever you want
+  cout << value;
+  //remember to close the files
+  infile.close();
+  outfile.close();
+
+  return 0;
+}
+#+END_SRC
+
+** example text statement:
+- this is one line
+- this is two line
+- this is three line
+- this is four line
+
+*** example output
+each bullet represents a single line of output.
+**** sv1
+- this is one line
+- this is two line
+- this is three line
+- this is four line
+**** sv2
+- is
+- one
+- line
+- this
+- is
+- two
+- line
+- this
+- is
+- three
+- line
+- this
+- is
+- four
+- line
+- line

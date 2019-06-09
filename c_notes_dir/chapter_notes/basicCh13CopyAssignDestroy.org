@@ -4,22 +4,299 @@
 - Copy
 - Assign
 - Destroy
-
 ** 13.1 Exercises
 
-Exercise 13.1
+*** 13.1
+Chapter 13 exercises
+#1 - When is the copy constructor used?
+- pass an object as an argument to a parameter of nonreference type
+- Return an object from a function that has nonreference return type
+- Brace initilaize the elements in an array or the members of an aggregate class
+
+*** 13.2
+#2 - Why is the following illegal?
+foo::foo(foo rhs);
+copy constructor must pass its first arugment by reference..
+
+***  - what about StrBlobs and StrBlobPtrs?
 #+BEGIN_SRC C++
+StrBlob sb1({"this","is","my","design"});
+StrBlob sb2;
+
+// copy 2 from 1
+sb2 = sb1;
+
+// make a new StrBlobPtr..
+StrBlobPtr sbp1(sb2);
+StrBlobPtr sbp2;
+
+// copy 2 from 1
+sbp2 = sbp1;
+// keep going until a break in an exception..
+while(true)
+{
+  // attempt to find the words and go to next item
+  try
+  {
+  std::cout << sbp2.deref() << std::endl;
+  sbp2.incr();
+  }
+  // look for when you're at the end.
+  // this is the built in 'stop' condition..
+  catch(const std::out_of_range& oor){
+    std::cerr << "finished looking for the StrBlob! " << oor.what() << std::endl;
+    break;
+  }
+}
 
 #+END_SRC
 
-Exercise 13.2
-#+BEGIN_SRC C++
-
-#+END_SRC
+*** #5 exercise 13.5 - make a copy constructor for the class sketch below.
+the constructor should dynamically allocate a new string and copy
+the object to which ps points..
 
 ** 13.1.2 Exercises
+Overloaded Assignment:
+- The Copy-Assignment operator
+- return types of references to left hand operand..
+*** 6
+Exercise 13.6 - what is a copy assignment operator?
+ex: object& object::operator= (object& rhs)
+the compiler will generator this operator if a class does not define it
+the compiler will return a lhs& to the object it is called on
+the copy assignment will member assign copies of each element from rhs to lhs
+*** 7
+Exercise 13.7 - what happens when we copy assignment StrBlobs and StrblobPtrs?
+this was done in chapter 12. They will member copy each element from rhs into lhs.
+the compiler automagically generator this operator for the class since we didn't define one.
 
-Exercise 13.6
+*** 8
+Exercise 13.8 - write the assignment operator for the HasPtr class.
+Make sure to copy the object to which ps points..
+*** 9 - What is a destructor?
+more ch13 - The Destroyer
+only one, cannot be overloaded.
+note: the destruction of a built-in pointer does -not-
+delete or free the memory to which it pointed.
+however, smart pointers are automatically deleted during
+
+the destructor phase destructor is responible for destroying objects of class-type, they destroy non-static data members
+what does the synthesized destructor do? A destructor body executes in addtion to the memberwise destruction that takes place as part of destroying an object
+when is it synthesized? any time a class does not define its own destructor
+
+*** #10 - What happens to StrBlobs and StrBlobPtrs when they are destroyed?
+  // StrBlob / StrBlobPtrs have their members destroyed in the order they are initialized.
+  // StrBlob = Shared_ptr and destroyed, if shared_ptr count goes to 0 data is destroyed.
+
+  // StrBlobPtr - similar for the shared_ptr as StrBlob / weak_ptr is destroyed regardless
+  // StrBlobPtr - curr is deleted regardless and last
+
+*** #11 - Add a destructor to HasPtr class
+*** #12 - How many destructor calls are made in the following function?
 #+BEGIN_SRC C++
+bool fcn(const Sales_data *trans, Sales_data accum)
+{
+  Sales_data item1(*trans),item2(accum);
+  return item1.isbn() != item2.isbn();
+}
+// 3 - accum, item1, and item2 .
+// note that *trans does not receive a destructor call since it is a built-in pointer
+#+END_SRC
+
+** 13.1.13 - lots of trial and error with constructors / destructors
+
+- using mostly the struct class made up in that chapter
+
+**** header definitions for the struct X
+  #+BEGIN_SRC C++
+// make the struct you're going to test some of the constructors / destructors with
+struct X
+{
+  X() {std::cout << "X()" << std::endl;}
+  X(const X&) {std::cout << "X(const&X)" << std::endl;}
+  X& operator=(const X& rhs); // that copy assignment..
+  // note that the empty function defintion is required by clang, at least
+  ~X() {std::cout << ++(this->destructo_count) << ", ~X{}" << std::endl;}; // that destructor..
+  // note that the destructors are called after the return to leave the main program..
+
+  //  lets make some member functions
+  X fnoRef(X x);
+  X fRef(X &x);
+  X fpoint(X *x);
+
+  // reference return type member functions
+  X &rfnoRef(X x);
+  X &rfRef(X &x);
+  X &rfpoint(X *x);
+
+  static int destructo_count; // lets keep track of destruction
+};
+
+// make sure you define your static int to keep track of the mayhem
+int X::destructo_count = 0; // start at 0 since haven't destroyed anything yet
+
+X fnoRef(X x){
+  return x;
+}
+
+X fRef(X &x){
+  return x;
+}
+
+X fpoint(X *x){
+  return *x;
+}
+
+X& rfnoRef(X x){
+  return x;
+}
+
+X& rfRef(X &x){
+  return x;
+}
+
+X& rfpoint(X *x){
+  return *x;
+}
+
+X& X::operator=(const X& rhs){
+  // stuff you'd normally do to assign memebers..
+  std::cout << "const X& rhs" << std::endl;
+  return *this;
+}
+  #+END_SRC
+
+**** making use of the code:
+#+BEGIN_SRC C++
+main(int argc, char *argv[])
+{
+  std::cout << "basic initialize:\n"; // uses default assignment
+  X x1;
+
+  std::cout << "copy assign:\n";   // uses copy assignment
+  X x2 = x1; // note that only the non-initialized version uses the copy operator
+
+  std::cout << "operator use:\n";
+  x1 = x2; // note that now the assignment operator is used
+
+  std::cout << "direct assign:\n"; // uses copy assignment
+  X x3(x1);
+
+  // note that unless delete is called, this will not call destructor
+  cout << "calling new.\n";
+  X *xNew = new X; // calls direct initialize
+  cout << "calling delete.\n";
+  delete xNew; // now destructor is called;
+
+  // let's put this bad boy into a vector container
+  cout << "vector stuff!\n";
+  vector<X> xv; // this by itself does NOT call the constructor
+  for(int i = 0; i!=5; i++){
+    cout << "step: " << i <<std::endl;
+    xv.push_back(x1); // copy assignment called arbitrary amount of times
+  }
+  cout << "end vector stuff!\n";
+  // when vector is destroyed, the destructor is called on each element..
+
+  // let's put this bad boy into a list container
+  // note that the list does not do any reallocating that the vector container does..
+  // there are no destructors called during the filling of the list.
+  cout << "list stuff!\n";
+  list<X> xl; // this by itself does NOT call the constructor
+  for(int i = 0; i!=5; i++){
+    cout << "step: " << i <<std::endl;
+    xl.push_back(x1); // copy assignment called arbitrary amount of times
+  }
+  cout << "end list stuff!\n";
+  // when list is destroyed, the destructor is called on each element..
+
+  cout << "\nfRef(x1)\n"; // single copy constructor / destructor
+  fRef(x1);
+  cout << "\nfnoRef(x1)\n"; // two copy constructor / destructor
+  fnoRef(x1);
+  cout << "\nfpoint(xNew)\n"; // single constructor / destructor
+  fpoint(xNew);
+
+  // note that all reference return types use a single less constructor and destructor pair..
+  cout << "\nrfRef(x1)\n";
+  rfRef(x1); // no constructor / destructor
+  cout << "\nrfnoRef(x1)\n";
+  rfnoRef(x1); // single constructor / destructor
+  cout << "\nrfpoint(xNew)\n";
+  rfpoint(xNew); // no constructor / destructor
+
+  cout << "\nenter destruction:\n"; // single constructor / destructor
+  return 0;
+}
+#+END_SRC
+** 13.1.4 - copy constructors
+
+- define the numbered class for the exercises..
+*** what the class definition and use functions look like
+#+BEGIN_SRC C++
+// exercises 13.14 - 13.17
+class Numbered
+{
+  public:
+    Numbered() : mysn(++sn) {} // default constructor takes mysn and initialized it from static
+    Numbered(const Numbered&) : mysn(++sn) {} // do the same thing with a direct initialization
+    int mysn;
+  private:
+    static int sn; // make sure you initialize your static variables!
+};
+
+// gotta define what a static member is before you use it
+int Numbered::sn = 0;
+
+void f(Numbered a)
+{
+  std::cout << a.mysn << std::endl;
+}
+
+void fcRef(const Numbered &a)
+{
+  std::cout << a.mysn << std::endl;
+}
+#+END_SRC
+*** what the output looks like
+#+BEGIN_SRC C++
+// use in the code
+  Numbered a; // 1
+  Numbered b; // 2
+  Numbered c; // 3
+  f(a); f(b); f(c); // output 4 , 5 , 6
+  Numbered d; // 7
+  f(d); // 8
+  fcRef(a); fcRef(b); fcRef(c); // 1 , 2 , 3
+  Numbered e; // 9
+  fcRef(e); // 9
 
 #+END_SRC
+** ch13 preventing the copy assignment operator and copy constructor
+
+- Member functions can be defined with either = default or = delete
+  - using default:
+  #+BEGIN_SRC C++
+class Sales_Data
+{
+  public:
+    Sales_Data() = default; // default constructor
+    Sales_Data(const Sales_Data&) = default; // default copy
+    Sales_Data& operator=(const Sales_Data&);
+    ~Sales_Data() = default; // default destructor
+  private:
+};
+// if you declare default on the function definition the function is not inline
+Sales_Data& Sales_Data::operator=(const Sales_Data&) = default;
+  #+END_SRC
+
+  -- use struct NoCpy pg 507
+  #+BEGIN_SRC C++
+struct NoCpy
+{
+  NoCpy() = default;
+  NoCpy(const NoCpy&) = delete;
+  NoCpy &operator=(const NoCpy&) = delete;
+  ~NoCpy() = default;
+};
+  #+END_SRC

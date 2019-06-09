@@ -57,7 +57,23 @@ int convert_bitNum_to_readOrder(const int bitNum){
   int read_order = spot_order + nible_order + 1;
 
   return read_order;
+}
 
+// use this to convert to machine order since read order is from left to right
+int convert_bitNum_to_machineOrder(const int bitNum){
+  int spot_order  = bitNum / 4;
+  spot_order = conv_spot_to_order[spot_order];
+  spot_order = spot_order*4;
+
+  int nible_order = bitNum % 4;
+  nible_order = 3 - nible_order;
+
+  // start the reading at 1
+  int read_order = spot_order + nible_order + 1;
+
+  // make this value read from right to left
+  read_order = 65 - read_order;
+  return read_order;
 }
 
 // useful for old soft/firmware
@@ -135,7 +151,8 @@ int main(int argc, char **argv)
 
   // pixel# channel# register#
   ifstream read_file4("fOutcard_to_sOutcard.txt");
-  ofstream print_map("conv_fast_to_slow_pixel_map.cpp");
+  // not using this map anymore
+  //  ofstream print_map("conv_fast_to_slow_pixel_map.cpp");
 
   int pixel_num, cable_num;
   map<int, int> cable_to_pixel;
@@ -187,12 +204,15 @@ int main(int argc, char **argv)
     int regNum = convert_to_Register(chNum, rowCol);
     int bitNum = convert_to_bitNum(chNum, rowCol);
 
-    int readNum = convert_bitNum_to_readOrder(bitNum);
+    // int bitNumRev = convert_to_BitNumMachine(chNum, rowCol);
 
-    create_Json(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , fast_outfile_json);
-    create_Txt(i , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , fast_outfile_txt);
-    create_Json( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , slow_outfile_json);
-    create_Txt( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum , bitNum , slow_outfile_txt);
+    int readNum = convert_bitNum_to_readOrder(bitNum);
+    int readNum2 = convert_bitNum_to_machineOrder(bitNum);
+
+    create_Json(i , jNum , regNum , row , col , cableNum ,  chNum , readNum2 , bitNum , fast_outfile_json);
+    create_Txt(i , jNum , regNum , row , col , cableNum ,  chNum , readNum2 , bitNum , fast_outfile_txt);
+    create_Json( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum2 , bitNum , slow_outfile_json);
+    create_Txt( conv_fast_to_slow_pixel[i] , jNum , regNum , row , col , cableNum ,  chNum , readNum2 , bitNum , slow_outfile_txt);
   }
   fast_outfile_json << "\t]\n}";
   slow_outfile_json << "\t]\n}";

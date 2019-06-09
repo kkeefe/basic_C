@@ -5,28 +5,6 @@
 // stores first line of text file into 'items'
 // reads the rest of the data line by line, associating each column with the column name
 // 
-class queryData
-{
-using std::vector<vector<double>> = Data;
-private:
-  std::shared_ptr<Data> data; // place to point to where the data is 
-  std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
-  std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
-
-public:
-  queryData queryData(std::ifstream &);
-};
-
-class dataResult
-{
-private:
-  std::shared_ptr<Data> data; // place to point to where the data is 
-  std::string dataName;
-  std::shared_ptr<map<std::string , std::set<string>>> names; // what are the names associated with each data type
-  std::shared_ptr<map<std::string , std::set<int>>> dataRows; // what rows is this data found on
-public:
-  basic dataResult();
-};
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// textbook stuff: /////////////////////////////////
@@ -125,14 +103,8 @@ void runQueries(ifstream &infile){
     print(cout , result);
   }
 }
-////////////////////////////////////////////////////////////////////////////////
-
-// Chapter 12 notes.. Dynamic Memory
-int main(int argc, char **argv)
-{
-
-  // // Exercise 12.26 - rewrite the program from the previous section using an allocator
-  // // this is exercises 12.23-26 together..
+// // Exercise 12.26 - rewrite the program from the previous section using an allocator
+// // this is exercises 12.23-26 together..
 typedef std::vector<std::string>::size_type size_type;
 // section 13.1 Copy, Assign, Destroy
 // 13.1.1 Copy Constructor
@@ -164,15 +136,10 @@ class HasPtr
 };
 
 // look for a way to check the output..
- void HasPtr::print() const
+void HasPtr::print() const
 {
   std::cout << *(this->ps) << std::endl;
 }
-  // HasPtr a("this is my Design"); // make an element with a string..
-  // a.print();
-
-  // HasPtr b(a); // copy into a new element b
-  // b.print();   // check the output..
 
 // correct version of the copy assignment operator..
 HasPtr& HasPtr::operator=(const HasPtr& rhs)
@@ -191,20 +158,10 @@ HasPtr& HasPtr::operator=(const HasPtr& rhs)
   return *this;
 }
 
-// // #13
-// // given the basic code below: add a copy-assignment operator and a destructor
-// struct X
-// {
-//   X() {std::cout << "X()" << std::endl;}
-//   X(const X&) {std::cout << "X(const&X)" << std::endl;}
-// };
-//
-// note the rest of this stuff in the org file for chapter notes..
-
-
 // Chapter 13 notes.. Copy Control
 int main(int argc, char *argv[])
 {
+  std::cout << "hi there.." << std::endl;
   //   HasPtr a("this is my Design"); // make an element with a string..
   // a.print();
 

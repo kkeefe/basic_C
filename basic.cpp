@@ -142,50 +142,9 @@ class foo
  public:
   foo();           // default constructor
   foo(const foo&); // copy constructor
+  ~foo(); // total annaihilation
 };
-// Chapter 13 exercises
-// #1 - When is the copy constructor used?
-// - pass an object as an argument to a parameter of nonreference type
-// - Return an object from a function that has nonreference return type
-// - Brace initilaize the elements in an array or the members of an aggregate class
-//
-// #2 - Why is the following illegal?
-// foo::foo(foo rhs);
-// copy constructor must pass its first arugment by reference..
-//
-// #3 - what about StrBlobs and StrBlobPtrs?
-  // StrBlob sb1({"this","is","my","design"});
-  // StrBlob sb2;
 
-  // // copy 2 from 1
-  // sb2 = sb1;
-
-  // // make a new StrBlobPtr..
-  // StrBlobPtr sbp1(sb2);
-  // StrBlobPtr sbp2;
-
-  // // copy 2 from 1
-  // sbp2 = sbp1;
-  // // keep going until a break in an exception..
-  // while(true)
-  // {
-  //   // attempt to find the words and go to next item
-  //   try
-  //   {
-  //   std::cout << sbp2.deref() << std::endl;
-  //   sbp2.incr();
-  //   }
-  //   // look for when you're at the end.
-  //   // this is the built in 'stop' condition..
-  //   catch(const std::out_of_range& oor){
-  //     std::cerr << "finished looking for the StrBlob! " << oor.what() << std::endl;
-  //     break;
-  //   }
-  // }
-
-// exercise 13.5 - make a copy constructor for the class sketch below.
-// the constructor should dynamically allocate a new string and copy
-// the object to which ps points..
 class HasPtr
 {
   public:
@@ -195,6 +154,9 @@ class HasPtr
     // new element is dynamically allocated and copies the values to which hp.ps points..
 
     HasPtr& operator=(const HasPtr& rhs);
+    // note that this synthesized destructor will not delete the built-in pointer.
+    // which was created with new
+    ~HasPtr() { }; // make dat destructor - Ex13.11
     void print() const; // define some print function..
   private:
     std::string *ps;
@@ -229,49 +191,40 @@ HasPtr& HasPtr::operator=(const HasPtr& rhs)
   return *this;
 }
 
-// Overloaded Assignment:
-// - The Copy-Assignment operator
-// - return types of references to left hand operand..
+// // #13
+// // given the basic code below: add a copy-assignment operator and a destructor
+// struct X
+// {
+//   X() {std::cout << "X()" << std::endl;}
+//   X(const X&) {std::cout << "X(const&X)" << std::endl;}
+// };
 //
-// Exercise 13.6 - what is a copy assignment operator?
-// ex: object& object::operator= (object& rhs)
-// the compiler will generator this operator if a class does not define it
-// the compiler will return a lhs& to the object it is called on
-// the copy assignment will member assign copies of each element from rhs to lhs
+// note the rest of this stuff in the org file for chapter notes..
 
-// Exercise 13.7 - what happens when we copy assignment StrBlobs and StrblobPtrs?
-// this was done in chapter 12. They will member copy each element from rhs into lhs.
-// the compiler automagically generator this operator for the class since we didn't define one.
-
-// Exercise 13.8 - write the assignment operator for the HasPtr class.
-// Make sure to copy the object to which ps points..
 
 // Chapter 13 notes.. Copy Control
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-  printf("hello worlds!\n");
+  //   HasPtr a("this is my Design"); // make an element with a string..
+  // a.print();
 
-  HasPtr a("this is my Design"); // make an element with a string..
-  a.print();
+  // HasPtr b(a); // copy into a new element b
+  // b.print();   // check the output..
 
-  HasPtr b(a); // copy into a new element b
-  b.print();   // check the output..
+  // // let's use that copy assignment operator! :D
+  // HasPtr c = b;
+  // c.print();
 
-  // let's use that copy assignment operator! :D
-  HasPtr c = b;
-  c.print();
+  // std::string filename("blah.txt");
 
-  std::string filename("blah.txt");
-
-  std::ifstream inputfile(filename);
-  std::string s;
-  char w[];
-  char* word("ni hao");
-  char* jword("konichiwa");
-  while(inputfile >> w)
-  {
-    if(!inputfile.eof()) cout << w << endl;
-  }
+  // std::ifstream inputfile(filename);
+  // std::string s;
+  // char w[];
+  // char* word("ni hao");
+  // char* jword("konichiwa");
+  // while(inputfile >> w){
+  //   if(!inputfile.eof()) cout << w << endl;
 
 return 0;
 }
+

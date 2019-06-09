@@ -4,24 +4,23 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
+#include <sstream>
+
 #include <algorithm>
 #include <functional>
-#include <vector>
 #include <map>
 #include <unordered_map>
 #include <set>
 #include <utility> //includes pair
 #include <memory>
-#include <sstream>
 
 //note that sales class data constructor is in basicCh11_3_MultiMap.txt
 
 using namespace std;
 
-/* 
-   Word transformation functions!! 
+/*
+   Word transformation functions!!
  */
 const string &transform(const string &s, const map<string, string> &m);
 
@@ -29,8 +28,8 @@ map<string, string> buildMap(ifstream &reference_file);
 
 void word_transformation(ifstream &input_file, ifstream &reference_file);
 
-/* 
-   END transformation functions!! 
+/*
+   END transformation functions!!
  */
 
 //best practice is to declare and define all inline and constexpr functions inside header files only: they must all match exactly and definition must be known at compile time.

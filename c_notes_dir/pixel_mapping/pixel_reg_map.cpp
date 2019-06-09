@@ -67,5 +67,4 @@ int conv_RegN_to_pixN(int regN)
                                };
 
     return Kreg_Vpix.at(regN);
-
 }

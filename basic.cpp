@@ -181,6 +181,7 @@ int main(int argc, char *argv[])
   // char* jword("konichiwa");
   // while(inputfile >> w){
   //   if(!inputfile.eof()) cout << w << endl;
+  std::count << 'ni hao fren \n' << std::endl;
 
 return 0;
 }

@@ -4,21 +4,22 @@
 - Copy
 - Assign
 - Destroy
-** 13.1 Exercises
+** 13.1
+*** 13.1 Exercises
 
-*** 13.1
+**** 13.1
 Chapter 13 exercises
 #1 - When is the copy constructor used?
 - pass an object as an argument to a parameter of nonreference type
 - Return an object from a function that has nonreference return type
 - Brace initilaize the elements in an array or the members of an aggregate class
 
-*** 13.2
+**** 13.2
 #2 - Why is the following illegal?
 foo::foo(foo rhs);
 copy constructor must pass its first arugment by reference..
 
-***  - what about StrBlobs and StrBlobPtrs?
+****  - what about StrBlobs and StrBlobPtrs?
 #+BEGIN_SRC C++
 StrBlob sb1({"this","is","my","design"});
 StrBlob sb2;
@@ -51,29 +52,29 @@ while(true)
 
 #+END_SRC
 
-*** #5 exercise 13.5 - make a copy constructor for the class sketch below.
+**** #5 exercise 13.5 - make a copy constructor for the class sketch below.
 the constructor should dynamically allocate a new string and copy
 the object to which ps points..
 
-** 13.1.2 Exercises
+*** 13.1.2 Exercises
 Overloaded Assignment:
 - The Copy-Assignment operator
 - return types of references to left hand operand..
-*** 6
+**** 6
 Exercise 13.6 - what is a copy assignment operator?
 ex: object& object::operator= (object& rhs)
 the compiler will generator this operator if a class does not define it
 the compiler will return a lhs& to the object it is called on
 the copy assignment will member assign copies of each element from rhs to lhs
-*** 7
+**** 7
 Exercise 13.7 - what happens when we copy assignment StrBlobs and StrblobPtrs?
 this was done in chapter 12. They will member copy each element from rhs into lhs.
 the compiler automagically generator this operator for the class since we didn't define one.
 
-*** 8
+**** 8
 Exercise 13.8 - write the assignment operator for the HasPtr class.
 Make sure to copy the object to which ps points..
-*** 9 - What is a destructor?
+**** 9 - What is a destructor?
 more ch13 - The Destroyer
 only one, cannot be overloaded.
 note: the destruction of a built-in pointer does -not-
@@ -84,15 +85,15 @@ the destructor phase destructor is responible for destroying objects of class-ty
 what does the synthesized destructor do? A destructor body executes in addtion to the memberwise destruction that takes place as part of destroying an object
 when is it synthesized? any time a class does not define its own destructor
 
-*** #10 - What happens to StrBlobs and StrBlobPtrs when they are destroyed?
+**** #10 - What happens to StrBlobs and StrBlobPtrs when they are destroyed?
   // StrBlob / StrBlobPtrs have their members destroyed in the order they are initialized.
   // StrBlob = Shared_ptr and destroyed, if shared_ptr count goes to 0 data is destroyed.
 
   // StrBlobPtr - similar for the shared_ptr as StrBlob / weak_ptr is destroyed regardless
   // StrBlobPtr - curr is deleted regardless and last
 
-*** #11 - Add a destructor to HasPtr class
-*** #12 - How many destructor calls are made in the following function?
+**** #11 - Add a destructor to HasPtr class
+**** #12 - How many destructor calls are made in the following function?
 #+BEGIN_SRC C++
 bool fcn(const Sales_data *trans, Sales_data accum)
 {
@@ -103,11 +104,11 @@ bool fcn(const Sales_data *trans, Sales_data accum)
 // note that *trans does not receive a destructor call since it is a built-in pointer
 #+END_SRC
 
-** 13.1.13 - lots of trial and error with constructors / destructors
+*** 13.1.13 - lots of trial and error with constructors / destructors
 
 - using mostly the struct class made up in that chapter
 
-**** header definitions for the struct X
+***** header definitions for the struct X
   #+BEGIN_SRC C++
 // make the struct you're going to test some of the constructors / destructors with
 struct X
@@ -166,7 +167,7 @@ X& X::operator=(const X& rhs){
 }
   #+END_SRC
 
-**** making use of the code:
+***** making use of the code:
 #+BEGIN_SRC C++
 main(int argc, char *argv[])
 {
@@ -229,10 +230,10 @@ main(int argc, char *argv[])
   return 0;
 }
 #+END_SRC
-** 13.1.4 - copy constructors
+*** 13.1.4 - copy constructors
 
 - define the numbered class for the exercises..
-*** what the class definition and use functions look like
+**** what the class definition and use functions look like
 #+BEGIN_SRC C++
 // exercises 13.14 - 13.17
 class Numbered
@@ -258,7 +259,7 @@ void fcRef(const Numbered &a)
   std::cout << a.mysn << std::endl;
 }
 #+END_SRC
-*** what the output looks like
+**** what the output looks like
 #+BEGIN_SRC C++
 // use in the code
   Numbered a; // 1
@@ -272,7 +273,7 @@ void fcRef(const Numbered &a)
   fcRef(e); // 9
 
 #+END_SRC
-** ch13 preventing the copy assignment operator and copy constructor
+*** ch13 preventing the copy assignment operator and copy constructor
 
 - Member functions can be defined with either = default or = delete
   - using default:
@@ -291,7 +292,7 @@ Sales_Data& Sales_Data::operator=(const Sales_Data&) = default;
   #+END_SRC
 
   -- use struct NoCpy pg 507
-  #+BEGIN_SRC C++
+#+BEGIN_SRC C++
 struct NoCpy
 {
   NoCpy() = default;
@@ -299,4 +300,23 @@ struct NoCpy
   NoCpy &operator=(const NoCpy&) = delete;
   ~NoCpy() = default;
 };
-  #+END_SRC
+#+END_SRC
+
+** 13.2/3 - Copy Control and Resource Management / Swap
+
+*** Copy Control - Resource Management
+
+Major difference is classes that act like values,
+vs. acting like pointers
+
+- The members of a class either copy the values
+  of the members of the class
+- Or, the members of the class point to the same
+  underlying address and the pointers themselves have
+  new addresses
+
+*** When to swap
+If your class defines a copy-control members and
+manages resouces then it should likely define its
+own swap function.
+

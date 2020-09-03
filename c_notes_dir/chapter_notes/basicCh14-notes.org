@@ -1,0 +1,30 @@
+#+TITLE: Basic Ch14 Notes
+
+Overloaded Operations and Conversions
+
+* Basics:
+
+key-work:: =operator=
+
+#+BEGIN_SRC C++ :includes <stdio.h> <iostream>
+
+using namespace std;
+
+struct poop{
+    poop() = default;
+    poop(int b) : a(b) {};
+    poop& operator+(const poop& rhs) {a += rhs.a; return *this;};
+    int a;
+};
+
+// int operator+(int, int);
+int bla(9);
+poop p(2), pp(3);
+printf("ni hao world!\n");
+p + pp;
+operator+(p, pp);
+cout << "val is: " << p.a << endl;
+
+#+END_SRC
+
+#+RESULTS:
